@@ -13,7 +13,7 @@ section:last-child {
 
 .group__wrapper {
     position: relative;
-    height: 90vh;
+    height: 100vh;
 }
 
 .group__inside {
@@ -119,7 +119,7 @@ section:last-child {
 
 /* Animation */
 
-.fade-in {
+.fadeIn {
 	opacity: 1;
 	animation-name: fadeInOpacity;
 	animation-iteration-count: 1;

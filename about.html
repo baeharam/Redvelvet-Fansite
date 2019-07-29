@@ -34,11 +34,11 @@
             <a id="overlay__video-js" href="#">Video</a>
         </div>
     </aside>
-    <main class="main">
-        <section class="group hidden">
+    <main id="fullpage" class="main">
+        <section class="group hidden section">
             <div class="l-wrapper">
                 <div class="group__wrapper">
-                    <div class="group__inside fade-in">
+                    <div class="group__inside fadeIn">
                         <img class="group__img" src="images/about-group.jpg" alt="단체">
                         <blockquote>
                             여러분이 저희 음악을 들어보시면, 
@@ -51,7 +51,7 @@
                 </div>
             </div>
         </section>
-        <section id="irene" class="member hidden">
+        <section id="irene" class="member hidden section">
             <div class="l-wrapper">
                 <div class="member">
                     <div class="member__inside">
@@ -111,7 +111,7 @@
                 </div>
             </div>
         </section>
-        <section id="seulgi" class="member hidden">
+        <section id="seulgi" class="member hidden section">
             <div class="l-wrapper">
                 <div class="member">
                     <div class="member__inside">
@@ -171,7 +171,7 @@
                 </div>
             </div>
         </section>
-        <section id="wendy" class="member hidden">
+        <section id="wendy" class="member hidden section">
             <div class="l-wrapper">
                 <div class="member">
                     <div class="member__inside">
@@ -229,7 +229,7 @@
                 </div>
             </div>
         </section>
-        <section id="yeri" class="member hidden">
+        <section id="yeri" class="member hidden section">
             <div class="l-wrapper">
                 <div class="member">
                     <div class="member__inside">
@@ -289,6 +289,8 @@
             </div>
         </section>
     </main>
+    <script src="intersection-observer.js"></script>
+    <script src="fullpage.js"></script>
     <script src="about.js"></script>
     <script src="default.js"></script>
 </body>
