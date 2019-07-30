@@ -13,7 +13,7 @@ section:last-child {
 
 .group__wrapper {
     position: relative;
-    height: 100vh;
+    height: 90vh;
 }
 
 .group__inside {
@@ -34,6 +34,7 @@ section:last-child {
 
 .member {
     position: relative;
+    border: 10px solid red;
     height: 100vh;
 }
 

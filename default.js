@@ -15,28 +15,28 @@ const overlayCoverImages = [
 ];
 const overlayElement = document.getElementById('overlay-js');
 
-let activateOverlay = function() {
-    let menu = document.getElementById('header__menu-js');
+const initializeOverlay = function() {
+    const menu = document.getElementById('header__menu-js');
     menu.addEventListener('click',() => overlayElement.style.height = '100%');
 
-    let closeBtn = document.getElementById('overlay__closeBtn-js');
+    const closeBtn = document.getElementById('overlay__closeBtn-js');
     closeBtn.addEventListener('click',() => overlayElement.style.height = '0');
 
-    let about = document.getElementById('overlay__about-js');
+    const about = document.getElementById('overlay__about-js');
     about.addEventListener('mouseenter', () => overlayElement.style.backgroundImage
-     = `url(${overlayCoverImages[SECTION.ABOUT]})`);
+    = `url(${overlayCoverImages[SECTION.ABOUT]})`);
 
-    let photo = document.getElementById('overlay__photo-js');
+    const photo = document.getElementById('overlay__photo-js');
     photo.addEventListener('mouseenter', () => overlayElement.style.backgroundImage
-     = `url(${overlayCoverImages[SECTION.PHOTO]})`);
+    = `url(${overlayCoverImages[SECTION.PHOTO]})`);
 
-    let discography = document.getElementById('overlay__discography-js');
+    const discography = document.getElementById('overlay__discography-js');
     discography.addEventListener('mouseenter', () => overlayElement.style.backgroundImage
-     = `url(${overlayCoverImages[SECTION.DISCOGRAPHY]})`);
+    = `url(${overlayCoverImages[SECTION.DISCOGRAPHY]})`);
 
-    let video = document.getElementById('overlay__video-js');
+    const video = document.getElementById('overlay__video-js');
     video.addEventListener('mouseenter', () => overlayElement.style.backgroundImage
-     = `url(${overlayCoverImages[SECTION.VIDEO]})`);
+    = `url(${overlayCoverImages[SECTION.VIDEO]})`);
 
     about.addEventListener('mouseleave',() => overlayElement.style.backgroundImage
     = `url(${overlayCoverImages[SECTION.MAIN]})`);
@@ -48,4 +48,4 @@ let activateOverlay = function() {
     = `url(${overlayCoverImages[SECTION.MAIN]})`);
 }
 
-activateOverlay();
+initializeOverlay();

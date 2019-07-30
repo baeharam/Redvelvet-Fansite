@@ -15,8 +15,15 @@ const initializeScrollEffect = function() {
 const initializeFullpageEffect = function() {
   new fullpage('#fullpage', {
     autoScrolling: true,
+    onLeave: function(origin, destination, direction){
+      if(origin.index >= 0 && direction === 'down') {
+        document.getElementById('header-js').classList.add('sticky');
+      } else if(destination.index === 0 && direction === 'up') {
+        document.getElementById('header-js').classList.remove('sticky');
+      }
+    }
   });
-  fullpage_api.setAllowScrolling(false);
+  fullpage_api.setAllowScrolling(true);
 }
 
 window.onload = () => {
