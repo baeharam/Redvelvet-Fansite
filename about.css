@@ -1,15 +1,6 @@
-body {
-    background-color: lightpink;
-    transition: background-color 0.5s;
-}
-
-section {
-    margin-bottom: 10rem;
-}
-
-section:last-child {
-    margin-bottom: 0;
-}
+body { transition: background-color 0.5s; }
+section { margin-bottom: 10rem; }
+section:last-child { margin-bottom: 0; }
 
 .group {
     position: relative;
@@ -74,7 +65,6 @@ section:last-child {
 
 .member__detail h3 {
     font-size: 2rem;
-    color: crimson;
     font-weight: bold;
     margin-bottom: 1rem;
 }
@@ -84,13 +74,16 @@ section:last-child {
     margin-bottom: 2rem;
 }
 
-.member__detail__spec span {
-    color: purple;
-}
-
 .member__detail__saying {
     font-size: 2rem;
 }
+
+.font-main-dark      { color: black; }
+.font-main-light     { color: white; }
+.font-sub-dark       { color: crimson; } 
+.font-sub-light      { color: skyblue; } 
+.font-contents-dark  { color: purple; } 
+.font-contents-light { color: orange; } 
 
 .photo-wrapper {
     overflow: hidden;

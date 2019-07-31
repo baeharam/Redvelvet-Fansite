@@ -12,7 +12,9 @@
 <body>
     <header id="header-js" class="header">
         <div class="header__inside clearfix">
-            <a href="/index.html"><img class="header__logo" src="images/logo.png" alt="로고"></a>
+            <a href="/index.html">
+                <img id="header__logo-js" class="header__logo" src="images/logo.png" alt="로고">
+            </a>
             <div id="header__menu-js" class="header__menu">
                 <input type="checkbox" id="menuicon">
                 <label for="menuicon">
@@ -33,7 +35,7 @@
         </div>
     </aside>
     <main id="fullpage" class="main">
-        <section id="redvelvet" class="group hidden section">
+        <section id="redvelvet" class="group hidden section" data-color="pink" data-theme="light">
             <div class="l-wrapper">
                 <div class="group">
                     <div class="group__inside fadeIn">
@@ -49,21 +51,21 @@
                 </div>
             </div>
         </section>
-        <section id="irene" class="hidden section">
+        <section id="irene" class="hidden section" data-color="#FACBC8" data-theme="light">
             <div class="l-wrapper">
                 <div class="member">
                     <div class="member__inside">
                         <div class="member__profile clearfix">
                             <img class="member__img" src="images/about-irene.jpg" alt="아이린">
-                            <div class="member__detail">
+                            <div class="member__detail font-main-dark">
                                 <h2>IRENE <span>아이린</span></h2>
-                                <h3>리더, 메인래퍼</h3>
+                                <h3 class="font-sub-dark">리더, 메인래퍼</h3>
                                 <p class="member__detail__spec">
-                                    본명. <span>배주현</span><br/>
-                                    생일. <span>1991.03.29</span><br/>
-                                    별명. <span>배추, 현이, 엔딩요정</span><br/>
-                                    취미. <span>다리미질, 빨래</span><br/>
-                                    혈액형. <span>A형</span>
+                                    본명. <span class="font-contents-dark">배주현</span><br/>
+                                    생일. <span class="font-contents-dark">1991.03.29</span><br/>
+                                    별명. <span class="font-contents-dark">배추, 현이, 엔딩요정</span><br/>
+                                    취미. <span class="font-contents-dark">다리미질, 빨래</span><br/>
+                                    혈액형. <span class="font-contents-dark">A형</span>
                                 </p>
                                 <p class="member__detail__saying">
                                     "20대는 힘들고 아파도 괜찮다는 생각을 했어요. 그래야 단단해진다고도 생각했고요. 
@@ -109,21 +111,21 @@
                 </div>
             </div>
         </section>
-        <section id="seulgi" class="hidden section">
+        <section id="seulgi" class="hidden section" data-color="#261338" data-theme="dark">
             <div class="l-wrapper">
                 <div class="member">
                     <div class="member__inside">
                         <div class="member__profile clearfix">
                             <img class="member__img" src="images/about-seulgi.jpg" alt="슬기">
-                            <div class="member__detail">
+                            <div class="member__detail font-main-light">
                                 <h2>SEULGI <span>슬기</span></h2>
-                                <h3>리드보컬, 메인댄서</h3>
+                                <h3 class="font-sub-light">리드보컬, 메인댄서</h3>
                                 <p class="member__detail__spec">
-                                    본명. <span>강슬기</span><br/>
-                                    생일. <span>1994.02.10</span><br/>
-                                    별명. <span>곰돌이, 곰슬기</span><br/>
-                                    취미. <span>노래방, 그림그리기</span><br/>
-                                    혈액형. <span>A형</span>
+                                    본명. <span class="font-contents-light">강슬기</span><br/>
+                                    생일. <span class="font-contents-light">1994.02.10</span><br/>
+                                    별명. <span class="font-contents-light">곰돌이, 곰슬기</span><br/>
+                                    취미. <span class="font-contents-light">노래방, 그림그리기</span><br/>
+                                    혈액형. <span class="font-contents-light">A형</span>
                                 </p>
                                 <p class="member__detail__saying">
                                     "아직 부족한데도 저희를 많이 좋아해주고 기대해주는 사람이 많아져서 행복해요. 
@@ -166,21 +168,21 @@
                 </div>
             </div>
         </section>
-        <section id="wendy" class="hidden section">
+        <section id="wendy" class="hidden section" data-color="#D64C7F" data-theme="dark">
             <div class="l-wrapper">
                 <div class="member">
                     <div class="member__inside">
                         <div class="member__profile clearfix">
                             <img class="member__img" src="images/about-wendy.jpg" alt="웬디">
-                            <div class="member__detail">
+                            <div class="member__detail font-main-light">
                                 <h2>WENDY <span>웬디</span></h2>
-                                <h3>메인보컬</h3>
+                                <h3 class="font-sub-light">메인보컬</h3>
                                 <p class="member__detail__spec">
-                                    본명. <span>손승완</span><br/>
-                                    생일. <span>1994.02.21</span><br/>
-                                    별명. <span>완이, 컨셉요정</span><br/>
-                                    취미. <span>베이킹</span><br/>
-                                    혈액형. <span>O형</span>
+                                    본명. <span class="font-contents-light">손승완</span><br/>
+                                    생일. <span class="font-contents-light">1994.02.21</span><br/>
+                                    별명. <span class="font-contents-light">완이, 컨셉요정</span><br/>
+                                    취미. <span class="font-contents-light">베이킹</span><br/>
+                                    혈액형. <span class="font-contents-light">O형</span>
                                 </p>
                                 <p class="member__detail__saying">
                                     "저는 음악을 너무 좋아했어요. 힘들 때 음악을 들으면 노래도 같이 슬프게 들리긴 
@@ -224,21 +226,21 @@
                 </div>
             </div>
         </section>
-        <section id="yeri" class="hidden section">
+        <section id="yeri" class="hidden section" data-color="skyblue" data-theme="light">
             <div class="l-wrapper">
                 <div class="member">
                     <div class="member__inside">
                         <div class="member__profile clearfix">
                             <img class="member__img" src="images/about-yeri.jpg" alt="예리">
-                            <div class="member__detail">
+                            <div class="member__detail font-main-dark">
                                 <h2>YERI <span>예리</span></h2>
-                                <h3>서브보컬, 서브래퍼</h3>
+                                <h3 class="font-sub-dark">서브보컬, 서브래퍼</h3>
                                 <p class="member__detail__spec">
-                                    본명. <span>김예림</span><br/>
-                                    생일. <span>1999.03.05</span><br/>
-                                    별명. <span>림이, 예부기</span><br/>
-                                    취미. <span>게임, 일본드라마 보기</span><br/>
-                                    혈액형. <span>O형</span>
+                                    본명. <span class="font-contents-dark">김예림</span><br/>
+                                    생일. <span class="font-contents-dark">1999.03.05</span><br/>
+                                    별명. <span class="font-contents-dark">림이, 예부기</span><br/>
+                                    취미. <span class="font-contents-dark">게임, 일본드라마 보기</span><br/>
+                                    혈액형. <span class="font-contents-dark">O형</span>
                                 </p>
                                 <p class="member__detail__saying">
                                     "새벽 시간이 가장 많지만 때로는 집에서 
@@ -274,6 +276,64 @@
                                     <li class="l-col l-col-1-5">
                                         <div class="photo-wrapper">
                                             <img class="photo" src="images/gallery-yeri5.jpg" alt="예리5">                        
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="joy" class="hidden section" data-color="#6D2535" data-theme="dark">
+            <div class="l-wrapper">
+                <div class="member">
+                    <div class="member__inside">
+                        <div class="member__profile clearfix">
+                            <img class="member__img" src="images/about-joy.jpg" alt="조이">
+                            <div class="member__detail font-main-light">
+                                <h2>JOY <span>조이</span></h2>
+                                <h3 class="font-sub-light">서브보컬, 리드래퍼</h3>
+                                <p class="member__detail__spec">
+                                    본명. <span class="font-contents-light">박수영</span><br/>
+                                    생일. <span class="font-contents-light">1996.09.03</span><br/>
+                                    별명. <span class="font-contents-light">둥둥이, 셩이</span><br/>
+                                    취미. <span class="font-contents-light">영화보기</span><br/>
+                                    혈액형. <span class="font-contents-light">A형</span>
+                                </p>
+                                <p class="member__detail__saying">
+                                    "제 좌우명이 '말이 씨가 된다'예요. 평소 조심스럽고 겁이 많아서 저를 밝게 끌어올리고 웃으면서 활동하기 위해 주문처럼 되뇌어요.
+                                    그래야 사람들이 저를 밝게 봐주실 것 같아서요. 어떤 역경과 고난이 있더라도 주변에 휩쓸리거나 쓰러지지 않고,
+                                    저만큼은 제 자신을 온전하게 지키는 단단한 사람이 됐으면 좋겠어요."
+                                </p>
+                            </div>
+                        </div>
+                        <div class="member__gallery">
+                            <div class="l-wrapper">
+                                <ul class="l-row">
+                                    <li class="l-col l-col-1-5">
+                                        <div class="photo-wrapper">
+                                            <img class="photo" src="images/gallery-joy1.jpg" alt="조이1">                        
+                                        </div>  
+                                    </li>
+                                    <li class="l-col l-col-1-5">
+                                        <div class="photo-wrapper">
+                                            <img class="photo" src="images/gallery-joy2.jpg" alt="조이2">                        
+                                        </div>
+                                    </li>
+                                    <li class="l-col l-col-1-5">
+                                        <div class="photo-wrapper">
+                                            <img class="photo" src="images/gallery-joy3.jpg" alt="조이3">                        
+                                        </div>
+                                    </li>
+                                    <li class="l-col l-col-1-5">
+                                        <div class="photo-wrapper">
+                                            <img class="photo" src="images/gallery-joy4.jpg" alt="조이4">                        
+                                        </div>
+                                    </li>
+                                    <li class="l-col l-col-1-5">
+                                        <div class="photo-wrapper">
+                                            <img class="photo" src="images/gallery-joy5.jpg" alt="조이5">                        
                                         </div>
                                     </li>
                                 </ul>

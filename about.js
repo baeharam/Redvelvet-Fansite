@@ -3,6 +3,10 @@ const initializeScrollEffect = function() {
     entries.forEach(entry => {
       if(entry.intersectionRatio > 0) {
         entry.target.className = entry.target.className.replace('hidden','fadeIn');
+        document.getElementsByTagName('body')[0].style.backgroundColor
+        = entry.target.dataset.color;
+        document.getElementById('header__logo-js').src 
+        = entry.target.dataset.theme === 'light' ? 'images/logo.png' : 'images/logo-white.png';
       } else {
         entry.target.className = entry.target.className.replace('fadeIn','hidden');
       }
