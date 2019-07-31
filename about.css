@@ -29,11 +29,11 @@ section:last-child { margin-bottom: 0; }
 }
 
 .member__inside {
+    width: 100%;
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
-    width: 100%;
 }
 
 .member__profile {
@@ -42,10 +42,20 @@ section:last-child { margin-bottom: 0; }
 }
 
 .member__img {
-    width: 300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 40%;
+    padding-top: 50%;
     float: left;
     border: 10px solid white;
 }
+
+.irene-img { background-image: url('images/about-irene.jpg'); }
+.seulgi-img { background-image: url('images/about-seulgi.jpg'); }
+.wendy-img { background-image: url('images/about-wendy.jpg'); }
+.yeri-img { background-image: url('images/about-yeri.jpg'); }
+.joy-img { background-image: url('images/about-joy.jpg'); }
 
 .member__detail {
     overflow: hidden;
@@ -131,4 +141,33 @@ section:last-child { margin-bottom: 0; }
 	100% {
         opacity: 1;
 	}
+}
+
+/* Media Queries */
+
+@media ( max-width: 768px ) {
+    .l-col-t-6-12 {
+        width: 50%;
+        margin-bottom: 2rem;
+    }
+    .group { height: auto; }
+    .group__inside {
+        position: static;
+        transform: none;
+        margin: 0 auto;
+    }
+    .member { height: auto; }
+    .member__inside {
+        position: static;
+        transform: none;
+        margin: 0 auto;
+    }
+    .member__img {
+        float: none;
+        padding-top: 80%;
+        width: 60%;
+    }
+    .member__detail {
+        padding-left: 0;
+    }
 }

@@ -1,31 +1,45 @@
 const initializeScrollEffect = function() {
+
+  const changeBackgroundColor = (color) => {
+    document.getElementsByTagName('body')[0].style.backgroundColor = color;
+  }
+  const changeLogoColor = (theme) => {
+    document.getElementById('header__logo-js').src = 
+      theme === 'light' ? 'images/logo.png' : 'images/logo-light.png';
+  }
+
+  let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  let isScrollUp = false;
+  window.addEventListener('scroll', function(){
+    let st = window.pageYOffset || document.documentElement.scrollTop;
+    isScrollUp = st <= lastScrollTop;
+    lastScrollTop = st <= 0 ? 0 : st;
+  });
+
+  const fadeInElemes = document.querySelectorAll('.hidden');
   const intersectionObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.intersectionRatio > 0) {
+    entries.forEach((entry) => {
+      if(entry.isIntersecting) {
         entry.target.className = entry.target.className.replace('hidden','fadeIn');
-        document.getElementsByTagName('body')[0].style.backgroundColor
-        = entry.target.dataset.color;
-        document.getElementById('header__logo-js').src 
-        = entry.target.dataset.theme === 'light' ? 'images/logo.png' : 'images/logo-white.png';
+        changeBackgroundColor(entry.target.dataset.color);
+        changeLogoColor(entry.target.dataset.theme);
       } else {
         entry.target.className = entry.target.className.replace('fadeIn','hidden');
+        const targetIndex = Array.prototype.indexOf.call(fadeInElemes,entry.target);
+        if(targetIndex > 0 && isScrollUp) {
+          changeBackgroundColor(fadeInElemes[targetIndex-1].dataset.color);
+          changeLogoColor(fadeInElemes[targetIndex-1].dataset.theme);
+        }
       }
     });
   });
-  const fadeInElemes = document.querySelectorAll('.hidden');
   fadeInElemes.forEach((fadeInElem) => intersectionObserver.observe(fadeInElem));
 }
 
 const initializeFullpageEffect = function() {
   new fullpage('#fullpage', {
     autoScrolling: true,
-    onLeave: function(origin, destination, direction){
-      if(origin.index >= 0 && direction === 'down') {
-        document.getElementById('header-js').classList.add('sticky');
-      } else if(destination.index === 0 && direction === 'up') {
-        document.getElementById('header-js').classList.remove('sticky');
-      }
-    }
+    responsiveWidth: 768,
   });
   fullpage_api.setAllowScrolling(true);
 }
