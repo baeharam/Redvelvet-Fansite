@@ -11,9 +11,9 @@ section:last-child {
     margin-bottom: 0;
 }
 
-.group__wrapper {
+.group {
     position: relative;
-    height: 90vh;
+    height: 100vh;
 }
 
 .group__inside {
@@ -34,7 +34,6 @@ section:last-child {
 
 .member {
     position: relative;
-    border: 10px solid red;
     height: 100vh;
 }
 
@@ -52,7 +51,7 @@ section:last-child {
 }
 
 .member__img {
-    width: 350px;
+    width: 300px;
     float: left;
     border: 10px solid white;
 }
