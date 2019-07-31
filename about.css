@@ -8,15 +8,17 @@ section:last-child { margin-bottom: 0; }
 }
 
 .group__inside {
-    width: 80vw;
+    width: 80%;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translateY(-50%) translateX(-50%);
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
 }
 
 .group__img {
-    max-width: 70%;
+    width: 60vw;
     display: block;
     margin: 0 auto 4rem;
     border-radius: 1rem;
@@ -33,7 +35,9 @@ section:last-child { margin-bottom: 0; }
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translateX(-50%) translateY(-50%);
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
 }
 
 .member__profile {
