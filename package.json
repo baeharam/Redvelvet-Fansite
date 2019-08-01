@@ -16,7 +16,5 @@
     "url": "https://github.com/baeharam/Redvelvet-Fansite/issues"
   },
   "homepage": "https://github.com/baeharam/Redvelvet-Fansite#readme",
-  "dependencies": {
-    "glightbox": "^2.0.1"
-  }
+  "dependencies": {}
 }
