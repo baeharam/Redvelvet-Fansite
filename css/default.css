@@ -95,7 +95,7 @@ h1,h2,h3,h4,h5,h6 {
     overflow-x: hidden;
     color: white;
     transition: 0.5s;
-    background-image: url('images/irene.jpg');
+    background-image: url('../images/irene.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

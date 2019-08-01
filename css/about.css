@@ -55,11 +55,11 @@ section:last-child { margin-bottom: 0; }
     border: 10px solid white;
 }
 
-.irene-img { background-image: url('images/about-irene.jpg'); }
-.seulgi-img { background-image: url('images/about-seulgi.jpg'); }
-.wendy-img { background-image: url('images/about-wendy.jpg'); }
-.yeri-img { background-image: url('images/about-yeri.jpg'); }
-.joy-img { background-image: url('images/about-joy.jpg'); }
+.irene-img { background-image: url('../images/about-irene.jpg'); }
+.seulgi-img { background-image: url('../images/about-seulgi.jpg'); }
+.wendy-img { background-image: url('../images/about-wendy.jpg'); }
+.yeri-img { background-image: url('../images/about-yeri.jpg'); }
+.joy-img { background-image: url('../images/about-joy.jpg'); }
 
 .member__detail {
     overflow: hidden;
