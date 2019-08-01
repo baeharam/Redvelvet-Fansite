@@ -7,7 +7,7 @@
     <meta name="description" content="레드벨벳 팬사이트 사진 페이지">
     <link rel="stylesheet" href="css/default.css">
     <link rel="stylesheet" href="css/photo.css">
-    <link rel="stylesheet" href="css/lightgallery.css">
+    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
     <title>Photo</title>
 </head>
 <body>
@@ -38,39 +38,56 @@
     <main>
         <section class="group">
             <div class="l-wrapper">
-                <div class="grid clearfix">
+                <div id="lightgallery" class="grid clearfix">
                     <div class="grid-sizer"></div>
                     <div class="gutter-sizer"></div>
                     <div class="grid-item">
-                        <img src="images/photo-group1.jpg" alt="">
+                        <a href="images/photo-group1.jpg" data-fancybox="gallery">
+                            <img src="images/photo-group1.jpg" alt="">                        
+                        </a>
                     </div>
                     <div class="grid-item">
-                        <img src="images/photo-group2.jpg" alt="">
+                        <a href="images/photo-group2.jpg" data-fancybox="gallery">
+                            <img src="images/photo-group2.jpg" alt="">                        
+                        </a>
                     </div>
                     <div class="grid-item">
-                        <img src="images/photo-group3.jpg" alt="">
+                        <a href="images/photo-group3.jpg" data-fancybox="gallery">
+                            <img src="images/photo-group3.jpg" alt="">                        
+                        </a>
                     </div>
                     <div class="grid-item">
-                        <img src="images/photo-group4.jpg" alt="">
+                        <a href="images/photo-group4.jpg" data-fancybox="gallery">
+                            <img src="images/photo-group4.jpg" alt="">                        
+                        </a>
                     </div>
                     <div class="grid-item">
-                        <img src="images/photo-group5.jpg" alt="">
+                        <a href="images/photo-group5.jpg" data-fancybox="gallery">
+                            <img src="images/photo-group5.jpg" alt="">                        
+                        </a>
                     </div>
                     <div class="grid-item">
-                        <img src="images/photo-group6.jpg" alt="">
+                        <a href="images/photo-group6.jpg" data-fancybox="gallery">
+                            <img src="images/photo-group6.jpg" alt="">                        
+                        </a>
                     </div>
                     <div class="grid-item">
-                        <img src="images/photo-group7.jpg" alt="">
+                        <a href="images/photo-group7.jpg" data-fancybox="gallery">
+                            <img src="images/photo-group7.jpg" alt="">                        
+                        </a>
                     </div>
                     <div class="grid-item">
-                        <img src="images/photo-group8.jpg" alt="">
+                        <a href="images/photo-group8.jpg" data-fancybox="gallery">
+                            <img src="images/photo-group8.jpg" alt="">                        
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
     </main>
     <script src="js/masonry.pkgd.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
     <script src="js/photo.js"></script>
-    <script src="js/lightgallery.js"></script>
 </body>
 </html>

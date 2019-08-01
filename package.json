@@ -17,9 +17,10 @@
   },
   "homepage": "https://github.com/baeharam/Redvelvet-Fansite#readme",
   "dependencies": {
+    "fancybox": "^3.0.1",
     "fullpage.js": "^3.0.7",
     "intersection-observer": "^0.7.0",
-    "lightgallery.js": "^1.1.3",
+    "jquery": "^3.4.1",
     "masonry-layout": "^4.2.2"
   }
 }
