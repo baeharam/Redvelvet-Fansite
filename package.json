@@ -1,0 +1,22 @@
+{
+  "name": "redvelvet-fansite",
+  "version": "1.0.0",
+  "description": "Build fansite of Redvelvet using pure HTML/CSS/JS",
+  "main": "default.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baeharam/Redvelvet-Fansite.git"
+  },
+  "author": "Haram Bae",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/baeharam/Redvelvet-Fansite/issues"
+  },
+  "homepage": "https://github.com/baeharam/Redvelvet-Fansite#readme",
+  "dependencies": {
+    "glightbox": "^2.0.1"
+  }
+}
