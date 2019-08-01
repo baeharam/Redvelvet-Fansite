@@ -19,6 +19,7 @@
   "dependencies": {
     "fullpage.js": "^3.0.7",
     "intersection-observer": "^0.7.0",
-    "lightgallery.js": "^1.1.3"
+    "lightgallery.js": "^1.1.3",
+    "masonry-layout": "^4.2.2"
   }
 }
