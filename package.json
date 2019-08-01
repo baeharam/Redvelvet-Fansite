@@ -16,5 +16,7 @@
     "url": "https://github.com/baeharam/Redvelvet-Fansite/issues"
   },
   "homepage": "https://github.com/baeharam/Redvelvet-Fansite#readme",
-  "dependencies": {}
+  "dependencies": {
+    "lightgallery.js": "^1.1.3"
+  }
 }
