@@ -1,0 +1,21 @@
+.group {
+    margin-top: 10vh;
+}
+
+.gutter-sizer {
+    width: 1rem;
+}
+
+.grid {
+    border: 10px solid red;
+}
+
+.grid-sizer,
+.grid-item {
+    width: calc( ( 100% - 2rem ) / 3 );
+}
+
+.grid-item {
+    float: left;
+    margin-bottom: 1rem;
+}

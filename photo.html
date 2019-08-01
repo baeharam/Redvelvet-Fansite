@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="레드벨벳 팬사이트 사진 페이지">
+    <link rel="stylesheet" href="default.css">
+    <link rel="stylesheet" href="photo.css">
+    <title>Photo</title>
+</head>
+<body>
+    <header id="header-js" class="header">
+        <div class="header__inside clearfix">
+            <a href="/index.html">
+                <img id="header__logo-js" class="header__logo" src="images/logo.png" alt="로고">
+            </a>
+            <div id="header__menu-js" class="header__menu">
+                <input type="checkbox" id="menuicon">
+                <label for="menuicon">
+                    <span class="menu-dark"></span>
+                    <span class="menu-dark"></span>
+                    <span class="menu-dark"></span>
+                </label>
+            </div>
+        </div>
+    </header>
+    <aside id="overlay-js" class="overlay">
+        <a href="javascript:void(0)" id="overlay__closeBtn-js" class="overlay__closeBtn">&times;</a>
+        <div class="overlay__content">
+            <a id="overlay__about-js" href="/about.html">About</a>
+            <a id="overlay__photo-js" href="#">Photo</a>
+            <a id="overlay__discography-js" href="#">Discography</a>
+            <a id="overlay__video-js" href="#">Video</a>
+        </div>
+    </aside>
+    <main>
+        <section class="group">
+            <div class="l-wrapper">
+                <div class="grid clearfix">
+                    <div class="grid-sizer"></div>
+                    <div class="gutter-sizer"></div>
+                    <div class="grid-item">
+                        <img src="images/photo-group1.jpg" alt="">
+                    </div>
+                    <div class="grid-item">
+                        <img src="images/photo-group2.jpg" alt="">
+                    </div>
+                    <div class="grid-item">
+                        <img src="images/photo-group3.jpg" alt="">
+                    </div>
+                    <div class="grid-item">
+                        <img src="images/photo-group4.jpg" alt="">
+                    </div>
+                    <div class="grid-item">
+                        <img src="images/photo-group5.jpg" alt="">
+                    </div>
+                    <div class="grid-item">
+                        <img src="images/photo-group6.jpg" alt="">
+                    </div>
+                    <div class="grid-item">
+                        <img src="images/photo-group7.jpg" alt="">
+                    </div>
+                    <div class="grid-item">
+                        <img src="images/photo-group8.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="photo.js"></script>
+</body>
+</html>

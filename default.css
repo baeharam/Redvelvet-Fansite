@@ -135,39 +135,6 @@ h1,h2,h3,h4,h5,h6 {
     color: black;
 }
 
-/* Blockquote */
-blockquote {
-	font-weight: 100;
-    font-size: 1.5rem;
-    font-style: italic;
-	max-width: 600px;
-	line-height: 1.4;
-	position: relative;
-	margin: 2.2rem auto 0;
-    padding: .5rem;
-}
-
-blockquote:before,
-blockquote:after {
-	position: absolute;
-	color: #f1efe6;
-	font-size: 8rem;
-	width: 4rem;
-	height: 4rem;
-}
-
-blockquote:before {
-	content: '“';
-	left: -5rem;
-	top: -2rem;
-}
-
-blockquote:after {
-	content: '”';
-	right: -2rem;
-	bottom: 1rem;
-}
-
 /* Hamburgur */
 
 input[id="menuicon"]{ display: none; }
@@ -184,7 +151,6 @@ input[id="menuicon"] + label span {
     height: 5px;
     border-radius: 30px;
     position: absolute;
-    background-color: white;
     transition: all .35s;
 }
 input[id="menuicon"] + label span:nth-child(1) { top: 0; }
@@ -193,6 +159,9 @@ input[id="menuicon"] + label span:nth-child(2) {
     transform: translateY(-50%);
 }
 input[id="menuicon"] + label span:nth-child(3) { bottom: 0; }
+
+.menu-light { background-color: white; }
+.menu-dark  { background-color: black; }
 
 /* Layouts */
 
