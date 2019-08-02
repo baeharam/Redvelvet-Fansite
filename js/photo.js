@@ -10,6 +10,7 @@ const CLASS = {
 };
 
 const EVENT = {
+    DOMCONTENT_LOADED: 'DOMContentLoaded',
     LOAD: 'load',
     SCROLL: 'scroll',
     RESIZE: 'resize',
@@ -69,7 +70,9 @@ const initializePlaceholders = () => {
             });
         }
         const handler = onVisibilityChange(largeImage, () => {
-            largeImage.src = largeImage.dataset.src;
+            if(largeImage.src === ""){
+                largeImage.src = largeImage.dataset.src;
+            }
         });
         window.addEventListener(EVENT.LOAD, handler);
         window.addEventListener(EVENT.RESIZE, handler);

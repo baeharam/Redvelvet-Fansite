@@ -86,55 +86,114 @@ header h1 { text-indent: -9999px; }
 }
 
 .overlay {
-    height: 0;
-    width: 100%;
     position: fixed;
-    z-index: 10000;
-    left: 0;
+    background: rgba(51, 55, 69, 0.80);
     top: 0;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0, 0.9);
-    overflow-x: hidden;
-    color: white;
-    transition: 0.5s;
-    background-image: url('../images/irene.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-.overlay__content {
-    position: relative;
-    top: 25%;
-    width: 92%;
-    margin: 30px auto 0 auto;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .35s, visibility .35s, height .35s;
     overflow: hidden;
 }
 
-.overlay__content a {
-    font-family: 'Rochester', cursive;
-    padding: 8px;
-    font-size: 50px;
-    display: block;
-    float: right;
-    clear: both;
-    transition: 0.3s;
+.overlay.open {
+    opacity: 1;
+    visibility: visible;
+    z-index: 10000;
+    height: 100%;
 }
 
-.overlay__content a:hover, .overlay a:focus {
-    color: black;
+.overlay nav {
+    position: relative;
+    height: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 5rem;
+    font-weight: 400;
+    text-align: center;
+}
+.overlay ul {
+    margin: 0 auto;
+    display: inline-block;
+    position: relative;
+    height: 100%;
+}
+.overlay ul li {
+    display: block;
+    position: relative;
+    opacity: 0;
+    margin-bottom: 3rem;
+}
+.overlay ul li a {
+    display: inline-block;
+    position: relative;
+    color: #FFF;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+.overlay ul li a:after {
+    content: ' ';
+    position: absolute;
+    bottom: 0;
+    left: 43.5%;
+    width: 0%;
+    transform: translateX(-50%);
+    height: 3px;
+    background: #FFF;
+    transition: .35s;
+}
+
+.overlay ul li a:hover,
+.overlay ul li a:focus,
+.overlay ul li a:active {
+    color: #ea2e49;
+}
+.overlay ul li a:hover:after,
+.overlay ul li a:focus:after,
+.overlay ul li a:active:after {
+    width: 100%;
+    background: #ea2e49;
+}
+
+.overlay.open li {
+    animation: fadeInRight .5s ease forwards;
+    animation-delay: .35s;
+}
+.overlay.open li:nth-of-type(2) {
+    animation-delay: .4s;
+}
+.overlay.open li:nth-of-type(3) {
+    animation-delay: .45s;
+}
+.overlay.open li:nth-of-type(4) {
+    animation-delay: .50s;
+}
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        left: 20%;
+    }
+    100% {
+        opacity: 1;
+        left: 0;
+    }
 }
 
 .overlay__closeBtn {
     position: absolute;
-    top: 20px;
-    left: 60px;
-    font-size: 100px;
-    font-weight: bold;
+    top: 3rem;
+    left: 6rem;
+    font-size: 10rem;
+    color: white;
+    transition: color .5s;
 }
 
 .overlay__closeBtn:hover {
-    color: black;
+    color: #ea2e49;
 }
 
 /* Hamburgur */

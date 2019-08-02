@@ -41,9 +41,12 @@
 }
 
 .gutter-sizer { width: 1rem; }
-.grid-sizer,.grid-item { width: calc( ( 100% - 2rem ) / 3 ); }
+.grid-sizer,.grid-item { width: calc( ( 100% - 1rem ) / 2 ); }
 .grid-item {
     float: left;
     margin-bottom: 1rem;
+}
 
+@media ( max-width: 768px ) {
+    .grid-sizer,.grid-item { width: 100%; }
 }
