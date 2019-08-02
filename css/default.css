@@ -30,7 +30,7 @@ img {
 
 @font-face {
     font-family: "SeoulHangangL";
-    src: url("fonts/SeoulHangangL.otf");
+    src: url("../fonts/SeoulHangangL.otf");
 }
 
 html {
@@ -65,6 +65,8 @@ h1,h2,h3,h4,h5,h6 {
     right: 0;
     z-index: 9999;
 }
+
+header h1 { text-indent: -9999px; }
 
 .header__inside {
     position: relative;
