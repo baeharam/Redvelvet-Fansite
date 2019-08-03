@@ -45,7 +45,8 @@
                     <h2>Discography</h2>
                 </div>
                 <div class="timeline">
-                    <div class="timeline__item" data-text="The 1st Single">
+                    <div id="timeline__player-js" class="timeline__player"></div>
+                    <div class="timeline__item" data-text="Happiness" data-id="JFgv8bKfxEs">
                         <div class="timeline__content">
                             <div class="timeline__img__wrapper">
                                 <img class="timeline__img" src="images/album-Happiness.jpg"/>
@@ -67,7 +68,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="timeline__item" data-text="The 2nd Single">
+                    <div class="timeline__item" data-text="Be Natural" data-id="QpAn9ryoB4Y">
                         <div class="timeline__content">
                             <div class="timeline__img__wrapper">
                                 <img class="timeline__img" src="images/album-BeNatural.jpg"/>
@@ -89,7 +90,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="timeline__item" data-text="The 1st Mini Album">
+                    <div class="timeline__item" data-text="Ice Cream Cake" data-id="glXgSSOKlls">
                         <div class="timeline__content">
                             <div class="timeline__img__wrapper">
                                 <img class="timeline__img" src="images/album-IceCreamCake.jpg"/>
@@ -110,7 +111,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="timeline__item" data-text="The 1st Album">
+                    <div class="timeline__item" data-text="The Red" data-id="XGdbaEDVWp0">
                         <div class="timeline__content">
                             <div class="timeline__img__wrapper">
                                 <img class="timeline__img" src="images/album-TheRed.jpg"/>
@@ -121,9 +122,6 @@
                                 대중적인 느낌으로 다가가 인지도를 쌓는데 
                                 큰 기여를 했다면, The Red는 좀 더 매니악해진 느낌을 밀고 나가며 대중성과 팬덤, 
                                 두 마리의 토끼를 성공적으로 잡은 앨범이라고 할 수 있다.
-                                컴백마다 Red 컨셉과 Velvet 컨셉을 동시에 보여왔기 때문에, 
-                                당시에는 리패키지 앨범으로 'The Velvet'이 나올 것이라는 추측이 많았으나, 
-                                이는 후에 미니앨범 2집으로 발매된다.
                             </p>
                         </div>
                         <div class="timeline__link">
@@ -135,11 +133,120 @@
                             </a>
                         </div>
                     </div>
+                    <div class="timeline__item" data-text="The Velvet" data-id="9xWiro_tS1k">
+                        <div class="timeline__content">
+                            <div class="timeline__img__wrapper">
+                                <img class="timeline__img" src="images/album-TheVelvet.jpg"/>
+                            </div>
+                            <h2 class="timeline__content__title">2016.03.17</h2>
+                            <p class="timeline__content__desc">
+                                이번 앨범에는 타이틀 곡 ‘7월 7일(One Of These Nights)’을 포함해 
+                                여성스럽고 부드러운 매력을 담은 Velvet 분위기의 신곡 5곡과 타이틀 곡 
+                                ‘7월 7일(One Of These Nights)’의 다양한 편곡 버전 3곡까지 총 8트랙이 
+                                수록되어 있다.
+                            </p>
+                        </div>
+                        <div class="timeline__link">
+                            <a href="https://youtu.be/9xWiro_tS1k">
+                                <img class="youtube" src="images/youtube.png" alt="유튜브">
+                            </a>
+                            <a href="https://www.melon.com/album/detail.htm?albumId=2673322">
+                                <img class="melon" src="images/melon.png" alt="멜론">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="timeline__item" data-text="Russian Roulette" data-id="QslJYDX3o8s">
+                        <div class="timeline__content">
+                            <div class="timeline__img__wrapper">
+                                <img class="timeline__img" src="images/album-RussianRoulette.jpg"/>
+                            </div>
+                            <h2 class="timeline__content__title">2016.09.07</h2>
+                            <p class="timeline__content__desc">
+                                이번 앨범은 신스팝 장르의 타이틀 곡 
+                                ‘러시안 룰렛 (Russian Roulette)’을 비롯해 팝 댄스, 
+                                뉴질스윙, 어쿠스틱 팝, 트로피컬 하우스 등 다채로운 장르의 
+                                총 7 트랙으로 구성되어 있어, 한층 깊어진 레드벨벳의 음악세계를 만날 수 있다.
+                            </p>
+                        </div>
+                        <div class="timeline__link">
+                            <a href="https://youtu.be/QslJYDX3o8s">
+                                <img class="youtube" src="images/youtube.png" alt="유튜브">
+                            </a>
+                            <a href="https://www.melon.com/album/detail.htm?albumId=2709585">
+                                <img class="melon" src="images/melon.png" alt="멜론">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="timeline__item" data-text="Rookie" data-id="J0h8-OTC38I">
+                        <div class="timeline__content">
+                            <div class="timeline__img__wrapper">
+                                <img class="timeline__img" src="images/album-Rookie.png"/>
+                            </div>
+                            <h2 class="timeline__content__title">2017.02.01</h2>
+                            <p class="timeline__content__desc">
+                                타이틀 곡 "Rookie"는 캐치한 브라스 사운드와 경쾌한 기타 리듬이 
+                                인상적인 펑키한 그루브의 팝 댄스 곡으로, 사랑하는 사람을 'Rookie'에 
+                                비유한 귀엽고 재치 있는 가사가 돋보임은 물론, 'Rookie'라는 반복되는 
+                                훅이 강한 중독성을 선사한다.
+                            </p>
+                        </div>
+                        <div class="timeline__link">
+                            <a href="https://youtu.be/J0h8-OTC38I">
+                                <img class="youtube" src="images/youtube.png" alt="유튜브">
+                            </a>
+                            <a href="https://www.melon.com/song/detail.htm?songId=30227054">
+                                <img class="melon" src="images/melon.png" alt="멜론">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="timeline__item" data-text="The Red Summer" data-id="WyiIGEHQP8o">
+                        <div class="timeline__content">
+                            <div class="timeline__img__wrapper">
+                                <img class="timeline__img" src="images/album-TheRedSummer.jpg"/>
+                            </div>
+                            <h2 class="timeline__content__title">2017.07.09</h2>
+                            <p class="timeline__content__desc">
+                                타이틀 곡인 빨간 맛은 에너제틱한 업템포 장르의 댄스곡으로, 
+                                뜨거운 '여름'과 '사랑'의 짜릿한 감정을 '빨간' 색과 
+                                맛으로 표현한 가사가 인상적이며, 무더운 여름 더위를 단번에 
+                                식혀줄 시원한 분위기의 여름 시즌송이다.
+                        </div>
+                        <div class="timeline__link">
+                            <a href="https://youtu.be/WyiIGEHQP8o">
+                                <img class="youtube" src="images/youtube.png" alt="유튜브">
+                            </a>
+                            <a href="https://www.melon.com/album/detail.htm?albumId=10077879">
+                                <img class="melon" src="images/melon.png" alt="멜론">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="timeline__item" data-text="Perfect Velvet" data-id="6uJf2IT2Zh8">
+                        <div class="timeline__content">
+                            <div class="timeline__img__wrapper">
+                                <img class="timeline__img" src="images/album-PerfectVelvet.jpg"/>
+                            </div>
+                            <h2 class="timeline__content__title">2017.11.17</h2>
+                            <p class="timeline__content__desc">
+                                타이틀 곡 '피카부 (Peek-A-Boo)'는 시그니처 플럭 
+                                신스 사운드와 그루비한 리듬, 까꿍을 의미하는 "피카부"라는 
+                                훅이 중독적인 업템포 팝 댄스 곡으로, 쿨한 사랑 방식을 가진 
+                                현 세대의 라이프 스타일을 놀이터에서 노는 모습에 비유, 
+                                새로운 사랑에게 느낀 짜릿한 감정을 톡톡 튀는 가사로 표현해 눈길을 끈다.
+                        </div>
+                        <div class="timeline__link">
+                            <a href="https://youtu.be/6uJf2IT2Zh8">
+                                <img class="youtube" src="images/youtube.png" alt="유튜브">
+                            </a>
+                            <a href="https://www.melon.com/album/detail.htm?albumId=10077879">
+                                <img class="melon" src="images/melon.png" alt="멜론">
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
-    <script src="js/jquery.min.js"></script>
+    <script src="http://www.youtube.com/player_api"></script>
     <script src="js/discography.js"></script>
     <script src="js/default.js"></script>
 </body>

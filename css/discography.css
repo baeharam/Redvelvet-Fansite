@@ -1,3 +1,8 @@
+/*
+Author: Mert Cukuren
+URL: https://codepen.io/knyttneve/pen/bgvmma/
+*/
+
 .timeline__wrapper {
     width: 100%;
     position: relative;
@@ -156,6 +161,12 @@
     left: calc(-50%);
     top: 50%;
     transform: translateY(60%);
+}
+
+.timeline__player {
+    position: absolute; 
+    top: -9999px; 
+    left: -9999px;
 }
 
 .youtube,.melon {
