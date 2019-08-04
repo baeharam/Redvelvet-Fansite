@@ -29,7 +29,6 @@ URL: https://codepen.io/knyttneve/pen/bgvmma/
     flex-direction: column;
     max-width: 70rem;
     position: relative;
-    border: 1px solid red;
 }
 
 .timeline:before {
@@ -38,7 +37,6 @@ URL: https://codepen.io/knyttneve/pen/bgvmma/
     left: 50%;
     width: .2rem;
     height: 100%;
-    margin-left: -.1rem;
     background: rgba(255, 255, 255, 0.07);
 }
 
@@ -64,6 +62,7 @@ URL: https://codepen.io/knyttneve/pen/bgvmma/
     padding: 0 1rem;
     color: #fff;
 }
+
 .timeline__content__desc {
     margin: 0;
     font-size: 1.5rem;
@@ -77,11 +76,13 @@ URL: https://codepen.io/knyttneve/pen/bgvmma/
     opacity: .3;
     filter: blur(.2rem);
     transition: .5s;
-    width: calc(50% - 4rem);
+    width: 50%;
     display: flex;
     position: relative;
+    margin-left: -2rem;
     transform: translateY(-8rem);
 }
+
 .timeline__item:before {
     content: attr(data-text);
     letter-spacing: 3px;
@@ -92,13 +93,16 @@ URL: https://codepen.io/knyttneve/pen/bgvmma/
     border-left: 2px solid rgba(255, 255, 255, 0.5);
     top: 70%;
     margin-top: -5px;
-    padding-left: 15px;
+    padding-left: 1.5rem;
     opacity: 0;
-    right: calc(-100% - 56px);
+    right: calc(-100% - 5.6rem);
 }
 .timeline__item:nth-child(even) {
     align-self: flex-end;
+    margin-left: 0;
+    margin-right: -2rem;
 }
+
 .timeline__item:nth-child(even):before {
     right: auto;
     text-align: right;
@@ -108,16 +112,23 @@ URL: https://codepen.io/knyttneve/pen/bgvmma/
     border-right: 2px solid rgba(255, 255, 255, 0.5);
     padding-right: 1.5rem;
 }
+
 .timeline__item--active {
     opacity: 1;
     transform: translateY(0);
     filter: blur(0px);
 }
+
 .timeline__item--active:before {
     top: 50%;
     transition: .3s all .2s;
     opacity: 1;
 }
+
+.timeline__item--active .timeline__img {
+    animation: CDRotation 7s infinite linear;;
+}
+
 .timeline__content__title {
     margin-top: -2rem;
     position: relative;
@@ -127,10 +138,6 @@ URL: https://codepen.io/knyttneve/pen/bgvmma/
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
     border-radius: 50%;
     border: 1px solid rgba(0,0,0,0.8);
-}
-
-.timeline__item--active .timeline__img {
-    animation: CDRotation 7s infinite linear;;
 }
 
 .timeline__img__wrapper { position: relative; }
@@ -169,7 +176,8 @@ URL: https://codepen.io/knyttneve/pen/bgvmma/
     left: -9999px;
 }
 
-.youtube,.melon {
+.youtube,
+.melon {
     width: 5rem;
     height: 5rem;
     border-radius: 50%;
