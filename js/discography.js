@@ -9,7 +9,6 @@ let player;
 const playMusicByYoutube = function(youtubeID) {
 
     if(player) {
-        console.log('Exist',youtubeID);
         player.loadVideoById(youtubeID);
         return;
     }
@@ -18,9 +17,7 @@ const playMusicByYoutube = function(youtubeID) {
         player = new YT.Player('timeline__player-js', {
             videoId: youtubeID,
             loop: true,
-            events: {
-                onReady: (e) => e.target.playVideo()
-            }
+            events: { onReady: (e) => e.target.playVideo() }
         });
     }
 
