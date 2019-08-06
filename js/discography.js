@@ -45,20 +45,14 @@ const initializeTimeline = function initializeTimeline() {
   selectors.id.style.backgroundImage = `url(${selectors.imgs[0].src})`;
   const playMusicByYoutube = initializePlayer();
 
-  const itemLength = selectors.items.length;
   window.addEventListener('scroll', () => {
     let max;
     let min;
     const pos = document.documentElement.scrollTop;
-    selectors.items.forEach((item, index) => {
+    selectors.items.forEach((item) => {
       min = item.offsetTop;
       max = item.offsetTop + item.offsetHeight;
-      if (index === itemLength - 2 && pos > min + item.offsetHeight / 2) {
-        selectors.removeAllActive();
-        selectors.id.style.backgroundImage = `url(${selectors.imgs[itemLength - 1].src})`;
-        selectors.items[itemLength - 1].classList.add(selectors.activeClass);
-        playMusicByYoutube(selectors.items[itemLength - 1].dataset.id);
-      } else if (pos <= max - 40 && pos >= min) {
+      if (pos <= max - 40 && pos >= min) {
         const activeImg = document.querySelector('.timeline__item--active .timeline__img');
         selectors.id.style.backgroundImage = `url(${activeImg.src})`;
         selectors.removeAllActive();
