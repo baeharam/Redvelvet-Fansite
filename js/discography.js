@@ -1,7 +1,7 @@
 /*
 Author(using jQuery): Mert Cukuren
 URL: https://codepen.io/knyttneve/pen/bgvmma/
-I changed jQuery source code into pure javascript
+I changed jQuery source code into pure javascript and modified useless logics
 */
 
 const initializePlayer = function initializePlayer() {
