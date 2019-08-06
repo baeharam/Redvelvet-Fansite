@@ -3,7 +3,7 @@ const initializeScrollEffect = function initializeScrollEffect() {
     document.getElementsByTagName('body')[0].style.backgroundColor = color;
   };
   const changeLogoColor = (theme) => {
-    document.getElementById('header__logo-js').src = theme === 'light' ? 'images/logo.png' : 'images/logo-light.png';
+    document.getElementById('header__logo-js').src = theme === 'light' ? 'images/logo-red.png' : 'images/logo-white.png';
   };
 
   let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
