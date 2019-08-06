@@ -53,6 +53,7 @@ const initializeTimeline = function initializeTimeline() {
     selectors.items.forEach((item, index) => {
       min = item.offsetTop;
       max = item.offsetTop + item.offsetHeight;
+      console.log(min,max);
       if (index === itemLength - 2 && pos > min + item.offsetHeight / 2) {
         selectors.removeAllActive();
         selectors.id.style.backgroundImage = `url(${selectors.imgs[itemLength - 1].src})`;
