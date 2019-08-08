@@ -1,50 +1,80 @@
-const initializeScrollEffect = function initializeScrollEffect() {
-  const changeBackgroundColor = (color) => {
-    document.getElementsByTagName('body')[0].style.backgroundColor = color;
-  };
-  const changeLogoColor = (theme) => {
-    document.getElementById('header__logo-js').src = theme === 'light' ? 'images/logo-red.png' : 'images/logo-white.png';
+const initializeMembers = function initializeMembers() {
+  const groupInside = document.getElementById('group__inside-js');
+  const groupMembers = document.querySelectorAll('.group__member');
+  const singles = document.querySelectorAll('.single');
+  const backBtn = document.getElementById('backBtn-js');
+  const header = document.getElementById('header-js');
+  const HIDE_CLASS = 'hide';
+  const SHOW_CLASS = 'show';
+
+  const showBackBtn = function showBackBtn() {
+    backBtn.classList.remove(HIDE_CLASS);
+    backBtn.classList.add(SHOW_CLASS);
   };
 
-  let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  let isScrollUp = false;
-  window.addEventListener('scroll', () => {
-    const st = window.pageYOffset || document.documentElement.scrollTop;
-    isScrollUp = st <= lastScrollTop;
-    lastScrollTop = st <= 0 ? 0 : st;
-  });
+  const hideBackBtn = function hideBackBtn() {
+    backBtn.classList.remove(SHOW_CLASS);
+    backBtn.classList.add(HIDE_CLASS);
+  };
 
-  const fadeInElemes = document.querySelectorAll('.hidden');
-  const intersectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.className = entry.target.className.replace('hidden', 'fadeIn');
-        changeBackgroundColor(entry.target.dataset.color);
-        changeLogoColor(entry.target.dataset.theme);
-      } else {
-        entry.target.className = entry.target.className.replace('fadeIn', 'hidden');
-        const targetIndex = fadeInElemes.indexOf(entry.target);
-        if (targetIndex > 0 && isScrollUp) {
-          changeBackgroundColor(fadeInElemes[targetIndex - 1].dataset.color);
-          changeLogoColor(fadeInElemes[targetIndex - 1].dataset.theme);
+  const showExpandedMembers = function showExpandedMembers(index) {
+    singles[index].classList.remove(HIDE_CLASS);
+    singles[index].classList.add(SHOW_CLASS);
+  };
+
+  const hideExpandedMembers = function hideExpandedMembers() {
+    document.querySelector('.show').classList.add(HIDE_CLASS);
+    document.querySelector('.show').classList.remove(SHOW_CLASS);
+  };
+
+  const deactivateAnimationOfMember = function deactivateAnimation(member) {
+    member.style.animationName = 'none';
+  };
+
+  const hideHeader = function hideHeader() {
+    header.classList.remove(SHOW_CLASS);
+    header.classList.add(HIDE_CLASS);
+  };
+
+  const showHeader = function showHeader() {
+    header.classList.remove(HIDE_CLASS);
+    header.classList.add(SHOW_CLASS);
+  };
+
+  groupMembers.forEach((member, index) => {
+    member.addEventListener('mouseenter', () => {
+      groupMembers.forEach((_member, _index) => {
+        if (_index !== index) {
+          _member.classList.remove('group__member--active');
+        } else {
+          _member.classList.add('group__member--active');
         }
-      }
+      });
+    });
+    member.addEventListener('click', () => {
+      member.classList.add('group__member--expand');
+      showExpandedMembers(index);
+      showBackBtn();
+      hideHeader();
     });
   });
-  fadeInElemes.forEach(fadeInElem => intersectionObserver.observe(fadeInElem));
-};
 
-const initializeFullpageEffect = function initializeFullpageEffect() {
-  // eslint-disable-next-line no-new
-  new fullpage('#fullpage-js', {
-    autoScrolling: true,
-    responsiveWidth: 768,
+  groupInside.addEventListener('mouseleave', () => {
+    groupMembers.forEach(member => member.classList.add('group__member--active'));
   });
-  // eslint-disable-next-line no-undef
-  fullpage_api.setAllowScrolling(true);
+
+  window.addEventListener('resize', () => {
+    if (document.documentElement.offsetHeight <= 768) {
+      groupMembers.forEach(member => deactivateAnimationOfMember(member));
+    }
+  });
+
+  backBtn.addEventListener('click', () => {
+    hideBackBtn();
+    hideExpandedMembers();
+    document.querySelector('.group__member--expand').classList.remove('group__member--expand');
+    showHeader();
+  });
 };
 
-window.onload = () => {
-  initializeScrollEffect();
-  initializeFullpageEffect();
-};
+initializeMembers();
