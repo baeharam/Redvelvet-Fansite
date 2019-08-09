@@ -1,52 +1,124 @@
-
-.main { margin-top: 10vh; }
-
-.title {
-    text-align: center;
-    padding: 3rem 0;
+body {
+  background-color: black;
 }
 
-.title h2 {
-    font-size: 7rem;
-    font-family: 'Rochester', cursive;
+.swiper {
+  height: 100vh;
+  position: relative;
 }
 
-.placeholder {
-    background-color: #f6f6f6;
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: relative;
-    overflow: hidden;
+.swiper__img { 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 400px;
+  transition: all .5s;
+  cursor: pointer;
 }
 
-.placeholder img {
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    left: 0;
-    width: 100%;
-    transition: opacity 1s linear;
+.swiper__img__inside {
+  position: relative;
+  padding-top: 150%;
 }
 
-.placeholder img.loaded {
-    opacity: 0.7;
-    transition: opacity .5s;
+.swiper__contents__main,
+.swiper__img__left,
+.swiper__img__right {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
-.placeholder img.active{ opacity: 1.0; }
 
-.img-small {
-    filter: blur(50px);
-    /* this is needed so Safari keeps sharp edges */
-    transform: scale(1);
+.swiper__contents__main { 
+  z-index: 1;
+  background-image: url('../images/about-irene.jpg');
+  transition: all .5s;
 }
 
-.gutter-sizer { width: 1rem; }
-.grid-sizer,.grid-item { width: calc( ( 100% - 1rem ) / 2 ); }
-.grid-item {
-    float: left;
-    margin-bottom: 1rem;
+.swiper__img__left {
+  transform: rotate(-5deg) translateX(-50%);
+  background-image: url('../images/about-seulgi.jpg');
+  transition: all .5s;
+}
+
+.swiper__img__right {
+  transform: rotate(5deg) translateX(50%);
+  background-image: url('../images/about-yeri.jpg');
+  transition: all .5s;
+}
+
+.swiper__title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-10%);
+  transition: all .5s;
+  cursor: pointer;
+}
+
+.swiper__title h2 {
+  font-size: 200px;
+  color: white;
+  font-family: 'Libre Caslon Display', serif;
+}
+
+.swiper__contents {
+  border: 5px solid red;
+}
+
+.swiper__contents__inside {
+  display: none;
+}
+
+.swiper__contents__component {
+  margin-top: 3rem;
+  position: relative;
+  width: 80vw;
+}
+
+.hover { top: 45%; }
+.move-up { animation: moveUp 1.5s both .5s; }
+.left-gone { animation: leftGone 1s both; }
+.right-gone { animation: rightGone 1s both; }
+.move-down { animation: moveDown 1.5s both .5s; }
+.appear { display: block; position: absolute; animation: appear 0s both 1s; }
+
+@keyframes leftGone {
+  from { transform: rotate(-5deg) translateX(-50%); }
+  to { transform: rotate(0deg) translateX(-100%); opacity: 0; }
+}
+@keyframes rightGone {
+  from { transform: rotate(5deg) translateX(50%); }
+  to { transform: rotate(0deg) translateX(100%); opacity: 0; }
+}
+@keyframes moveUp {
+  from { top: 50%; }
+  to { top: 5%; }
+}
+@keyframes moveDown {
+  from { top: 50%; transform: translate(-50%,-50%); }
+  to { top: 40%; transform: translate(-50%,0%); width: 80vw; }
+}
+@keyframes moveDownMobile {
+  from { top: 50%; transform: translate(-50%,-50%); }
+  to { top: 20%; transform: translate(-50%,0%); width: 80vw; }
+}
+@keyframes appear {
+  from { top: 200%; }
+  to { top: 100%; }
 }
 
 @media ( max-width: 768px ) {
-    .grid-sizer,.grid-item { width: 100%; }
+  .swiper__title h2 {
+    font-size: 100px;
+  }
+  .move-down {
+    animation: moveDownMobile 1.5s both .5s;
+  }
 }
