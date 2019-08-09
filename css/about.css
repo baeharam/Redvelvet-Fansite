@@ -1,4 +1,4 @@
-.group {
+body {
   background-color: #080305;
 }
 
@@ -215,7 +215,7 @@
 }
 @keyframes appearFromLeft {
   from { margin-left: -100vw; }
-  to { margin-right: 0; }
+  to { margin-left: 0; }
 }
 
 @keyframes fadeInFromBottom {
@@ -258,7 +258,7 @@
     position: absolute;
   }
   .group__member {
-    width: 100%;
+    width: 100vw;
     min-height: 20%;
     background-position: 0% 30%;
     justify-content: flex-start;
@@ -269,8 +269,8 @@
   .group__member:nth-child(1) { 
     top: 0%;
     left: 0;
-    animation-name: appearFromLeft; 
     background-position: 0% 20%;
+    animation-name: appearFromLeft; 
   }
   .group__member:nth-child(2) { 
     top: 20%;
@@ -294,6 +294,7 @@
   }
   .group__member.group__member--expand {
     top: 0;
+    width: 100vw;
     height: 100vh;
   }
   .single {
