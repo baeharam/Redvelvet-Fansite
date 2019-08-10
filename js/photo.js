@@ -52,18 +52,27 @@ const initAnimation = function initAnimation() {
     }));
   };
 
+  const runClickAnimation = function runClickAnimation(swiperImg, index) {
+    CLASSES.SWIPER_IMGLEFTS[index].classList.add('left-gone');
+    CLASSES.SWIPER_IMGRIGHTS[index].classList.add('right-gone');
+    swiperTitles[index].classList.add('move-up');
+    swiperImg.classList.add('move-down');
+    sections.forEach((section, sectionIndex) => {
+      if (sectionIndex !== index) {
+        section.style.display = 'none';
+      }
+    });
+    swiperContentsInsides[index].classList.add('show');
+  };
+
+  const removeHeader = function removeHeader() {
+    document.getElementById('header-js').classList.add('hide');
+  };
+
   const addClickEventToImg = () => {
     CLASSES.SWIPER_IMGS.forEach((swiperImg, index) => swiperImg.addEventListener('click', () => {
-      CLASSES.SWIPER_IMGLEFTS[index].classList.add('left-gone');
-      CLASSES.SWIPER_IMGRIGHTS[index].classList.add('right-gone');
-      swiperTitles[index].classList.add('move-up');
-      swiperImg.classList.add('move-down');
-      sections.forEach((section, sectionIndex) => {
-        if (sectionIndex !== index) {
-          section.style.display = 'none';
-        }
-      });
-      swiperContentsInsides[index].classList.add('appear');
+      runClickAnimation(swiperImg, index);
+      removeHeader();
       fullpage_api.destroy();
     }));
   };

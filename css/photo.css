@@ -55,6 +55,15 @@ body {
 .seulgi__left { background-image: url('../images/photo-seulgi1.jpg'); }
 .seulgi__right { background-image: url('../images/photo-seulgi2.jpg'); }
 .seulgi__main { background-image: url('../images/photo-seulgi3.jpg'); }
+.wendy__left { background-image: url('../images/photo-wendy1.jpg'); }
+.wendy__right { background-image: url('../images/photo-wendy2.jpg'); }
+.wendy__main { background-image: url('../images/photo-wendy3.jpg'); }
+.yeri__left { background-image: url('../images/photo-yeri1.jpg'); }
+.yeri__right { background-image: url('../images/photo-yeri2.jpg'); }
+.yeri__main { background-image: url('../images/photo-yeri3.jpg'); }
+.joy__left { background-image: url('../images/photo-joy1.jpg'); }
+.joy__right { background-image: url('../images/photo-joy2.jpg'); }
+.joy__main { background-image: url('../images/photo-joy3.jpg'); }
 
 .swiper__title {
   position: absolute;
@@ -93,11 +102,12 @@ body {
 .left-gone { animation: leftGone 1s both; }
 .right-gone { animation: rightGone 1s both; }
 .move-down { animation: moveDown 1.5s both 0.5s; }
+.hide { animation: hide 1s both 0.5s; }
 
-.appear {
+.show {
   display: block;
   position: absolute;
-  animation: appear 0s both 1s;
+  animation: show 0s both 1s;
 }
 
 /* TODO !important가 좋은 해결방법인가? */
@@ -155,10 +165,17 @@ body {
   }
 }
 
-@keyframes appear {
+@keyframes show {
   from { top: 200%; }
   to { top: 100%; }
 }
+
+@keyframes hide {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* Media Query */
 
 @media (max-width: 768px) {
   .swiper__title h2 {
