@@ -1,0 +1,52 @@
+
+.main { margin-top: 10vh; }
+
+.title {
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.title h2 {
+    font-size: 7rem;
+    font-family: 'Rochester', cursive;
+}
+
+.placeholder {
+    background-color: #f6f6f6;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+.placeholder img {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: opacity 1s linear;
+}
+
+.placeholder img.loaded {
+    opacity: 0.7;
+    transition: opacity .5s;
+}
+.placeholder img.active{ opacity: 1.0; }
+
+.img-small {
+    filter: blur(50px);
+    /* this is needed so Safari keeps sharp edges */
+    transform: scale(1);
+}
+
+.gutter-sizer { width: 1rem; }
+.grid-sizer,.grid-item { width: calc( ( 100% - 1rem ) / 2 ); }
+.grid-item {
+    float: left;
+    margin-bottom: 1rem;
+}
+
+@media ( max-width: 768px ) {
+    .grid-sizer,.grid-item { width: 100%; }
+}
