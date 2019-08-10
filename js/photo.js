@@ -9,9 +9,6 @@ const CLASSES = (function makeCommonClasses() {
     SWIPER_IMGLEFTS: document.querySelectorAll('.swiper__img__left'),
     SWIPER_IMGRIGHTS: document.querySelectorAll('.swiper__img__right'),
     SWIPER_CONTENTS_MAINS: document.querySelectorAll('.swiper__contents__main'),
-    SWIPER_CONTENTS_INSIDES: document.querySelectorAll('.swiper__contents__inside'),
-    SWIPER_TITLES: document.querySelectorAll('.swiper__title'),
-    SECTIONS: document.querySelectorAll('.section'),
   };
 }());
 
@@ -38,126 +35,69 @@ const initFullpage = function initFullpage() {
   new fullpage('#fullpage', {
     autoScrolling: true,
     afterLoad(_origin, destination) {
-      CLASSES.SWIPER_IMGLEFTS[destination.index].classList.add('left-rotate');
-      CLASSES.SWIPER_IMGRIGHTS[destination.index].classList.add('right-rotate');
+      destination.item.classList.add('load');
     },
     onLeave(origin) {
-      CLASSES.SWIPER_IMGLEFTS[origin.index].classList.remove('left-rotate');
-      CLASSES.SWIPER_IMGRIGHTS[origin.index].classList.remove('right-rotate');
-      CLASSES.SWIPER_IMGLEFTS[origin.index].classList.remove('left-gone-backward');
-      CLASSES.SWIPER_IMGRIGHTS[origin.index].classList.remove('right-gone-backward');
+      origin.item.classList.remove('load');
     },
   });
   fullpage_api.setAllowScrolling(true);
 };
 
 const initAnimation = function initAnimation() {
-  const backBtn = document.getElementById('backBtn-js');
   const header = document.getElementById('header-js');
+  const backBtn = document.getElementById('backBtn-js');
+  const sections = document.querySelectorAll('.section');
 
-  const addHoverOnEventToImg = function addHoverOnEventToImg() {
-    CLASSES.SWIPER_IMGS.forEach((swiperImg, index) => swiperImg.addEventListener('mouseenter', () => {
-      swiperImg.classList.add('hover-up');
-      CLASSES.SWIPER_TITLES[index].classList.add('hover-up');
-      CLASSES.SWIPER_IMGLEFTS[index].classList.add('hover-hide');
-      CLASSES.SWIPER_IMGRIGHTS[index].classList.add('hover-hide');
-    }));
+  const setHoverEffect = function setHoverEffect() {
+    sections.forEach((section) => {
+      const mouseenterHandler = () => { section.classList.add('hover'); };
+      const mouseleaveHandler = () => { section.classList.remove('hover'); };
+      section.querySelectorAll('.swiper__title, .swiper__contents__main, .swiper__img__left, .swiper__img__right').forEach((el) => {
+        el.addEventListener('mouseenter', mouseenterHandler);
+        el.addEventListener('mouseleave', mouseleaveHandler);
+      });
+    });
   };
 
-  const addHoverOnEventToTItle = function addHoverOnEventToTItle() {
-    CLASSES.SWIPER_TITLES.forEach((swiperTitle, index) => swiperTitle.addEventListener('mouseenter', () => {
-      swiperTitle.classList.add('hover-up');
-      CLASSES.SWIPER_IMGS[index].classList.add('hover-up');
-      CLASSES.SWIPER_IMGLEFTS[index].classList.add('hover-hide');
-      CLASSES.SWIPER_IMGRIGHTS[index].classList.add('hover-hide');
-    }));
-  };
-
-  const addHoverOffEventToImg = function addHoverOffEventToImg() {
-    CLASSES.SWIPER_IMGS.forEach((swiperImg, index) => swiperImg.addEventListener('mouseleave', () => {
-      swiperImg.classList.remove('hover-up');
-      CLASSES.SWIPER_TITLES[index].classList.remove('hover-up');
-      CLASSES.SWIPER_IMGLEFTS[index].classList.remove('hover-hide');
-      CLASSES.SWIPER_IMGRIGHTS[index].classList.remove('hover-hide');
-    }));
-  };
-
-  const addHoverOffEventToTitle = function addHoverOffEventToTitle() {
-    CLASSES.SWIPER_TITLES.forEach((swiperTitle, index) => swiperTitle.addEventListener('mouseleave', () => {
-      swiperTitle.classList.remove('hover-up');
-      CLASSES.SWIPER_IMGS[index].classList.remove('hover-up');
-      CLASSES.SWIPER_IMGLEFTS[index].classList.remove('hover-hide');
-      CLASSES.SWIPER_IMGRIGHTS[index].classList.remove('hover-hide');
-    }));
-  };
-
-  const showHeader = function showHeader() {
-    header.classList.remove('hide');
-    header.classList.add('show');
-  };
-
-  const hideHeader = function hideHeader() {
-    header.classList.remove('show');
-    header.classList.add('hide');
-  };
-
-  const showBackBtn = function showBackBtn() {
-    backBtn.classList.add('show');
-  };
-
-  const hideBackBtn = function hideBackBtn() {
-    backBtn.classList.remove('show');
-  };
-
-  const forwardClickAnimation = function forwardClickAnimation(swiperImg, index) {
-    CLASSES.SWIPER_IMGLEFTS[index].classList.remove('left-gone-backward');
-    CLASSES.SWIPER_IMGRIGHTS[index].classList.remove('right-gone-backward');
-    CLASSES.SWIPER_IMGLEFTS[index].classList.add('left-gone');
-    CLASSES.SWIPER_IMGRIGHTS[index].classList.add('right-gone');
-    CLASSES.SWIPER_TITLES[index].classList.remove('move-up-backward');
-    if (matchMedia('(max-width: 576px)').matches) {
-      swiperImg.classList.remove('move-down-backward-mobile');
-    } else if (matchMedia('(max-width: 992px)').matches) {
-      swiperImg.classList.remove('move-down-backward-tablet');
-    } else {
-      swiperImg.classList.remove('move-down-backward');
-    }
-    CLASSES.SWIPER_TITLES[index].classList.add('move-up');
-    swiperImg.classList.add('move-down');
-    CLASSES.SECTIONS.forEach((section, sectionIndex) => {
+  const forwardClickAnimation = function forwardClickAnimation(_swiperImg, index) {
+    header.classList.remove('out');
+    header.classList.add('in');
+    backBtn.classList.remove('out');
+    backBtn.classList.add('in');
+    sections[index].classList.remove('out');
+    sections[index].classList.add('in');
+    sections.forEach((section, sectionIndex) => {
       if (sectionIndex !== index) {
-        section.classList.add('hide-important');
+        section.style.display = 'none';
       }
     });
-    CLASSES.SWIPER_CONTENTS_INSIDES[index].classList.add('show-contents');
   };
 
   const backwardClickAnimation = function backwardClickAnimation() {
     // eslint-disable-next-line prefer-destructuring
     const index = fullpage_api.getActiveSection().index;
-    CLASSES.SWIPER_IMGLEFTS[index].classList.remove('left-gone');
-    CLASSES.SWIPER_IMGRIGHTS[index].classList.remove('right-gone');
-    CLASSES.SWIPER_IMGLEFTS[index].classList.add('left-gone-backward');
-    CLASSES.SWIPER_IMGRIGHTS[index].classList.add('right-gone-backward');
-    CLASSES.SWIPER_TITLES[index].classList.remove('move-up');
-    CLASSES.SWIPER_IMGS[index].classList.remove('move-down');
-    CLASSES.SWIPER_TITLES[index].classList.add('move-up-backward');
-    if (matchMedia('(max-width: 576px)').matches) {
-      CLASSES.SWIPER_IMGS[index].classList.add('move-down-backward-mobile');
-    } else if (matchMedia('(max-width: 992px)').matches) {
-      CLASSES.SWIPER_IMGS[index].classList.add('move-down-backward-tablet');
-    } else {
-      CLASSES.SWIPER_IMGS[index].classList.add('move-down-backward');
-    }
-    document.querySelector('.show-contents').classList.remove('show-contents');
-    CLASSES.SECTIONS.forEach(section => section.classList.remove('hide-important'));
+    header.classList.remove('in');
+    header.classList.add('out');
+    backBtn.classList.remove('in');
+    backBtn.classList.add('out');
+    sections[index].classList.remove('in');
+    sections[index].classList.add('out');
+
+    /* TODO 다른 section 바로 안나오게 수정해야 함 */
+    const displayAgain = function displayAgain() {
+      sections.forEach((section, sectionIndex) => {
+        if (sectionIndex !== index) {
+          section.style.display = 'table';
+        }
+      });
+    };
+    setTimeout(displayAgain, 2000);
   };
 
-  const addClickEventToImg = () => {
+  const addClickEventToSwiper = () => {
     CLASSES.SWIPER_IMGS.forEach((swiperImg, index) => swiperImg.addEventListener('click', () => {
       forwardClickAnimation(swiperImg, index);
-      hideHeader();
-      showBackBtn();
       fullpage_api.setAutoScrolling(false);
     }));
   };
@@ -165,8 +105,6 @@ const initAnimation = function initAnimation() {
   const addClickEventToBackBtn = function addClickEventToBackBtn() {
     backBtn.addEventListener('click', () => {
       backwardClickAnimation();
-      showHeader();
-      hideBackBtn();
       fullpage_api.setAutoScrolling(true);
     });
   };
@@ -182,11 +120,8 @@ const initAnimation = function initAnimation() {
     });
   };
 
-  addHoverOnEventToImg();
-  addHoverOnEventToTItle();
-  addHoverOffEventToImg();
-  addHoverOffEventToTitle();
-  addClickEventToImg();
+  setHoverEffect();
+  addClickEventToSwiper();
   addNoRebuildEvent();
   addClickEventToBackBtn();
 };

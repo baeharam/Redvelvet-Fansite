@@ -111,29 +111,39 @@ body {
   animation: backBtnMove 0.5s both;
 }
 
-.hover-up { top: 45%; }
-.hover-hide { opacity: 0.7; }
-.move-up { animation: moveUp 1.5s both 0.5s; }
-.move-up-backward { animation: moveUpBackward 1.5s both 0.5s; }
-.left-rotate { transform: rotate(-5deg) translateX(-50%); }
-.right-rotate { transform: rotate(5deg) translateX(50%); }
-.left-gone { animation: leftGone 1s both; }
-.left-gone-backward { animation: leftGoneBackward 1s both 0.5s; }
-.right-gone { animation: rightGone 1s both; }
-.right-gone-backward { animation: rightGoneBackward 1s both 0.5s; }
-.move-down { animation: moveDown 1.5s both 0.5s; }
-.move-down-backward { animation: moveDownBackward 1.5s both 0.5s; }
-.move-down-backward-tablet { animation: moveDownBackwardTablet 1.5s both 0.5s; }
-.move-down-backward-mobile { animation: moveDownBackwardMobile 1.5s both 0.5s; }
-.hide { animation: hide 1s both 1s; }
-.show { animation: show 1s both 1s; }
-.hide-important { display: none !important; }
+section.hover .swiper__img,
+section.hover .swiper__title {
+  top: 45%;
+}
 
-.show-contents {
+section.hover .swiper__img__left,
+section.hover .swiper__img__right {
+  opacity: 0.7;
+}
+
+section.load .swiper__img__left { transform: rotate(-5deg) translateX(-50%); }
+section.load .swiper__img__right { transform: rotate(5deg) translateX(50%); }
+
+header.in { animation: hide 1s both 1s; }
+section.in .swiper__img__left { animation: leftGone 1s both; }
+section.in .swiper__img__right { animation: rightGone 1s both; }
+section.in .swiper__title { animation: moveUp 1.5s both 0.5s; }
+section.in .swiper__img { animation: moveDown 1.5s both 0.5s; }
+.backBtn.in { animation: show 1s both 1s; }
+
+section.in .swiper__contents__inside {
   display: block;
   position: absolute;
   animation: showContents 0s both 1s;
 }
+
+header.out { animation: show 1s both 1s; }
+section.out .swiper__img__left { animation: leftGoneBackward 1.5s both 1s; }
+section.out .swiper__img__right { animation: rightGoneBackward 1.5s both 1s; }
+section.out .swiper__title { animation: moveUpBackward 1.5s both 0.5s; }
+section.out .swiper__img { animation: moveDownBackward 1.5s both 0.5s; }
+section.out .swiper__contents__inside { display: none; }
+.backBtn.out { animation: hide 1s both 1s; }
 
 /* TODO !important가 좋은 해결방법인가? */
 .no-rebuild {
@@ -320,6 +330,10 @@ body {
   .move-down {
     animation: moveDownTablet 1.5s both 0.5s;
   }
+
+  .section.out .swiper__img {
+    animation: moveDownBackwardTablet 1.5s both 0.5s;
+  }
 }
 
 /* Mobile */
@@ -338,5 +352,9 @@ body {
 
   .move-down {
     animation: moveDownMobile 1.5s both 0.5s;
+  }
+
+  .section.out .swiper__img {
+    animation: moveDownBackwardMobile 1.5s both 0.5s;
   }
 }
