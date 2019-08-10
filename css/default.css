@@ -39,6 +39,11 @@ img {
   src: url("../fonts/SeoulHangangL.otf");
 }
 
+@font-face {
+  font-family: "Libre Caslon Display";
+  src: url("../fonts/LibreCaslonDisplay-Regular.ttf");
+}
+
 html {
   font-size: 62.5%;
 }
