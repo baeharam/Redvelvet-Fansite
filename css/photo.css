@@ -1,5 +1,6 @@
 body {
-  background-color: #031F1C;
+  background-color: #031f1c;
+  transition: background-color 0.5s;
 }
 
 .swiper {
@@ -7,13 +8,13 @@ body {
   position: relative;
 }
 
-.swiper__img { 
+.swiper__img {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
-  width: 400px;
-  transition: all .5s;
+  transform: translate(-50%, -50%);
+  width: 40rem;
+  transition: all 0.5s;
   cursor: pointer;
 }
 
@@ -35,19 +36,17 @@ body {
   background-repeat: no-repeat;
 }
 
-.swiper__contents__main { 
+.swiper__contents__main {
   z-index: 1;
-  transition: all .5s;
+  transition: all 0.5s;
 }
 
 .swiper__img__left {
-  transform: rotate(-5deg) translateX(-50%);
-  transition: all .5s;
+  transition: all 0.5s;
 }
 
 .swiper__img__right {
-  transform: rotate(5deg) translateX(50%);
-  transition: all .5s;
+  transition: all 0.5s;
 }
 
 .irene__left { background-image: url('../images/photo-irene1.jpg'); }
@@ -61,13 +60,13 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-10%);
-  transition: all .5s;
+  transform: translate(-50%, -10%);
+  transition: all 0.5s;
   cursor: pointer;
 }
 
 .swiper__title h2 {
-  font-size: 200px;
+  font-size: 20rem;
   color: white;
   font-family: 'Libre Caslon Display', serif;
 }
@@ -86,46 +85,87 @@ body {
   width: 80vw;
 }
 
-.hover-up   { top: 45%; }
+.hover-up { top: 45%; }
 .hover-hide { opacity: 0.7; }
-.move-up    { animation: moveUp 1.5s both .5s; }
-.left-gone  { animation: leftGone 1s both; }
+.move-up { animation: moveUp 1.5s both 0.5s; }
+.left-rotate { transform: rotate(-5deg) translateX(-50%); }
+.right-rotate { transform: rotate(5deg) translateX(50%); }
+.left-gone { animation: leftGone 1s both; }
 .right-gone { animation: rightGone 1s both; }
-.move-down  { animation: moveDown 1.5s both .5s; }
-.appear     { display: block; position: absolute; animation: appear 0s both 1s; }
+.move-down { animation: moveDown 1.5s both 0.5s; }
+
+.appear {
+  display: block;
+  position: absolute;
+  animation: appear 0s both 1s;
+}
+
 /* TODO !important가 좋은 해결방법인가? */
-.no-rebuild { animation-duration: 0s !important; animation-delay: 0s !important; }
+.no-rebuild {
+  animation-duration: 0s !important;
+  animation-delay: 0s !important;
+}
 
 @keyframes leftGone {
   from { transform: rotate(-5deg) translateX(-50%); }
-  to { transform: rotate(0deg) translateX(-100%); opacity: 0; }
+
+  to {
+    transform: rotate(0deg) translateX(-100%);
+    opacity: 0;
+  }
 }
+
 @keyframes rightGone {
   from { transform: rotate(5deg) translateX(50%); }
-  to { transform: rotate(0deg) translateX(100%); opacity: 0; }
+
+  to {
+    transform: rotate(0deg) translateX(100%);
+    opacity: 0;
+  }
 }
+
 @keyframes moveUp {
   from { top: 50%; }
   to { top: 5%; }
 }
+
 @keyframes moveDown {
-  from { top: 50%; transform: translate(-50%,-50%); }
-  to { top: 40%; transform: translate(-50%,0%); width: 80vw; }
+  from {
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  to {
+    top: 40%;
+    transform: translate(-50%, 0%);
+    width: 80vw;
+  }
 }
+
 @keyframes moveDownMobile {
-  from { top: 50%; transform: translate(-50%,-50%); }
-  to { top: 20%; transform: translate(-50%,0%); width: 80vw; }
+  from {
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  to {
+    top: 20%;
+    transform: translate(-50%, 0%);
+    width: 80vw;
+  }
 }
+
 @keyframes appear {
   from { top: 200%; }
   to { top: 100%; }
 }
 
-@media ( max-width: 768px ) {
+@media (max-width: 768px) {
   .swiper__title h2 {
-    font-size: 100px;
+    font-size: 10rem;
   }
+
   .move-down {
-    animation: moveDownMobile 1.5s both .5s;
+    animation: moveDownMobile 1.5s both 0.5s;
   }
 }
