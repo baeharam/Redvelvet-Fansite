@@ -94,20 +94,42 @@ body {
   width: 80vw;
 }
 
+.backBtn {
+  position: absolute;
+  left: 5%;
+  top: 2%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.backBtn img {
+  width: 6rem;
+  height: 6rem;
+}
+
+.backBtn img:hover {
+  animation: backBtnMove 0.5s both;
+}
+
 .hover-up { top: 45%; }
 .hover-hide { opacity: 0.7; }
 .move-up { animation: moveUp 1.5s both 0.5s; }
+.move-up-backward { animation: moveUpBackward 1.5s both 0.5s; }
 .left-rotate { transform: rotate(-5deg) translateX(-50%); }
 .right-rotate { transform: rotate(5deg) translateX(50%); }
 .left-gone { animation: leftGone 1s both; }
+.left-gone-backward { animation: leftGoneBackward 1s both 0.5s; }
 .right-gone { animation: rightGone 1s both; }
+.right-gone-backward { animation: rightGoneBackward 1s both 0.5s; }
 .move-down { animation: moveDown 1.5s both 0.5s; }
-.hide { animation: hide 1s both 0.5s; }
+.move-down-backward { animation: moveDownBackward 1.5s both 0.5s; }
+.hide { animation: hide 1s both 1s; }
+.show { animation: show 1s both 1s; }
 
-.show {
+.show-contents {
   display: block;
   position: absolute;
-  animation: show 0s both 1s;
+  animation: showContents 0s both 1s;
 }
 
 /* TODO !important가 좋은 해결방법인가? */
@@ -125,6 +147,15 @@ body {
   }
 }
 
+@keyframes leftGoneBackward {
+  from {
+    transform: rotate(0deg) translateX(-100%);
+    opacity: 0;
+  }
+
+  to { transform: rotate(-5deg) translateX(-50%); }
+}
+
 @keyframes rightGone {
   from { transform: rotate(5deg) translateX(50%); }
 
@@ -134,21 +165,50 @@ body {
   }
 }
 
+@keyframes rightGoneBackward {
+  from {
+    transform: rotate(0deg) translateX(100%);
+    opacity: 0;
+  }
+
+  to { transform: rotate(5deg) translateX(50%); }
+}
+
 @keyframes moveUp {
   from { top: 50%; }
   to { top: 5%; }
+}
+
+@keyframes moveUpBackward {
+  from { top: 5%; }
+  to { top: 50%; }
 }
 
 @keyframes moveDown {
   from {
     top: 50%;
     transform: translate(-50%, -50%);
+    width: 40rem;
   }
 
   to {
     top: 40%;
     transform: translate(-50%, 0%);
     width: 80vw;
+  }
+}
+
+@keyframes moveDownBackward {
+  from {
+    top: 40%;
+    transform: translate(-50%, 0%);
+    width: 80vw;
+  }
+
+  to {
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 40rem;
   }
 }
 
@@ -165,14 +225,38 @@ body {
   }
 }
 
-@keyframes show {
+@keyframes showContents {
   from { top: 200%; }
   to { top: 100%; }
 }
 
 @keyframes hide {
-  from { opacity: 1; }
-  to { opacity: 0; }
+  from {
+    z-index: auto;
+    opacity: 1;
+  }
+
+  to {
+    z-index: -1;
+    opacity: 0;
+  }
+}
+
+@keyframes show {
+  from {
+    z-index: -1;
+    opacity: 0;
+  }
+
+  to {
+    z-index: auto;
+    opacity: 1;
+  }
+}
+
+@keyframes backBtnMove {
+  from { transform: translateX(0); }
+  to { transform: translateX(-20%); }
 }
 
 /* Media Query */
