@@ -1,5 +1,5 @@
 body {
-  background-color: black;
+  background-color: #031F1C;
 }
 
 .swiper {
@@ -37,21 +37,25 @@ body {
 
 .swiper__contents__main { 
   z-index: 1;
-  background-image: url('../images/about-irene.jpg');
   transition: all .5s;
 }
 
 .swiper__img__left {
   transform: rotate(-5deg) translateX(-50%);
-  background-image: url('../images/about-seulgi.jpg');
   transition: all .5s;
 }
 
 .swiper__img__right {
   transform: rotate(5deg) translateX(50%);
-  background-image: url('../images/about-yeri.jpg');
   transition: all .5s;
 }
+
+.irene__left { background-image: url('../images/photo-irene1.jpg'); }
+.irene__right { background-image: url('../images/photo-irene2.jpg'); }
+.irene__main { background-image: url('../images/photo-irene3.jpg'); }
+.seulgi__left { background-image: url('../images/photo-seulgi1.jpg'); }
+.seulgi__right { background-image: url('../images/photo-seulgi2.jpg'); }
+.seulgi__main { background-image: url('../images/photo-seulgi3.jpg'); }
 
 .swiper__title {
   position: absolute;
@@ -82,12 +86,15 @@ body {
   width: 80vw;
 }
 
-.hover { top: 45%; }
-.move-up { animation: moveUp 1.5s both .5s; }
-.left-gone { animation: leftGone 1s both; }
+.hover-up   { top: 45%; }
+.hover-hide { opacity: 0.7; }
+.move-up    { animation: moveUp 1.5s both .5s; }
+.left-gone  { animation: leftGone 1s both; }
 .right-gone { animation: rightGone 1s both; }
-.move-down { animation: moveDown 1.5s both .5s; }
-.appear { display: block; position: absolute; animation: appear 0s both 1s; }
+.move-down  { animation: moveDown 1.5s both .5s; }
+.appear     { display: block; position: absolute; animation: appear 0s both 1s; }
+/* TODO !important가 좋은 해결방법인가? */
+.no-rebuild { animation-duration: 0s !important; animation-delay: 0s !important; }
 
 @keyframes leftGone {
   from { transform: rotate(-5deg) translateX(-50%); }

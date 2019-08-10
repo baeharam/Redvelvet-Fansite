@@ -1,110 +1,94 @@
-const swiperImg = document.querySelector('.swiper__img');
-const swiperTitle = document.querySelector('.swiper__title');
-const swiperImgLeft = document.querySelector('.swiper__img__left');
-const swiperImgRight = document.querySelector('.swiper__img__right');
-const swiperContentsInside = document.querySelector('.swiper__contents__inside');
+/* eslint-disable new-cap */
+/* eslint-disable no-new */
+/* eslint-disable no-undef */
+/* 위 사항들에 대한 무시는 fullpage.js의 것들을 사용하기 때문이다. */
 
-swiperImg.addEventListener('mouseenter', () => {
-  swiperImg.classList.add('hover');
-  swiperTitle.classList.add('hover');
-});
+const initializeAnimation = function initializeAnimation() {
+  const swiperImgs = document.querySelectorAll('.swiper__img');
+  const swiperTitles = document.querySelectorAll('.swiper__title');
+  const swiperImgLefts = document.querySelectorAll('.swiper__img__left');
+  const swiperImgRights = document.querySelectorAll('.swiper__img__right');
+  const swiperContentsInsides = document.querySelectorAll('.swiper__contents__inside');
+  const sections = document.querySelectorAll('.section');
 
-swiperTitle.addEventListener('mouseenter', () => {
-  swiperImg.classList.add('hover');
-  swiperTitle.classList.add('hover');
-});
+  const addHoverOnEventToImg = function addHoverOnEventToImg() {
+    swiperImgs.forEach((swiperImg, index) => swiperImg.addEventListener('mouseenter', () => {
+      swiperImg.classList.add('hover-up');
+      swiperTitles[index].classList.add('hover-up');
+      swiperImgLefts[index].classList.add('hover-hide');
+      swiperImgRights[index].classList.add('hover-hide');
+    }));
+  };
 
-swiperImg.addEventListener('mouseleave', () => {
-  swiperImg.classList.remove('hover');
-  swiperTitle.classList.remove('hover');
-});
+  const addHoverOnEventToTItle = function addHoverOnEventToTItle() {
+    swiperTitles.forEach((swiperTitle, index) => swiperTitle.addEventListener('mouseenter', () => {
+      swiperTitle.classList.add('hover-up');
+      swiperImgs[index].classList.add('hover-up');
+      swiperImgLefts[index].classList.add('hover-hide');
+      swiperImgRights[index].classList.add('hover-hide');
+    }));
+  };
 
-swiperTitle.addEventListener('mouseleave', () => {
-  swiperImg.classList.remove('hover');
-  swiperTitle.classList.remove('hover');
-});
+  const addHoverOffEventToImg = function addHoverOffEventToImg() {
+    swiperImgs.forEach((swiperImg, index) => swiperImg.addEventListener('mouseleave', () => {
+      swiperImg.classList.remove('hover-up');
+      swiperTitles[index].classList.remove('hover-up');
+      swiperImgLefts[index].classList.remove('hover-hide');
+      swiperImgRights[index].classList.remove('hover-hide');
+    }));
+  };
 
-swiperImg.addEventListener('click', () => {
-  swiperTitle.classList.remove('hover');
-  swiperTitle.classList.add('move-up');
-  swiperImgLeft.classList.add('left-gone');
-  swiperImgRight.classList.add('right-gone');
-  swiperImg.classList.add('move-down');
-  swiperContentsInside.classList.add('appear');
-});
+  const addHoverOffEventToTitle = function addHoverOffEventToTitle() {
+    swiperTitles.forEach((swiperTitle, index) => swiperTitle.addEventListener('mouseleave', () => {
+      swiperTitle.classList.remove('hover-up');
+      swiperImgs[index].classList.remove('hover-up');
+      swiperImgLefts[index].classList.remove('hover-hide');
+      swiperImgRights[index].classList.remove('hover-hide');
+    }));
+  };
 
-window.addEventListener('resize', () => {
-  document.querySelector('.move-down').style.animationDuration = '0s';
-  document.querySelector('.move-down').style.animationDelay = '0s';
-});
+  const addClickEventToImg = () => {
+    swiperImgs.forEach((swiperImg, index) => swiperImg.addEventListener('click', () => {
+      swiperImgLefts[index].classList.add('left-gone');
+      swiperImgRights[index].classList.add('right-gone');
+      swiperTitles[index].classList.add('move-up');
+      swiperImg.classList.add('move-down');
+      sections.forEach((section, sectionIndex) => {
+        if (sectionIndex !== index) {
+          section.style.display = 'none';
+        }
+      });
+      swiperContentsInsides[index].classList.add('appear');
+      fullpage_api.destroy();
+    }));
+  };
 
+  const addNoRebuildEvent = () => {
+    window.addEventListener('resize', () => {
+      if (matchMedia('(max-width: 768px)').matches) {
+        const moveDownElem = document.querySelector('.move-down');
+        // moveDownElem.classList.remove('move-down');
+        moveDownElem.classList.add('no-rebuild');
+      }
+    });
+  };
 
-// const bgColors = ['#07131d', '#031f1c'];
-// const imgs = document.querySelectorAll('.swiper__img');
-// const mains = document.querySelectorAll('.swiper__img__main');
-// const lefts = document.querySelectorAll('.swiper__img__left');
-// const rights = document.querySelectorAll('.swiper__img__right');
-// const titles = document.querySelectorAll('.swiper__img__title');
+  addHoverOnEventToImg();
+  addHoverOnEventToTItle();
+  addHoverOffEventToImg();
+  addHoverOffEventToTitle();
+  addClickEventToImg();
+  addNoRebuildEvent();
+};
 
-// imgs.forEach((img, index) => {
-//   img.addEventListener('click', () => {
-//     lefts[index].classList.remove('left-rotate');
-//     lefts[index].classList.add('left-disappear');
-//     rights[index].classList.remove('right-rotate');
-//     rights[index].classList.add('right-disappear');
+const initializeFullpage = function initializeFullpage() {
+  new fullpage('#fullpage', {
+    autoScrolling: true,
+  });
+  fullpage_api.setAllowScrolling(true);
+};
 
-//     imgs[index].classList.add('swiper__break-position');
-//     mains[index].classList.add('main__break-position');
-//     titles[index].classList.remove('fade-in');
-//     titles[index].classList.add('title__break-position');
-
-//     document.querySelectorAll('.section').forEach((section, _index) => {
-//       if (index !== _index) {
-//         section.style.display = 'none';
-//       }
-//     });
-//     fullpage_api.destroy();
-//   });
-// });
-
-// eslint-disable-next-line no-new
-// new fullpage('#fullpage', {
-//   autoScrolling: true,
-//   scrollHorizontally: false,
-//   scrollOverflow: true,
-//   afterLoad(origin, destination, direction) {
-//     const leftImgs = document.querySelectorAll('.swiper__img__left');
-//     const rightImgs = document.querySelectorAll('.swiper__img__right');
-//     const titles = document.querySelectorAll('.swiper__img__title');
-
-//     const curLeftImg = [].filter.call(leftImgs, (img, index) => index === destination.index);
-//     const curRightImg = [].filter.call(rightImgs, (img, index) => index === destination.index);
-//     const curTitle = [].filter.call(titles, (title, index) => index === destination.index);
-
-//     curLeftImg[0].classList.remove('no-rotate');
-//     curRightImg[0].classList.remove('no-rotate');
-//     curTitle[0].classList.remove('fadeOut-effect');
-//     curLeftImg[0].classList.add('left-rotate');
-//     curRightImg[0].classList.add('right-rotate');
-//     curTitle[0].classList.add('fadeIn-effect');
-
-//     document.getElementsByTagName('body')[0].style.backgroundColor = bgColors[destination.index];
-//   },
-//   onLeave(origin, destination, direction) {
-//     const leftImgs = document.querySelectorAll('.swiper__img__left');
-//     const rightImgs = document.querySelectorAll('.swiper__img__right');
-//     const titles = document.querySelectorAll('.swiper__img__title');
-
-//     const curLeftImg = [].filter.call(leftImgs, (img, index) => index === origin.index);
-//     const curRightImg = [].filter.call(rightImgs, (img, index) => index === origin.index);
-//     const curTitle = [].filter.call(titles, (title, index) => index === origin.index);
-
-//     curLeftImg[0].classList.remove('left-rotate');
-//     curRightImg[0].classList.remove('right-rotate');
-//     curTitle[0].classList.remove('fadeIn-effect');
-//     curLeftImg[0].classList.add('no-rotate');
-//     curRightImg[0].classList.add('no-rotate');
-//     curTitle[0].classList.add('fadeOut-effect');
-//   },
-// });
-// fullpage_api.setAllowScrolling(true);
+window.onload = () => {
+  initializeAnimation();
+  initializeFullpage();
+};
