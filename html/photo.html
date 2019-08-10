@@ -11,6 +11,33 @@
   <title>Photo</title>
 </head>
 <body>
+  <header id="header-js" class="header">
+    <div class="header__inside clearfix">
+      <a href="./index.html">
+        <img class="header__logo" src="../images/logo-red.png" alt="로고">
+      </a>
+      <div id="header__menu-js" class="header__menu">
+        <input type="checkbox" id="menuicon">
+          <label for="menuicon">
+            <span class="menu-light"></span>
+            <span class="menu-light"></span>
+            <span class="menu-light"></span>
+          </label>
+      </div>
+    </div>
+    <h1>홈</h1>
+  </header>
+  <aside id="overlay-js" class="overlay">
+    <a href="javascript:void(0)" id="overlay__closeBtn-js" class="overlay__closeBtn">&times;</a>
+    <nav class="overlay-menu">
+      <ul>
+      <li><a href="./about.html">ABOUT</a></li>
+      <li><a href="./photo.html">PHOTOS</a></li>
+      <li><a href="./discography.html">DISCOGRAPHY</a></li>
+      <li><a href="./video.html">VIDEOS</a></li>
+      </ul>
+    </nav>
+  </aside>
   <main id="fullpage">
     <section id="irene" class="section">
       <div class="swiper">
@@ -59,6 +86,7 @@
   </main>
   <script src="../js/fullpage.min.js"></script>
   <script src="../js/intersection-observer.js"></script>
+  <script src="../js/default.js"></script>
   <script src="../js/photo.js"></script>
   <script>
   </script>
