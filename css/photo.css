@@ -49,21 +49,21 @@ body {
   transition: all 0.5s;
 }
 
-.irene__left { background-image: url('../images/photo-irene1.jpg'); }
-.irene__right { background-image: url('../images/photo-irene2.jpg'); }
-.irene__main { background-image: url('../images/photo-irene3.jpg'); }
-.seulgi__left { background-image: url('../images/photo-seulgi1.jpg'); }
-.seulgi__right { background-image: url('../images/photo-seulgi2.jpg'); }
-.seulgi__main { background-image: url('../images/photo-seulgi3.jpg'); }
-.wendy__left { background-image: url('../images/photo-wendy1.jpg'); }
-.wendy__right { background-image: url('../images/photo-wendy2.jpg'); }
-.wendy__main { background-image: url('../images/photo-wendy3.jpg'); }
-.yeri__left { background-image: url('../images/photo-yeri1.jpg'); }
-.yeri__right { background-image: url('../images/photo-yeri2.jpg'); }
-.yeri__main { background-image: url('../images/photo-yeri3.jpg'); }
-.joy__left { background-image: url('../images/photo-joy1.jpg'); }
-.joy__right { background-image: url('../images/photo-joy3.jpg'); }
-.joy__main { background-image: url('../images/photo-joy2.jpg'); }
+.irene__left { background-image: url('../images/photo-irene1-low.jpg'); }
+.irene__right { background-image: url('../images/photo-irene2-low.jpg'); }
+.irene__main { background-image: url('../images/photo-irene3-low.jpg'); }
+.seulgi__left { background-image: url('../images/photo-seulgi1-low.jpg'); }
+.seulgi__right { background-image: url('../images/photo-seulgi2-low.jpg'); }
+.seulgi__main { background-image: url('../images/photo-seulgi3-low.jpg'); }
+.wendy__left { background-image: url('../images/photo-wendy1-low.jpg'); }
+.wendy__right { background-image: url('../images/photo-wendy2-low.jpg'); }
+.wendy__main { background-image: url('../images/photo-wendy3-low.jpg'); }
+.yeri__left { background-image: url('../images/photo-yeri1-low.jpg'); }
+.yeri__right { background-image: url('../images/photo-yeri2-low.jpg'); }
+.yeri__main { background-image: url('../images/photo-yeri3-low.jpg'); }
+.joy__left { background-image: url('../images/photo-joy1-low.jpg'); }
+.joy__right { background-image: url('../images/photo-joy3-low.jpg'); }
+.joy__main { background-image: url('../images/photo-joy2-low.jpg'); }
 
 .swiper__title {
   position: absolute;
