@@ -6,7 +6,7 @@ body {
   position: absolute;
   min-height: 100vh;
   width: 20vw;
-  transition: all .5s;
+  transition: all 0.5s;
   filter: grayscale(100%);
   background-position: center;
   background-size: cover;
@@ -14,7 +14,7 @@ body {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  animation-duration: .9s;
+  animation-duration: 0.9s;
   animation-fill-mode: backwards;
   flex-basis: 0;
   cursor: pointer;
@@ -25,38 +25,42 @@ body {
   margin-bottom: 6rem;
   font-size: 4rem;
   font-family: 'Libre Caslon Text', serif;
-  transition: font-size .5s;
+  transition: font-size 0.5s;
   animation-name: fadeInFromBottom;
   animation-duration: 1s;
   animation-delay: 1.2s;
   animation-fill-mode: backwards;
 }
 
-.group__member:nth-child(1) { 
+.group__member:nth-child(1) {
   background-image: url('../images/home-irene.jpg');
   animation-name: appearFromTop;
-  animation-delay: .2s;
+  animation-delay: 0.2s;
   left: 0;
 }
-.group__member:nth-child(2) { 
+
+.group__member:nth-child(2) {
   background-image: url('../images/home-seulgi.jpg');
   animation-name: appearFromBottom;
-  animation-delay: .4s;
+  animation-delay: 0.4s;
   left: 20vw;
 }
-.group__member:nth-child(3) { 
+
+.group__member:nth-child(3) {
   background-image: url('../images/home-wendy.jpg');
   animation-name: appearFromTop;
-  animation-delay: .6s;
+  animation-delay: 0.6s;
   left: 40vw;
 }
-.group__member:nth-child(4) { 
+
+.group__member:nth-child(4) {
   background-image: url('../images/home-yeri.jpg');
   animation-name: appearFromBottom;
-  animation-delay: .8s;
+  animation-delay: 0.8s;
   left: 60vw;
 }
-.group__member:nth-child(5) { 
+
+.group__member:nth-child(5) {
   background-image: url('../images/home-joy.jpg');
   animation-name: appearFromTop;
   animation-delay: 1s;
@@ -103,7 +107,7 @@ body {
 }
 
 .backBtn img:hover {
-  animation: backBtnMove .5s both;
+  animation: backBtnMove 0.5s both;
 }
 
 .single {
@@ -113,14 +117,14 @@ body {
   display: none;
   background-color: #080305;
   z-index: 2;
-  animation: fadeInBasic 1s both .5s;
+  animation: fadeInBasic 1s both 0.5s;
 }
 
 .single__inside {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   display: flex;
 }
 
@@ -134,9 +138,9 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  box-shadow: 0 -1rem .5rem 1rem rgba(0,0,0,0.3);
+  box-shadow: 0 -1rem 0.5rem 1rem rgba(0, 0, 0, 0.3);
   margin-right: 4rem;
-  animation: expand 1s ease .5s forwards;
+  animation: expand 1s ease 0.5s forwards;
   position: relative;
 }
 
@@ -146,7 +150,7 @@ body {
 .single__profile__yeri { background-image: url('../images/about-yeri.jpg'); }
 .single__profile__joy { background-image: url('../images/about-joy.jpg'); }
 
-.single__profile__img:before {
+.single__profile__img::before {
   content: ' ';
   position: absolute;
   z-index: -6;
@@ -156,16 +160,16 @@ body {
   width: 100%;
   border: 10px solid white;
   transform: rotate(-5deg) translateX(-10%);
-  animation: expand 1s ease .5s forwards;
+  animation: expand 1s ease 0.5s forwards;
 }
 
 .single__detail {
   padding-top: 4rem;
-  flex-basis: 50rem;
+  width: 60rem;
   color: white;
 }
 
-.single__detail__spec{
+.single__detail__spec {
   font-size: 2.5rem;
   margin-bottom: 3rem;
   line-height: 1.5;
@@ -175,16 +179,16 @@ body {
 .single__detail__spec .line2,
 .single__detail__spec .line3,
 .single__detail__spec .line4,
-.single__detail__spec .line5 { 
+.single__detail__spec .line5 {
   animation-name: fadeInFromBottom;
   animation-duration: 1s;
   animation-fill-mode: both;
   display: inline-block;
 }
 
-.single__detail__spec .line1 { animation-delay: .3s; }
-.single__detail__spec .line2 { animation-delay: .6s; }
-.single__detail__spec .line3 { animation-delay: .9s; }
+.single__detail__spec .line1 { animation-delay: 0.3s; }
+.single__detail__spec .line2 { animation-delay: 0.6s; }
+.single__detail__spec .line3 { animation-delay: 0.9s; }
 .single__detail__spec .line4 { animation-delay: 1.2s; }
 .single__detail__spec .line5 { animation-delay: 1.5s; }
 
@@ -204,6 +208,7 @@ body {
   from { margin-top: 100vh; }
   to { margin-top: 0; }
 }
+
 @keyframes appearFromTop {
   from { margin-top: -100vh; }
   to { margin-top: 0; }
@@ -213,25 +218,27 @@ body {
   from { margin-left: 100vw; }
   to { margin-left: 0; }
 }
+
 @keyframes appearFromLeft {
   from { margin-left: -100vw; }
   to { margin-left: 0; }
 }
 
 @keyframes fadeInFromBottom {
-  from { 
+  from {
     opacity: 0;
-    margin-top: 1rem; 
+    margin-top: 1rem;
   }
-  to { 
+
+  to {
     opacity: 1;
     margin-top: 0;
   }
 }
 
 @keyframes fadeInBasic {
-  from { opacity: 0;  }
-  to { opacity: 1;  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes expand {
@@ -244,62 +251,78 @@ body {
   to { transform: translateX(-20%); }
 }
 
-@media ( max-width: 768px ) {
+/* Media Query */
+
+/* Mobile */
+
+@media (max-width: 768px) {
   html {
     font-size: 70%;
   }
+
   .header {
     position: static;
     height: 10vh;
     background-color: #080305;
   }
+
   .group {
     height: 90vh;
     position: absolute;
   }
+
   .group__member {
     width: 100vw;
     min-height: 20%;
     background-position: 0% 30%;
     justify-content: flex-start;
   }
+
   .group__member h2 {
     margin-left: 4rem;
   }
-  .group__member:nth-child(1) { 
+
+  .group__member:nth-child(1) {
     top: 0%;
     left: 0;
     background-position: 0% 20%;
-    animation-name: appearFromLeft; 
+    animation-name: appearFromLeft;
   }
-  .group__member:nth-child(2) { 
+
+  .group__member:nth-child(2) {
     top: 20%;
     left: 0;
-    animation-name: appearFromRight; 
+    animation-name: appearFromRight;
   }
-  .group__member:nth-child(3) { 
+
+  .group__member:nth-child(3) {
     top: 40%;
     left: 0;
-    animation-name: appearFromLeft; 
+    animation-name: appearFromLeft;
   }
-  .group__member:nth-child(4) { 
+
+  .group__member:nth-child(4) {
     top: 60%;
     left: 0;
-    animation-name: appearFromRight; 
+    animation-name: appearFromRight;
   }
-  .group__member:nth-child(5) { 
+
+  .group__member:nth-child(5) {
     top: 80%;
     left: 0;
-    animation-name: appearFromLeft; 
+    animation-name: appearFromLeft;
   }
+
   .group__member.group__member--expand {
     top: 0;
     width: 100vw;
     height: 100vh;
   }
+
   .single {
     height: auto;
   }
+
   .single__inside {
     flex-direction: column;
     width: 100%;
@@ -308,21 +331,18 @@ body {
     align-items: center;
     padding-top: 10rem;
   }
+
   .single__profile,
   .single__detail {
     width: 30rem;
   }
+
   .single__profile {
     margin-left: 10rem;
-    flex-basis: 0px;
+    flex-basis: 0;
   }
+
   .single__detail {
     padding-top: 10rem;
-  }
-}
-
-@media ( min-width: 769px ) and ( max-width: 1200px ) {
-  .single__detail {
-    width: 60rem;
   }
 }
