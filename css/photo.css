@@ -125,6 +125,7 @@ body {
 .move-down-backward { animation: moveDownBackward 1.5s both 0.5s; }
 .hide { animation: hide 1s both 1s; }
 .show { animation: show 1s both 1s; }
+.hide-important { display: none !important; }
 
 .show-contents {
   display: block;

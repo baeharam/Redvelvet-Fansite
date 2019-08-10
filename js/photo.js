@@ -109,7 +109,7 @@ const initAnimation = function initAnimation() {
     swiperImg.classList.add('move-down');
     sections.forEach((section, sectionIndex) => {
       if (sectionIndex !== index) {
-        section.classList.add('hide');
+        section.classList.add('hide-important');
       }
     });
     swiperContentsInsides[index].classList.add('show-contents');
@@ -127,7 +127,7 @@ const initAnimation = function initAnimation() {
     swiperTitles[index].classList.add('move-up-backward');
     CLASSES.SWIPER_IMGS[index].classList.add('move-down-backward');
     document.querySelector('.show-contents').classList.remove('show-contents');
-    sections.forEach(section => section.classList.remove('hide'));
+    sections.forEach(section => section.classList.remove('hide-important'));
   };
 
   const addClickEventToImg = () => {
