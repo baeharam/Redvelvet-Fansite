@@ -145,11 +145,7 @@ section.out .swiper__img { animation: moveDownBackward 1.5s both 0.5s; }
 section.out .swiper__contents__inside { display: none; }
 .backBtn.out { animation: hide 1s both 1s; }
 
-/* TODO !important가 좋은 해결방법인가? */
-.no-rebuild {
-  animation-duration: 0s !important;
-  animation-delay: 0s !important;
-}
+.hide { display: none !important; }
 
 @keyframes leftGone {
   from { transform: rotate(-5deg) translateX(-50%); }
@@ -317,44 +313,19 @@ section.out .swiper__contents__inside { display: none; }
 
 /* Media Query */
 
-/* Tablet */
+/* Tablet & Mobile */
 @media (max-width: 992px) {
-  .swiper__img {
-    width: 45vw;
-  }
-
-  .swiper__title h2 {
-    font-size: 13rem;
-  }
-
-  .move-down {
-    animation: moveDownTablet 1.5s both 0.5s;
-  }
-
-  .section.out .swiper__img {
-    animation: moveDownBackwardTablet 1.5s both 0.5s;
-  }
+  html { font-size: 55%; }
+  .swiper__img { width: 45vw; }
+  section.in .swiper__img { animation: moveDownTablet 1.5s both 0.5s; }
+  section.out .swiper__img { animation: moveDownBackwardTablet 1.5s both 0.5s; }
 }
 
-/* Mobile */
+/* Small Mobile */
 @media (max-width: 576px) {
-  .header__logo {
-    width: 40vw;
-  }
-
-  .swiper__img {
-    width: 50vw;
-  }
-
-  .swiper__title h2 {
-    font-size: 10rem;
-  }
-
-  .move-down {
-    animation: moveDownMobile 1.5s both 0.5s;
-  }
-
-  .section.out .swiper__img {
-    animation: moveDownBackwardMobile 1.5s both 0.5s;
-  }
+  html { font-size: 30%; }
+  .header__logo { width: 40vw; }
+  .swiper__img { width: 50vw; }
+  section.in .swiper__img { animation: moveDownMobile 1.5s both 0.5s; }
+  section.out .swiper__img { animation: moveDownBackwardMobile 1.5s both 0.5s; }
 }

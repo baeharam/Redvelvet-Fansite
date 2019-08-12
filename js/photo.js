@@ -3,36 +3,42 @@
 /* eslint-disable no-undef */
 /* 위 사항들에 대한 무시는 fullpage.js의 것들을 사용하기 때문이다. */
 
-const CLASSES = (function makeCommonClasses() {
-  return {
-    SWIPER_IMGS: document.querySelectorAll('.swiper__img'),
-    SWIPER_IMGLEFTS: document.querySelectorAll('.swiper__img__left'),
-    SWIPER_IMGRIGHTS: document.querySelectorAll('.swiper__img__right'),
-    SWIPER_CONTENTS_MAINS: document.querySelectorAll('.swiper__contents__main'),
-  };
-}());
-
 const initObserverForBackground = function initObserver() {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        if (entry.target.dataset.color) {
-          document.getElementsByTagName('body')[0].style.backgroundColor = entry.target.dataset.color;
+  let observer;
+  const imgs = document.querySelectorAll('.swiper__img');
+  const mainImgs = document.querySelectorAll('.swiper__contents__main');
+  const leftImgs = document.querySelectorAll('.swiper__img__left');
+  const rightImgs = document.querySelectorAll('.swiper__img__right');
+
+  const makeObserverInstance = function makeObserverInstance() {
+    observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (entry.target.dataset.color) {
+            document.getElementsByTagName('body')[0].style.backgroundColor = entry.target.dataset.color;
+          }
+          if (entry.target.dataset.src) {
+            entry.target.style.backgroundImage = `url(${entry.target.dataset.src})`;
+          }
         }
-        if (entry.target.dataset.src) {
-          entry.target.style.backgroundImage = `url(${entry.target.dataset.src})`;
-        }
-      }
+      });
     });
-  });
-  CLASSES.SWIPER_IMGS.forEach(swiperImg => observer.observe(swiperImg));
-  CLASSES.SWIPER_IMGLEFTS.forEach(swiperLeftImg => observer.observe(swiperLeftImg));
-  CLASSES.SWIPER_IMGRIGHTS.forEach(swiperRightImg => observer.observe(swiperRightImg));
-  CLASSES.SWIPER_CONTENTS_MAINS.forEach(swiperContentsMain => observer.observe(swiperContentsMain));
+  };
+
+  const observeElements = function observElements() {
+    imgs.forEach(swiperImg => observer.observe(swiperImg));
+    leftImgs.forEach(swiperLeftImg => observer.observe(swiperLeftImg));
+    rightImgs.forEach(swiperRightImg => observer.observe(swiperRightImg));
+    mainImgs.forEach(swiperContentsMain => observer.observe(swiperContentsMain));
+  };
+
+  makeObserverInstance();
+  observeElements();
 };
 
 const initFullpage = function initFullpage() {
   new fullpage('#fullpage', {
+    anchors: ['irene', 'seulgi', 'wendy', 'yeri', 'joy'],
     autoScrolling: true,
     afterLoad(_origin, destination) {
       destination.item.classList.add('load');
@@ -69,7 +75,7 @@ const initAnimation = function initAnimation() {
     sections[index].classList.add('in');
     sections.forEach((section, sectionIndex) => {
       if (sectionIndex !== index) {
-        section.style.display = 'none';
+        section.classList.add('hide');
       }
     });
   };
@@ -83,23 +89,19 @@ const initAnimation = function initAnimation() {
     backBtn.classList.add('out');
     sections[index].classList.remove('in');
     sections[index].classList.add('out');
-
-    /* TODO 다른 section 바로 안나오게 수정해야 함 */
-    const displayAgain = function displayAgain() {
-      sections.forEach((section, sectionIndex) => {
-        if (sectionIndex !== index) {
-          section.style.display = 'table';
-        }
-      });
-    };
-    setTimeout(displayAgain, 2000);
+    sections.forEach((section, sectionIndex) => {
+      if (sectionIndex !== index) {
+        section.classList.remove('hide');
+      }
+    });
   };
 
   const addClickEventToSwiper = () => {
-    CLASSES.SWIPER_IMGS.forEach((swiperImg, index) => swiperImg.addEventListener('click', () => {
-      forwardClickAnimation(swiperImg, index);
-      fullpage_api.setAutoScrolling(false);
-    }));
+    document.querySelectorAll('.swiper__img').forEach((swiperImg, index) => swiperImg.addEventListener('click',
+      () => {
+        forwardClickAnimation(swiperImg, index);
+        fullpage_api.setAutoScrolling(false);
+      }));
   };
 
   const addClickEventToBackBtn = function addClickEventToBackBtn() {
@@ -109,20 +111,8 @@ const initAnimation = function initAnimation() {
     });
   };
 
-  const addNoRebuildEvent = () => {
-    window.addEventListener('resize', () => {
-      if (matchMedia('(max-width: 576px)').matches) {
-        const moveDownElem = document.querySelector('.move-down');
-        if (moveDownElem) {
-          moveDownElem.classList.add('no-rebuild');
-        }
-      }
-    });
-  };
-
   setHoverEffect();
   addClickEventToSwiper();
-  addNoRebuildEvent();
   addClickEventToBackBtn();
 };
 
