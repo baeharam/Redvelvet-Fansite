@@ -14,10 +14,11 @@ const initObserverForBackground = function initObserver() {
     observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          if (entry.target.dataset.color) {
+          if (entry.target.classList.contains('swiper__img')) {
             document.getElementsByTagName('body')[0].style.backgroundColor = entry.target.dataset.color;
-          }
-          if (entry.target.dataset.src) {
+          } else if (entry.target.classList.contains('swiper__img__left')
+            || entry.target.classList.contains('swiper__img__right')
+            || entry.target.classList.contains('swiper__contents__main')) {
             entry.target.style.backgroundImage = `url(${entry.target.dataset.src})`;
           }
         }
@@ -80,9 +81,9 @@ const initAnimation = function initAnimation() {
     });
   };
 
-  const backwardClickAnimation = function backwardClickAnimation() {
+  const backwardClickAnimation = function backwardClickAnimation(index) {
     // eslint-disable-next-line prefer-destructuring
-    const index = fullpage_api.getActiveSection().index;
+    // const index = fullpage_api.getActiveSection().index;
     const activateAnimation = function animate() {
       header.classList.remove('in');
       header.classList.add('out');
@@ -107,18 +108,23 @@ const initAnimation = function initAnimation() {
     removeOutClass();
   };
 
+  let currentIndex;
   const addClickEventToSwiper = () => {
     document.querySelectorAll('.swiper__img').forEach((swiperImg, index) => swiperImg.addEventListener('click',
       () => {
+        currentIndex = index;
         forwardClickAnimation(swiperImg, index);
         fullpage_api.setAutoScrolling(false);
+        fullpage_api.setLockAnchors(true);
       }));
   };
 
   const addClickEventToBackBtn = function addClickEventToBackBtn() {
     backBtn.addEventListener('click', () => {
-      backwardClickAnimation();
+      fullpage_api.moveTo(currentIndex + 1);
+      backwardClickAnimation(currentIndex);
       fullpage_api.setAutoScrolling(true);
+      fullpage_api.setLockAnchors(false);
     });
   };
 
