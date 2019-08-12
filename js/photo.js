@@ -83,17 +83,28 @@ const initAnimation = function initAnimation() {
   const backwardClickAnimation = function backwardClickAnimation() {
     // eslint-disable-next-line prefer-destructuring
     const index = fullpage_api.getActiveSection().index;
-    header.classList.remove('in');
-    header.classList.add('out');
-    backBtn.classList.remove('in');
-    backBtn.classList.add('out');
-    sections[index].classList.remove('in');
-    sections[index].classList.add('out');
-    sections.forEach((section, sectionIndex) => {
-      if (sectionIndex !== index) {
-        section.classList.remove('hide');
-      }
-    });
+    const activateAnimation = function animate() {
+      header.classList.remove('in');
+      header.classList.add('out');
+      backBtn.classList.remove('in');
+      backBtn.classList.add('out');
+      sections[index].classList.remove('in');
+      sections[index].classList.add('out');
+      sections.forEach((section, sectionIndex) => {
+        if (sectionIndex !== index) {
+          section.classList.remove('hide');
+        }
+      });
+    };
+
+    const removeOutClass = function removeOutClass() {
+      document.querySelectorAll('.swiper__img')[index].addEventListener('animationend', () => {
+        sections[index].classList.remove('out');
+      });
+    };
+
+    activateAnimation();
+    removeOutClass();
   };
 
   const addClickEventToSwiper = () => {
