@@ -1,7 +1,7 @@
 body {
-    background-image: url('../images/cover.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
+  background-image: url('../images/cover.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 65.25%;
 }

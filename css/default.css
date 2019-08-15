@@ -44,6 +44,11 @@ img {
   src: url("../fonts/LibreCaslonDisplay-Regular.ttf");
 }
 
+@font-face {
+  font-family: "Julietta";
+  src: url("../fonts/Julietta-Messie.otf");
+}
+
 html {
   font-size: 62.5%;
 }

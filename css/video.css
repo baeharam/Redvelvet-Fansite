@@ -1,68 +1,142 @@
-.videos__header {
-  text-align: center;
-  margin: 10vh auto 3rem;
-}
-
-.videos__header h2 {
-  font-size: 7rem;
-  font-family: 'Rochester', cursive;
-  color: black;
-}
-
-.videos__carousel {
+.main {
+  height: 100vh;
   position: relative;
 }
 
-.carousel-container {
-  border-radius: 1rem;
-  border: 5px solid black;
+.carousel {
   position: relative;
-  width: 80%;
-  margin: 0 auto;
-  overflow: hidden;
-}
-
-.carousel-slides { 
-  position: relative; 
-  padding-top: 56.25%;
-  width: 100%;
-  margin: 0 auto;
-  transition: transform .5s
-}
-
-.carousel-slides__video {
-  position: absolute; 
-  top: 0;
-  left: 0;
-  width: 100%; 
-  height: 100%;
-  text-align: center;
-}
-
-.carousel-slides__video iframe { 
-  width: 100%;
-  height: 90%;
-}
-
-.carousel-slides__video h3 {
-  color: black;
-  height: 10%;
-  font-size: 2rem;
-  line-height: 2;
-}
-
-.button-play {
-  position: absolute;
-  width: 7rem;
-  height: 7rem;
-  background: transparent;
-  border: none;
+  height: 80vh;
   top: 50%;
   transform: translateY(-50%);
-  cursor: pointer;
 }
 
-.button-play:focus { outline: 0; }
+.carousel__contents {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s;
+  opacity: 1;
+}
 
-.button-play--right { right: -1rem; }
-.button-play--left  { left: -1rem; }
+.video {
+  width: 60vw;
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+}
+
+.video__title {
+  position: absolute;
+  font-size: 0;
+  font-family: 'Anton', sans-serif;
+  bottom: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: crimson;
+  z-index: 3;
+  white-space: nowrap;
+  opacity: 0;
+}
+
+.selected .video__title { animation: fadeInTitle 1s forwards; }
+
+.video__desc {
+  position: absolute;
+  white-space: nowrap;
+  font-size: 5rem;
+  font-family: 'Julietta', serif;
+  bottom: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: black;
+  z-index: 3;
+  opacity: 0;
+}
+
+.selected .video__desc { animation: fadeInDesc 1s forwards; }
+
+.video__cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+  z-index: 1;
+  transition: opacity 0.5s;
+}
+
+.video:hover .video__cover {
+  opacity: 0;
+  z-index: -1;
+}
+
+.happiness { background-image: url('../images/album-Happiness.jpg'); }
+.be-natural { background-image: url('../images/album-BeNatural.jpg'); }
+
+.video__player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+.carousel__contents.hide {
+  display: none;
+}
+
+.carousel__contents.prev {
+  z-index: 5;
+  left: 30%;
+  opacity: 0.7;
+  transform: translate(-140%, -60%);
+}
+.carousel__contents.prev .video { width: 40vw; }
+
+.carousel__contents.selected {
+  z-index: 10;
+  left: 50%;
+}
+
+.carousel__contents.next {
+  z-index: 5;
+  left: 70%;
+  opacity: 0.7;
+  transform: translate(40%, -60%);
+}
+.carousel__contents.next .video { width: 40vw; }
+
+/* Animation */
+
+@keyframes fadeInTitle {
+  from {
+    opacity: 0;
+    bottom: -30%;
+    font-size: 0;
+  }
+
+  to {
+    opacity: 1;
+    bottom: -10%;
+    font-size: 10rem;
+  }
+}
+
+@keyframes fadeInDesc {
+  from {
+    opacity: 0;
+    bottom: -40%;
+  }
+
+  to {
+    opacity: 1;
+    bottom: -20%;
+  }
+}
