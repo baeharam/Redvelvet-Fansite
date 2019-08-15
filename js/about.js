@@ -47,8 +47,8 @@ const initializeMembers = function initializeMembers() {
       });
     });
     member.addEventListener('click', () => {
-      groupMembers.forEach((innerMember, innerIndex) => {
-        if (index !== innerIndex && innerMember.classList.contains('group__member--shrink')) {
+      groupMembers.forEach((innerMember) => {
+        if (innerMember.classList.contains('group__member--shrink')) {
           innerMember.classList.remove('group__member--shrink');
         }
       });
@@ -80,7 +80,7 @@ const initializeMembers = function initializeMembers() {
 
 const removeDefaultAnimations = function removeDefaultAnimations() {
   document.querySelectorAll('.group__member').forEach((member) => {
-    member.addEventListener('animationend', () => { member.style.animation = 'none'; });
+    member.addEventListener('animationend', () => { member.classList.add('no-animation'); });
   });
 };
 
