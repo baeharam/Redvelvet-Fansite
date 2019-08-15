@@ -1,5 +1,5 @@
 body {
-  background-color: #080305;
+  background-color: white;
 }
 
 .group__member {
@@ -85,124 +85,154 @@ body {
   width: 100%;
   z-index: 1;
   background-image: none;
-  background-color: #080305;
+  background-color: white;
 }
 
 .group__member.group__member--expand h2 {
   text-indent: -9999px;
 }
 
-.backBtn {
+.closeBtn {
   position: absolute;
-  left: 5%;
-  top: 2%;
+  right: 5%;
+  top: 5%;
   display: none;
   z-index: 3;
   cursor: pointer;
-}
-
-.backBtn img {
-  width: 6rem;
-  height: 6rem;
-}
-
-.backBtn img:hover {
-  animation: backBtnMove 0.5s both;
+  font-size: 10rem;
+  animation: fadeInBasic 1s both 0.5s;
 }
 
 .single {
   position: absolute;
+  left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
   display: none;
-  background-color: #080305;
-  z-index: 2;
+  background-color: white;
+  z-index: 1;
   animation: fadeInBasic 1s both 0.5s;
 }
 
-.single__inside {
+.single__contents {
+  height: 100vh;
+  position: relative;
+  margin-bottom: 5rem;
+}
+
+.single__main {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
+  top: 10%;
+  left: 10%;
+  width: 60vw;
 }
 
-.single__profile {
-  flex-basis: 60rem;
-  transform: rotate(-5deg) translateX(-10%);
+.single__main__title {
+  position: absolute;
+  left: -10%;
+  top: -10%;
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 10rem;
+  z-index: 1;
 }
 
-.single__profile__img {
-  padding-top: 150%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  box-shadow: 0 -1rem 0.5rem 1rem rgba(0, 0, 0, 0.3);
-  margin-right: 4rem;
-  animation: expand 1s ease 0.5s forwards;
+.single__main__title span {
+  font-size: 5rem;
+}
+
+.single__main__profile {
   position: relative;
 }
 
-.single__profile__irene { background-image: url('../images/about-irene.jpg'); }
-.single__profile__seulgi { background-image: url('../images/about-seulgi.jpg'); }
-.single__profile__wendy { background-image: url('../images/about-wendy.jpg'); }
-.single__profile__yeri { background-image: url('../images/about-yeri.jpg'); }
-.single__profile__joy { background-image: url('../images/about-joy.jpg'); }
-
-.single__profile__img::before {
+.single__main__profile::after {
   content: ' ';
+  z-index: -1;
   position: absolute;
-  z-index: -6;
-  left: 0;
-  top: 0;
-  height: 100%;
+  left: 5%;
+  top: 5%;
   width: 100%;
-  border: 10px solid white;
-  transform: rotate(-5deg) translateX(-10%);
-  animation: expand 1s ease 0.5s forwards;
+  height: 100%;
+  border: 5px solid #2ebce2;
 }
 
 .single__detail {
-  padding-top: 4rem;
-  width: 60rem;
-  color: white;
+  line-height: 2;
 }
 
 .single__detail__spec {
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  line-height: 1.5;
+  position: absolute;
+  font-size: 3rem;
+  top: 35%;
+  right: 3%;
+  color: rgba(0, 0, 0, 0.8);
+  width: 40rem;
+}
+
+.single__detail__spec span {
+  font-weight: bold;
 }
 
 .single__detail__spec .line1,
 .single__detail__spec .line2,
 .single__detail__spec .line3,
-.single__detail__spec .line4,
-.single__detail__spec .line5 {
+.single__detail__spec .line4 {
   animation-name: fadeInFromBottom;
   animation-duration: 1s;
   animation-fill-mode: both;
   display: inline-block;
+  opacity: 0;
 }
 
 .single__detail__spec .line1 { animation-delay: 0.3s; }
 .single__detail__spec .line2 { animation-delay: 0.6s; }
 .single__detail__spec .line3 { animation-delay: 0.9s; }
 .single__detail__spec .line4 { animation-delay: 1.2s; }
-.single__detail__spec .line5 { animation-delay: 1.5s; }
 
 .single__detail__saying {
+  position: absolute;
+  width: 40rem;
   font-size: 2rem;
-  line-height: 1.5;
-  animation-name: fadeInFromBottom;
-  animation-duration: 1s;
-  animation-fill-mode: both;
-  animation-delay: 1.8s;
+  bottom: 5%;
+  right: 5%;
+  color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  animation: fadeInFromBottom 1s both 1.5s;
+}
+
+.single__photo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.photo {
+  max-width: 35vw;
+  margin-left: 10rem;
+  align-self: flex-start;
+  transform: translateX(20%);
+  opacity: 0;
+}
+
+.photo:nth-child(even) {
+  margin-right: 10rem;
+  margin-top: -10rem;
+  align-self: flex-end;
+}
+
+.photo.intersect:nth-child(odd) {
+  animation: showPhotoFromRight 1s both 0.5s;
+}
+
+.photo.intersect:nth-child(even) {
+  animation: showPhotoFromLeft 1s both 0.5s;
 }
 
 .hide { display: none; }
 .show { display: block; }
+
+/* Animation */
 
 @keyframes appearFromBottom {
   from { margin-top: 100vh; }
@@ -246,12 +276,39 @@ body {
   to { width: 100%; }
 }
 
-@keyframes backBtnMove {
-  from { transform: translateX(0); }
-  to { transform: translateX(-20%); }
+@keyframes showPhotoFromRight {
+  from {
+    transform: translateX(20%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes showPhotoFromLeft {
+  from {
+    transform: translateX(-20%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 /* Media Query */
+
+/* Tablet */
+
+@media (max-width: 992px) {
+  .single__main__title { top: -20%; }
+  .single__detail { line-height: 1.5; }
+  .single__detail__spec { top: 45%; }
+}
 
 /* Mobile */
 
@@ -263,7 +320,7 @@ body {
   .header {
     position: static;
     height: 10vh;
-    background-color: #080305;
+    background-color: white;
   }
 
   .group {
@@ -319,30 +376,50 @@ body {
     height: 100vh;
   }
 
-  .single {
+  .single__contents {
     height: auto;
   }
 
-  .single__inside {
-    flex-direction: column;
-    width: 100%;
+  .single__main,
+  .single__main__title,
+  .single__detail__spec,
+  .single__detail__saying {
     position: static;
-    transform: none;
-    align-items: center;
-    padding-top: 10rem;
   }
 
-  .single__profile,
-  .single__detail {
-    width: 30rem;
+  .single__main,
+  .single__detail__spec,
+  .single__detail__saying {
+    width: 80vw;
+    margin: 0 auto;
+  }
+  .single__main__title { font-size: 5rem; }
+  .single__main__title span { font-size: 2.5rem; }
+
+  .single__detail__spec {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  .single__detail__saying { font-size: 1.5rem; }
+
+  .single__detail__spec,
+  .single__detail__saying {
+    line-height: 1.5;
   }
 
-  .single__profile {
-    margin-left: 10rem;
-    flex-basis: 0;
+  .closeBtn {
+    font-size: 5rem;
+    top: 1%;
   }
 
-  .single__detail {
-    padding-top: 10rem;
+  .photo {
+    max-width: 80vw;
+    margin-left: 0;
+    margin-bottom: 2rem;
+  }
+
+  .photo:nth-child(even) {
+    margin-right: 0;
+    margin-top: 0;
   }
 }

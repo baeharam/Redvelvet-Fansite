@@ -98,14 +98,14 @@ const initAnimation = function initAnimation() {
       });
     };
 
-    const removeOutClass = function removeOutClass() {
+    const replaceOutToLoad = function replaceOutToLoad() {
       document.querySelectorAll('.swiper__img')[index].addEventListener('animationend', () => {
-        sections[index].classList.remove('out');
+        sections[index].classList.replace('out', 'load');
       });
     };
 
     activateAnimation();
-    removeOutClass();
+    replaceOutToLoad();
   };
 
   let currentIndex;
@@ -121,8 +121,8 @@ const initAnimation = function initAnimation() {
 
   const addClickEventToBackBtn = function addClickEventToBackBtn() {
     backBtn.addEventListener('click', () => {
-      fullpage_api.moveTo(currentIndex + 1);
       backwardClickAnimation(currentIndex);
+      fullpage_api.moveTo(currentIndex + 1);
       fullpage_api.setAutoScrolling(true);
       fullpage_api.setLockAnchors(false);
     });

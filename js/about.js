@@ -2,19 +2,19 @@ const initializeMembers = function initializeMembers() {
   const groupInside = document.getElementById('group__inside-js');
   const groupMembers = document.querySelectorAll('.group__member');
   const singles = document.querySelectorAll('.single');
-  const backBtn = document.getElementById('backBtn-js');
+  const closeBtn = document.getElementById('closeBtn-js');
   const header = document.getElementById('header-js');
   const HIDE_CLASS = 'hide';
   const SHOW_CLASS = 'show';
 
-  const showBackBtn = function showBackBtn() {
-    backBtn.classList.remove(HIDE_CLASS);
-    backBtn.classList.add(SHOW_CLASS);
+  const showcloseBtn = function showcloseBtn() {
+    closeBtn.classList.remove(HIDE_CLASS);
+    closeBtn.classList.add(SHOW_CLASS);
   };
 
-  const hideBackBtn = function hideBackBtn() {
-    backBtn.classList.remove(SHOW_CLASS);
-    backBtn.classList.add(HIDE_CLASS);
+  const hidecloseBtn = function hidecloseBtn() {
+    closeBtn.classList.remove(SHOW_CLASS);
+    closeBtn.classList.add(HIDE_CLASS);
   };
 
   const showExpandedMembers = function showExpandedMembers(index) {
@@ -54,7 +54,7 @@ const initializeMembers = function initializeMembers() {
     member.addEventListener('click', () => {
       member.classList.add('group__member--expand');
       showExpandedMembers(index);
-      showBackBtn();
+      showcloseBtn();
       hideHeader();
     });
   });
@@ -69,12 +69,28 @@ const initializeMembers = function initializeMembers() {
     }
   });
 
-  backBtn.addEventListener('click', () => {
-    hideBackBtn();
+  closeBtn.addEventListener('click', () => {
+    hidecloseBtn();
     hideExpandedMembers();
     document.querySelector('.group__member--expand').classList.remove('group__member--expand');
     showHeader();
   });
 };
 
-initializeMembers();
+const initializePhotos = function initializePhotos() {
+  const io = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('intersect');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: '0px 0px 200px 0px' });
+  const photos = document.querySelectorAll('.photo');
+  photos.forEach(photo => io.observe(photo));
+};
+
+window.onload = () => {
+  initializeMembers();
+  initializePhotos();
+};
