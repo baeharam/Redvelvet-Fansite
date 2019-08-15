@@ -337,18 +337,12 @@ body {
 /* Mobile */
 
 @media (max-width: 768px) {
-  html {
-    font-size: 70%;
-  }
-
   .header {
     position: static;
     padding: 1rem 1rem;
     height: 10vh;
     background-color: white;
   }
-
-  .header__logo { width: 15rem; }
 
   .group {
     height: 100vh;
