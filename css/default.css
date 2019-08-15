@@ -232,6 +232,10 @@ input[id="menuicon"] + label span {
   position: absolute;
   transition: all 0.35s;
 }
+
+.header__menu.light span { background-color: white; }
+.header__menu.dark span { background-color: black; }
+
 input[id="menuicon"] + label span:nth-child(1) { top: 0; }
 
 input[id="menuicon"] + label span:nth-child(2) {
@@ -239,9 +243,6 @@ input[id="menuicon"] + label span:nth-child(2) {
   transform: translateY(-50%);
 }
 input[id="menuicon"] + label span:nth-child(3) { bottom: 0; }
-
-.menu-light { background-color: white; }
-.menu-dark { background-color: black; }
 
 /* Layouts */
 
