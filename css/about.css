@@ -83,9 +83,17 @@ body {
   left: 0;
   top: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 2;
   background-image: none;
   background-color: white;
+  animation: expand 0.5s both;
+}
+
+.group__member.group__member--shrink {
+  width: 20%;
+  z-index: 1;
+  background-color: white;
+  animation: shrink 0.5s both;
 }
 
 .group__member.group__member--expand h2 {
@@ -111,7 +119,7 @@ body {
   height: 100%;
   display: none;
   background-color: white;
-  z-index: 1;
+  z-index: 3;
   animation: fadeInBasic 1s both 0.5s;
 }
 
@@ -229,7 +237,7 @@ body {
   animation: showPhotoFromLeft 1s both 0.5s;
 }
 
-.hide { display: none; }
+/* .hide { display: none; } */
 .show { display: block; }
 
 /* Animation */
@@ -272,8 +280,13 @@ body {
 }
 
 @keyframes expand {
-  from { width: 0; }
+  from { width: 20%; }
   to { width: 100%; }
+}
+
+@keyframes shrink {
+  from { width: 100%; }
+  to { width: 20%; }
 }
 
 @keyframes showPhotoFromRight {

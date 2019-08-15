@@ -23,12 +23,7 @@ const initializeMembers = function initializeMembers() {
   };
 
   const hideExpandedMembers = function hideExpandedMembers() {
-    document.querySelector('.show').classList.add(HIDE_CLASS);
-    document.querySelector('.show').classList.remove(SHOW_CLASS);
-  };
-
-  const deactivateAnimationOfMember = function deactivateAnimation(member) {
-    member.style.animationName = 'none';
+    document.querySelector('.show').classList.replace(SHOW_CLASS, HIDE_CLASS);
   };
 
   const hideHeader = function hideHeader() {
@@ -43,15 +38,20 @@ const initializeMembers = function initializeMembers() {
 
   groupMembers.forEach((member, index) => {
     member.addEventListener('mouseenter', () => {
-      groupMembers.forEach((_member, _index) => {
-        if (_index !== index) {
-          _member.classList.remove('group__member--active');
+      groupMembers.forEach((innerMmber, innerIndex) => {
+        if (innerIndex !== index) {
+          innerMmber.classList.remove('group__member--active');
         } else {
-          _member.classList.add('group__member--active');
+          innerMmber.classList.add('group__member--active');
         }
       });
     });
     member.addEventListener('click', () => {
+      groupMembers.forEach((innerMember, innerIndex) => {
+        if (index !== innerIndex && innerMember.classList.contains('group__member--shrink')) {
+          innerMember.classList.remove('group__member--shrink');
+        }
+      });
       member.classList.add('group__member--expand');
       showExpandedMembers(index);
       showcloseBtn();
@@ -63,17 +63,24 @@ const initializeMembers = function initializeMembers() {
     groupMembers.forEach(member => member.classList.add('group__member--active'));
   });
 
-  window.addEventListener('resize', () => {
-    if (document.documentElement.offsetHeight <= 768) {
-      groupMembers.forEach(member => deactivateAnimationOfMember(member));
-    }
-  });
+  // window.addEventListener('resize', () => {
+  //   if (document.documentElement.offsetHeight <= 768) {
+  //     groupMembers.forEach(member => deactivateAnimationOfMember(member));
+  //   }
+  // });
 
   closeBtn.addEventListener('click', () => {
     hidecloseBtn();
     hideExpandedMembers();
-    document.querySelector('.group__member--expand').classList.remove('group__member--expand');
+    document.querySelector('.group__member--expand').classList
+      .replace('group__member--expand', 'group__member--shrink');
     showHeader();
+  });
+};
+
+const removeDefaultAnimations = function removeDefaultAnimations() {
+  document.querySelectorAll('.group__member').forEach((member) => {
+    member.addEventListener('animationend', () => { member.style.animation = 'none'; });
   });
 };
 
@@ -92,5 +99,6 @@ const initializePhotos = function initializePhotos() {
 
 window.onload = () => {
   initializeMembers();
+  removeDefaultAnimations();
   initializePhotos();
 };
