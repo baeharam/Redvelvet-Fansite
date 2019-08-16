@@ -337,13 +337,6 @@ body {
 /* Mobile */
 
 @media (max-width: 768px) {
-  .header {
-    position: static;
-    padding: 1rem 1rem;
-    height: 10vh;
-    background-color: white;
-  }
-
   .group {
     height: 100vh;
     position: absolute;
