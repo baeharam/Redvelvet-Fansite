@@ -80,11 +80,18 @@
 .icecreamcake { background-image: url('../images/video-IceCreamCake.jpg'); }
 .thered { background-image: url('../images/video-thered.png'); }
 .thevelvet { background-image: url('../images/video-thevelvet.jpg'); }
+.russian { background-image: url('../images/video-RussianRoulette.jpg'); }
+.rookie { background-image: url('../images/video-rookie.jpg'); }
+.theredsummer { background-image: url('../images/video-theredsummer.jpg'); }
+.perfectvelvet { background-image: url('../images/video-perfectvelvet.jpg'); }
+.theperfectredvelvet { background-image: url('../images/video-ThePerfectRedVelvet.jpg'); }
+.summermagic { background-image: url('../images/video-SummerMagic.png'); }
 
-.russian {
-  background-image: url('../images/video-RussianRoulette.jpg');
-  background-position: 20% center;
+.rbb {
+  background-image: url('../images/video-RBB.jpg');
+  background-position: top center;
 }
+.therevefestivalday1 { background-image: url('../images/video-TheReveFestival1.png'); }
 
 .video__player {
   position: absolute;
