@@ -15,7 +15,7 @@ const initObserverForBackground = function initObserver() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           if (entry.target.classList.contains('swiper__img')) {
-            document.getElementsByTagName('body')[0].style.backgroundColor = entry.target.dataset.color;
+            // document.getElementsByTagName('body')[0].style.backgroundColor = entry.target.dataset.color;
           } else if (entry.target.classList.contains('swiper__img__left')
             || entry.target.classList.contains('swiper__img__right')
             || entry.target.classList.contains('swiper__contents__main')) {
