@@ -71,11 +71,8 @@ document.querySelectorAll('.video__player').forEach((videoElem) => {
     }
   });
   videoElem.addEventListener('mouseleave', () => {
-    // const src = videoElem.getAttribute('src');
-    // if (src.includes('autoplay')) {
-    //   videoElem.setAttribute('src', src.split('&autoplay=1')[0]);
-    // }
     videoElem.contentWindow
       .postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+    window.focus();
   });
 });
