@@ -1,9 +1,10 @@
 function moveToSelected(element) {
   let selected;
-  if (element === 'next') {
-    selected = document.querySelector('.selected').nextElementSibling;
-  } else if (element === 'prev') {
+
+  if (element === 'prev') {
     selected = document.querySelector('.selected').previousElementSibling;
+  } else if (element === 'next') {
+    selected = document.querySelector('.selected').nextElementSibling;
   } else {
     selected = element;
   }
@@ -55,12 +56,8 @@ document.addEventListener('keydown', (e) => {
   e.preventDefault();
 });
 
-document.querySelector('.prev').addEventListener('click', () => {
-  moveToSelected('prev');
-});
-
-document.querySelector('.next').addEventListener('click', () => {
-  moveToSelected('next');
+document.querySelectorAll('.carousel__contents').forEach((content) => {
+  content.addEventListener('click', () => moveToSelected(content));
 });
 
 document.querySelectorAll('.video__player').forEach((videoElem) => {
@@ -68,6 +65,17 @@ document.querySelectorAll('.video__player').forEach((videoElem) => {
     const src = videoElem.getAttribute('src');
     if (!src.includes('autoplay')) {
       videoElem.setAttribute('src', `${src}&autoplay=1`);
+    } else {
+      videoElem.contentWindow
+        .postMessage('{"event":"command","func":"playVideo","args":""}', '*');
     }
+  });
+  videoElem.addEventListener('mouseleave', () => {
+    // const src = videoElem.getAttribute('src');
+    // if (src.includes('autoplay')) {
+    //   videoElem.setAttribute('src', src.split('&autoplay=1')[0]);
+    // }
+    videoElem.contentWindow
+      .postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
   });
 });

@@ -15,7 +15,7 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  transition: all 0.3s;
+  transition: all 0.5s;
   opacity: 1;
 }
 
@@ -29,7 +29,7 @@
 
 .video__title {
   position: absolute;
-  font-size: 0;
+  font-size: 10rem;
   font-family: 'Anton', sans-serif;
   bottom: -10%;
   left: 50%;
@@ -70,13 +70,21 @@
   transition: opacity 0.5s;
 }
 
-.video:hover .video__cover {
+.selected .video:hover .video__cover {
   opacity: 0;
   z-index: -1;
 }
 
-.happiness { background-image: url('../images/album-Happiness.jpg'); }
-.be-natural { background-image: url('../images/album-BeNatural.jpg'); }
+.happiness { background-image: url('../images/video-Happiness.jpg'); }
+.benatural { background-image: url('../images/video-BeNatural.jpg'); }
+.icecreamcake { background-image: url('../images/video-IceCreamCake.jpg'); }
+.thered { background-image: url('../images/video-thered.png'); }
+.thevelvet { background-image: url('../images/video-thevelvet.jpg'); }
+
+.russian { 
+  background-image: url('../images/video-RussianRoulette.jpg');
+  background-position: 20% center;
+}
 
 .video__player {
   position: absolute;
@@ -119,13 +127,11 @@
   from {
     opacity: 0;
     bottom: -30%;
-    font-size: 0;
   }
 
   to {
     opacity: 1;
     bottom: -10%;
-    font-size: 10rem;
   }
 }
 
