@@ -153,3 +153,36 @@
     bottom: -20%;
   }
 }
+
+/* Media Query */
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .carousel {
+    height: 90%;
+    top: 0;
+    transform: none;
+    overflow: hidden;
+  }
+
+  .video { width: 90vw; }
+  .video__title { font-size: 5rem; }
+
+  .video__desc {
+    font-size: 2.5rem;
+    bottom: 0;
+  }
+
+  .carousel__contents.prev {
+    left: 50%;
+    transform: translate(-50%, -140%);
+  }
+  .carousel__contents.prev .video { width: 75vw; }
+
+  .carousel__contents.next {
+    left: 50%;
+    transform: translate(-50%, 40%);
+  }
+  .carousel__contents.next .video { width: 75vw; }
+}
