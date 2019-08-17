@@ -46,7 +46,7 @@ const initScrollBehaviors = function initScrollBehaviors() {
       if (entry.isIntersecting) {
         if (entry.target.className === 'grid__item') {
           entry.target.classList.add('grid__item--scale');
-        } else {
+        } else if (entry.target.className === 'placeholder') {
           const originalImg = new Image();
           originalImg.onload = () => originalImg.classList.add('loaded');
           originalImg.src = entry.target.dataset.large;

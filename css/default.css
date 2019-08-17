@@ -49,6 +49,11 @@ img {
   src: url("../fonts/Julietta-Messie.otf");
 }
 
+@font-face {
+  font-family: "Anton";
+  src: url("../fonts/Anton-Regular.ttf");
+}
+
 html {
   font-size: 62.5%;
 }
