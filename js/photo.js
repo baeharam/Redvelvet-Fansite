@@ -23,16 +23,6 @@ const initMasonry = function initMasonry() {
   initReiszeEvent();
 };
 
-const initLazyLoading = function initLazyLoading() {
-  const smallImgs = document.querySelectorAll('.placeholder__img');
-
-  smallImgs.forEach((smallImg) => {
-    const img = new Image();
-    img.src = smallImg.src;
-    img.onload = () => smallImg.classList.add('loaded');
-  });
-};
-
 const initObserver = function initObserver(io) {
   const gridItems = document.querySelectorAll('.grid__item');
   const placeholders = document.querySelectorAll('.placeholder');
@@ -55,12 +45,11 @@ const initScrollBehaviors = function initScrollBehaviors() {
         }
       }
     });
-  });
+  }, { rootMargin: '0px 0px 200px 0px' });
   initObserver(io);
 };
 
 window.onload = () => {
   initMasonry();
-  initLazyLoading();
   initScrollBehaviors();
 };
