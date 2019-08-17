@@ -264,6 +264,7 @@ input[id="menuicon"] + label span:nth-child(3) { bottom: 0; }
 .l-col {
   float: left;
   padding: 0 1rem;
+  margin-bottom: 2rem;
 }
 
 .l-col-1-5 { width: 20%; }
