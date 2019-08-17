@@ -4,159 +4,82 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="../css/fullpage.min.css">
   <link rel="stylesheet" href="../css/default.css">
-  <link rel="stylesheet" href="../css/photo.css">
-  <title>Photo</title>
+  <link rel="stylesheet" href="../css/test.css">
+  <title>Photos</title>
 </head>
 <body>
   <header id="header-js" class="header">
-    <div class="header__inside clearfix">
-      <a href="./index.html">
-        <img class="header__logo" src="../images/logo-red.png" alt="로고">
-      </a>
-      <div id="header__menu-js" class="header__menu">
-        <input type="checkbox" id="menuicon">
-          <label for="menuicon">
-            <span class="menu-light"></span>
-            <span class="menu-light"></span>
-            <span class="menu-light"></span>
-          </label>
+      <div class="header__inside clearfix">
+          <a href="./index.html">
+              <img class="header__logo" src="../images/logo-red.png" alt="로고">
+          </a>
+          <div id="header__menu-js" class="header__menu dark">
+              <input type="checkbox" id="menuicon">
+              <label for="menuicon">
+                  <span class="menu"></span>
+                  <span class="menu"></span>
+                  <span class="menu"></span>
+              </label>
+          </div>
       </div>
-    </div>
-    <h1>홈</h1>
+      <h1>홈</h1>
   </header>
   <aside id="overlay-js" class="overlay">
-    <a href="javascript:void(0)" id="overlay__closeBtn-js" class="overlay__closeBtn">&times;</a>
-    <nav class="overlay-menu">
-      <ul>
-      <li><a href="./about.html">ABOUT</a></li>
-      <li><a href="./photo.html">PHOTOS</a></li>
-      <li><a href="./discography.html">DISCOGRAPHY</a></li>
-      <li><a href="./video.html">VIDEOS</a></li>
-      </ul>
-    </nav>
+      <a href="javascript:void(0)" id="overlay__closeBtn-js" class="overlay__closeBtn">&times;</a>
+      <nav class="overlay-menu">
+          <ul>
+          <li><a href="./about.html">ABOUT</a></li>
+          <li><a href="./photo.html">PHOTOS</a></li>
+          <li><a href="./discography.html">DISCOGRAPHY</a></li>
+          <li><a href="./video.html">VIDEOS</a></li>
+          </ul>
+      </nav>
   </aside>
-  <main id="fullpage">
+  <main class="main">
     <section class="section">
-      <div class="swiper">
-        <div class="swiper__img" data-color="#031F1C">
-          <div class="swiper__img__inside">
-            <div class="swiper__img__left irene__left" data-src="../images/photo-irene1.jpg"></div>
-            <div class="swiper__img__right irene__right" data-src="../images/photo-irene2.jpg"></div>
-            <div class="swiper__contents">
-              <div class="swiper__contents__main irene__main" data-src="../images/photo-irene3.jpg"></div>
-              <div class="swiper__contents__inside">
-                <img class="swiper__contents__component" src="../images/photo-irene4.jpg" alt="아이린">
-                <img class="swiper__contents__component" src="../images/photo-irene5.jpg" alt="아이린">
-                <img class="swiper__contents__component" src="../images/photo-irene6.jpg" alt="아이린">
-                <img class="swiper__contents__component" src="../images/photo-irene7.jpg" alt="아이린">
-              </div>
+      <div class="l-wrapper">
+        <div class="grid clearfix">
+          <div class="gutter-sizer"></div>
+          <div class="grid__sizer"></div>
+          <div class="grid__item">
+            <div class="placeholder" data-large="../images/photo-irene1.jpg">
+              <img class="placeholder__img" src="../images/photo-irene1-low.jpg" alt="아이린">
+              <div style="padding-bottom: 150%;"></div>
+            </div>
+          </div>
+          <div class="grid__item">
+            <div class="placeholder" data-large="../images/photo-seulgi1.jpg">
+              <img class="placeholder__img" src="../images/photo-seulgi1-low.jpg" alt="슬기">
+              <div style="padding-bottom: 150%;"></div>
+            </div>
+          </div>
+          <div class="grid__item">
+            <div class="placeholder" data-large="../images/photo-wendy1.jpg">
+              <img class="placeholder__img" src="../images/photo-wendy1-low.jpg" alt="웬디">
+              <div style="padding-bottom: 150%;"></div>
+            </div>
+          </div>
+          <div class="grid__item">
+            <div class="placeholder" data-large="../images/photo-yeri1.jpg">
+              <img class="placeholder__img" src="../images/photo-yeri1-low.jpg" alt="예리">
+              <div style="padding-bottom: 150%;"></div>
+            </div>
+          </div>
+          <div class="grid__item">
+            <div class="placeholder" data-large="../images/photo-joy1.jpg">
+              <img class="placeholder__img" src="../images/photo-joy1-low.jpg" alt="조이">
+              <div style="padding-bottom: 150%;"></div>
             </div>
           </div>
         </div>
-        <div class="swiper__title">
-          <h2>IRENE</h2>
-        </div>
       </div>
     </section>
-    <section class="section">
-      <div class="swiper">
-        <div class="swiper__img" data-color="#1f1b11">
-          <div class="swiper__img__inside">
-            <div class="swiper__img__left seulgi__left" data-src="../images/photo-seulgi1.jpg"></div>
-            <div class="swiper__img__right seulgi__right" data-src="../images/photo-seulgi2.jpg"></div>
-            <div class="swiper__contents">
-              <div class="swiper__contents__main seulgi__main" data-src="../images/photo-seulgi3.jpg"></div>
-              <div class="swiper__contents__inside">
-                <img class="swiper__contents__component" src="../images/photo-seulgi4.jpg" alt="슬기">
-                <img class="swiper__contents__component" src="../images/photo-seulgi5.jpg" alt="슬기">
-                <img class="swiper__contents__component" src="../images/photo-seulgi6.jpg" alt="슬기">
-                <img class="swiper__contents__component" src="../images/photo-seulgi7.jpg" alt="슬기">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="swiper__title">
-          <h2>SEULGI</h2>
-        </div>
-      </div>
-    </section>
-    <section class="section">
-      <div class="swiper">
-        <div class="swiper__img" data-color="#291310">
-          <div class="swiper__img__inside">
-            <div class="swiper__img__left wendy__left" data-src="../images/photo-wendy1.jpg"></div>
-            <div class="swiper__img__right wendy__right" data-src="../images/photo-wendy2.jpg"></div>
-            <div class="swiper__contents">
-              <div class="swiper__contents__main wendy__main" data-src="../images/photo-wendy3.jpg"></div>
-              <div class="swiper__contents__inside">
-                <img class="swiper__contents__component" src="../images/photo-wendy4.jpg" alt="웬디">
-                <img class="swiper__contents__component" src="../images/photo-wendy5.jpg" alt="웬디">
-                <img class="swiper__contents__component" src="../images/photo-wendy6.jpg" alt="웬디">
-                <img class="swiper__contents__component" src="../images/photo-wendy7.jpg" alt="웬디">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="swiper__title">
-          <h2>WENDY</h2>
-        </div>
-      </div>
-    </section>
-    <section class="section">
-      <div class="swiper">
-        <div class="swiper__img" data-color="#5e0238">
-          <div class="swiper__img__inside">
-            <div class="swiper__img__left yeri__left" data-src="../images/photo-yeri1.jpg"></div>
-            <div class="swiper__img__right yeri__right" data-src="../images/photo-yeri2.jpg"></div>
-            <div class="swiper__contents">
-              <div class="swiper__contents__main yeri__main" data-src="../images/photo-yeri3.jpg"></div>
-              <div class="swiper__contents__inside">
-                <img class="swiper__contents__component" src="../images/photo-yeri4.jpg" alt="예리">
-                <img class="swiper__contents__component" src="../images/photo-yeri5.jpg" alt="예리">
-                <img class="swiper__contents__component" src="../images/photo-yeri6.jpg" alt="예리">
-                <img class="swiper__contents__component" src="../images/photo-yeri7.jpg" alt="예리">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="swiper__title">
-          <h2>YERI</h2>
-        </div>
-      </div>
-    </section>
-    <section class="section">
-      <div class="swiper">
-        <div class="swiper__img" data-color="#4e087c">
-          <div class="swiper__img__inside">
-            <div class="swiper__img__left joy__left" data-src="../images/photo-joy1.jpg"></div>
-            <div class="swiper__img__right joy__right" data-src="../images/photo-joy2.jpg"></div>
-            <div class="swiper__contents">
-              <div class="swiper__contents__main joy__main" data-src="../images/photo-joy3.jpg"></div>
-              <div class="swiper__contents__inside">
-                <img class="swiper__contents__component" src="../images/photo-joy4.jpg" alt="조이">
-                <img class="swiper__contents__component" src="../images/photo-joy5.jpg" alt="조이">
-                <img class="swiper__contents__component" src="../images/photo-joy6.jpg" alt="조이">
-                <img class="swiper__contents__component" src="../images/photo-joy7.jpg" alt="조이">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="swiper__title">
-          <h2>JOY</h2>
-        </div>
-      </div>
-    </section>
-    <div id="backBtn-js" class="backBtn">
-      <img src="../images/backBtn.svg" alt="뒤로가기">
-    </div>
   </main>
-  <script src="../js/fullpage.min.js"></script>
+  <script src="../js/imagesloaded.pkgd.min.js"></script>
+  <script src="../js/masonry.pkgd.min.js"></script>
   <script src="../js/intersection-observer.js"></script>
   <script src="../js/default.js"></script>
-  <script src="../js/photo.js"></script>
-  <script>
-  </script>
+  <script src="../js/test.js"></script>
 </body>
 </html>
