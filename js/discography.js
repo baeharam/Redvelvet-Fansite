@@ -4,11 +4,11 @@ URL: https://codepen.io/knyttneve/pen/bgvmma/
 I changed jQuery source code into pure javascript and modified useless logics
 */
 
-const initializePlayer = function initializePlayer() {
+const initPlayer = function initPlayer() {
   let player;
 
   return function closureForPlayer(youtubeID) {
-    if (player) {
+    if (player && player.loadVideoById) {
       player.loadVideoById(youtubeID);
       return;
     }
@@ -30,37 +30,39 @@ const initializePlayer = function initializePlayer() {
   };
 };
 
-const initializeTimeline = function initializeTimeline() {
+const initScrollEvent = function initScrollEvent() {
+  const playMusicByYoutube = initPlayer();
   const timeline = document.getElementById('timeline-js');
-  const selectors = {
-    id: timeline,
-    items: document.querySelectorAll('.timeline__item'),
-    imgs: document.querySelectorAll('.timeline__img'),
-    activeClass: 'timeline__item--active',
+  const timelineItems = document.querySelectorAll('.timeline__item');
+  const activeClass = 'timeline__item--active';
+  const extraSpace = 80;
+
+  const changeBackground = function changeBackground(src) {
+    timeline.style.backgroundImage = `url(${src})`;
   };
-  selectors.removeAllActive = function removeAllActive() {
-    selectors.items.forEach(item => item.classList.remove(selectors.activeClass));
+
+  const removeAllActiveElems = function removeAllActiveElems() {
+    document.querySelectorAll('.timeline__item--active')
+      .forEach(el => el.classList.remove('timeline__item--active'));
   };
-  selectors.items[0].classList.add(selectors.activeClass);
-  selectors.id.style.backgroundImage = `url(${selectors.imgs[0].src})`;
-  const playMusicByYoutube = initializePlayer();
+
+  timelineItems[0].classList.add(activeClass);
+  changeBackground(timelineItems[0].dataset.src);
+  playMusicByYoutube(timelineItems[0].dataset.id);
 
   window.addEventListener('scroll', () => {
-    let max;
-    let min;
     const pos = document.documentElement.scrollTop;
-    selectors.items.forEach((item) => {
-      min = item.offsetTop;
-      max = item.offsetTop + item.offsetHeight;
-      if (pos <= max - 40 && pos >= min) {
-        const activeImg = document.querySelector('.timeline__item--active .timeline__img');
-        selectors.id.style.backgroundImage = `url(${activeImg.src})`;
-        selectors.removeAllActive();
-        item.classList.add(selectors.activeClass);
+    timelineItems.forEach((item) => {
+      const minPos = item.offsetTop;
+      const maxPos = minPos + item.offsetHeight;
+      if (pos + extraSpace >= minPos && pos <= maxPos) {
+        removeAllActiveElems();
+        item.classList.add(activeClass);
+        changeBackground(item.dataset.src);
         playMusicByYoutube(item.dataset.id);
       }
     });
   });
 };
 
-initializeTimeline();
+window.onload = () => initScrollEvent();
