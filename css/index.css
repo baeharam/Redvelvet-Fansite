@@ -20,7 +20,7 @@
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  animation: backgroundTransition 24s infinite 0s;
+  animation: backgroundTransition 30s infinite 0s;
   backface-visibility: hidden;
   opacity: 0;
 }
@@ -30,18 +30,23 @@ li:nth-child(1) .bg__img {
 }
 
 li:nth-child(2) .bg__img {
-  background-image: url('../images/wendy.jpg');
+  background-image: url('../images/seulgi.jpg');
   animation-delay: 6s;
 }
 
 li:nth-child(3) .bg__img {
-  background-image: url('../images/yeri.jpg');
+  background-image: url('../images/wendy.jpg');
   animation-delay: 12s;
 }
 
 li:nth-child(4) .bg__img {
-  background-image: url('../images/joy.jpg');
+  background-image: url('../images/yeri.jpg');
   animation-delay: 18s;
+}
+
+li:nth-child(5) .bg__img {
+  background-image: url('../images/joy.jpg');
+  animation-delay: 24s;
 }
 
 /* Animation */
@@ -57,7 +62,7 @@ li:nth-child(4) .bg__img {
     animation-timing-function: ease-out;
   }
   16% { opacity: 1; }
-  34% { opacity: 0; }
+  29% { opacity: 0; }
   100% { opacity: 0; }
 }
 
