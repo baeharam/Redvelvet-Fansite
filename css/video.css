@@ -1,13 +1,6 @@
-.main {
-  height: 100vh;
-  position: relative;
-}
-
 .carousel {
   position: relative;
-  height: 80vh;
-  top: 50%;
-  transform: translateY(-50%);
+  height: 100vh;
 }
 
 .carousel__contents {
@@ -24,38 +17,34 @@
   position: relative;
   padding-bottom: 56.25%;
   padding-top: 30px;
-  height: 0;
 }
 
 .video__title {
   position: absolute;
   font-size: 10rem;
   font-family: 'Anton', sans-serif;
-  bottom: -10%;
+  top: 90%;
   left: 50%;
   transform: translateX(-50%);
   color: crimson;
   z-index: 3;
   white-space: nowrap;
   opacity: 0;
+  height: 1em;
+}
+
+.video__title::after {
+  content: attr(data-title);
+  position: absolute;
+  left: 50%;
+  top: 90%;
+  transform: translateX(-50%);
+  font-size: 5rem;
+  font-family: 'Julietta', serif;
+  color: black;
 }
 
 .selected .video__title { animation: fadeInTitle 1s forwards; }
-
-.video__desc {
-  position: absolute;
-  white-space: nowrap;
-  font-size: 5rem;
-  font-family: 'Julietta', serif;
-  bottom: -20%;
-  left: 50%;
-  transform: translateX(-50%);
-  color: black;
-  z-index: 3;
-  opacity: 0;
-}
-
-.selected .video__desc { animation: fadeInDesc 1s forwards; }
 
 .video__cover {
   position: absolute;
@@ -133,24 +122,12 @@
 @keyframes fadeInTitle {
   from {
     opacity: 0;
-    bottom: -30%;
+    top: 110%;
   }
 
   to {
     opacity: 1;
-    bottom: -10%;
-  }
-}
-
-@keyframes fadeInDesc {
-  from {
-    opacity: 0;
-    bottom: -40%;
-  }
-
-  to {
-    opacity: 1;
-    bottom: -20%;
+    top: 90%;
   }
 }
 
@@ -159,20 +136,18 @@
 /* Mobile */
 
 @media (max-width: 768px) {
+  .main { height: 90vh; }
+
   .carousel {
-    height: 90%;
+    height: 100%;
     top: 0;
     transform: none;
     overflow: hidden;
   }
 
   .video { width: 90vw; }
-  .video__title { font-size: 5rem; }
-
-  .video__desc {
-    font-size: 2.5rem;
-    bottom: 0;
-  }
+  .video__title { font-size: 15vw; }
+  .video__title::after { display: none; }
 
   .carousel__contents.prev {
     left: 50%;
