@@ -36,22 +36,27 @@ img {
 
 @font-face {
   font-family: "SeoulHangangL";
-  src: url("../fonts/SeoulHangangL.woff") format(woff);
+  src: url("../fonts/SeoulHangangL.woff") format('woff');
 }
 
 @font-face {
   font-family: "Libre Caslon Display";
-  src: url("../fonts/LibreCaslonDisplay-Regular.woff") format(woff);
+  src: url("../fonts/LibreCaslonDisplay.woff") format('woff');
 }
 
 @font-face {
   font-family: "Julietta";
-  src: url("../fonts/Julietta-Messie.woff") format(woff);
+  src: url("../fonts/Julietta.woff") format('woff');
 }
 
 @font-face {
   font-family: "Anton";
-  src: url("../fonts/Anton-Regular.woff") format(woff);
+  src: url("../fonts/Anton.woff") format('woff');
+}
+
+@font-face {
+  font-family: "Fascinate";
+  src: url("../fonts/Fascinate.woff") format('woff');
 }
 
 html {
@@ -122,6 +127,7 @@ header h1 { text-indent: -9999px; }
   visibility: hidden;
   transition: opacity 0.35s, visibility 0.35s, height 0.35s;
   overflow: hidden;
+  font-family: "Julietta", serif;
 }
 
 .overlay.open {
@@ -152,7 +158,8 @@ header h1 { text-indent: -9999px; }
   display: block;
   position: relative;
   opacity: 0;
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
+  height: 1em;
 }
 
 .overlay ul li a {
