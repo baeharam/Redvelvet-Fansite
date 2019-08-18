@@ -36,22 +36,22 @@ img {
 
 @font-face {
   font-family: "SeoulHangangL";
-  src: url("../fonts/SeoulHangangL.otf");
+  src: url("../fonts/SeoulHangangL.woff") format(woff);
 }
 
 @font-face {
   font-family: "Libre Caslon Display";
-  src: url("../fonts/LibreCaslonDisplay-Regular.ttf");
+  src: url("../fonts/LibreCaslonDisplay-Regular.woff") format(woff);
 }
 
 @font-face {
   font-family: "Julietta";
-  src: url("../fonts/Julietta-Messie.otf");
+  src: url("../fonts/Julietta-Messie.woff") format(woff);
 }
 
 @font-face {
   font-family: "Anton";
-  src: url("../fonts/Anton-Regular.ttf");
+  src: url("../fonts/Anton-Regular.woff") format(woff);
 }
 
 html {
