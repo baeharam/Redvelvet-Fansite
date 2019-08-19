@@ -217,8 +217,8 @@ body {
   padding: 10px;
 }
 
-.photo {
-  max-width: 35vw;
+.placeholder {
+  width: 35vw;
   margin-left: 10rem;
   align-self: flex-start;
   transform: translateX(20%);
@@ -226,17 +226,17 @@ body {
   border-radius: 1rem;
 }
 
-.photo:nth-child(even) {
+.placeholder:nth-child(even) {
   margin-right: 10rem;
   margin-top: -10rem;
   align-self: flex-end;
 }
 
-.photo.intersect:nth-child(odd) {
+.placeholder.intersect:nth-child(odd) {
   animation: showPhotoFromRight 1s both 0.5s;
 }
 
-.photo.intersect:nth-child(even) {
+.placeholder.intersect:nth-child(even) {
   animation: showPhotoFromLeft 1s both 0.5s;
 }
 
@@ -441,13 +441,13 @@ body {
     top: 1%;
   }
 
-  .photo {
-    max-width: 80vw;
+  .placeholder {
+    width: 80vw;
     margin-left: 0;
     margin-bottom: 2rem;
   }
 
-  .photo:nth-child(even) {
+  .placeholder:nth-child(even) {
     margin-right: 0;
     margin-top: 0;
   }

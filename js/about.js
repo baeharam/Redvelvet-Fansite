@@ -63,12 +63,6 @@ const initializeMembers = function initializeMembers() {
     groupMembers.forEach(member => member.classList.add('group__member--active'));
   });
 
-  // window.addEventListener('resize', () => {
-  //   if (document.documentElement.offsetHeight <= 768) {
-  //     groupMembers.forEach(member => deactivateAnimationOfMember(member));
-  //   }
-  // });
-
   closeBtn.addEventListener('click', () => {
     hidecloseBtn();
     hideExpandedMembers();
@@ -84,21 +78,33 @@ const removeDefaultAnimations = function removeDefaultAnimations() {
   });
 };
 
-const initializePhotos = function initializePhotos() {
-  const io = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('intersect');
-        observer.unobserve(entry.target);
+const isVisible = function isVisible(elem) {
+  const elemTop = elem.getBoundingClientRect().top;
+  const docHeight = document.documentElement.clientHeight;
+  return elemTop && elemTop <= docHeight;
+};
+
+const initPhotos = function initPhotos() {
+  const placeholders = document.querySelectorAll('.placeholder');
+  window.addEventListener('scroll', () => {
+    placeholders.forEach((placeholder) => {
+      if (!placeholder.classList.contains('loaded') && isVisible(placeholder)) {
+        const image = new Image();
+        image.onload = () => {
+          placeholder.removeChild(placeholder.firstElementChild);
+          placeholder.classList.add('intersect');
+          placeholder.append(image);
+        };
+        image.src = placeholder.dataset.src;
+        image.alt = placeholder.dataset.alt;
+        placeholder.classList.add('loaded');
       }
     });
-  }, { rootMargin: '0px 0px 200px 0px' });
-  const photos = document.querySelectorAll('.photo');
-  photos.forEach(photo => io.observe(photo));
+  });
 };
 
 window.onload = () => {
   initializeMembers();
   removeDefaultAnimations();
-  initializePhotos();
+  initPhotos();
 };
