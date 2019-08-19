@@ -262,6 +262,10 @@ input[id="menuicon"] + label span:nth-child(3) { bottom: 0; }
   padding: 1rem 0;
 }
 
+.footer p {
+  white-space: nowrap;
+}
+
 .footer--float {
   position: absolute;
   left: 50%;
@@ -329,4 +333,7 @@ input[id="menuicon"] + label span:nth-child(3) { bottom: 0; }
     height: 10vh;
     background-color: white;
   }
+
+  .overlay nav { font-size: 3.5rem; }
+  .footer p { font-size: 1.2rem; }
 }

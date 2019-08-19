@@ -295,7 +295,7 @@ body {
 
 @keyframes expandMobile {
   from { height: 20%; }
-  to { height: 100%; }
+  to { height: 110%; }
 }
 
 @keyframes shrinkMobile {
@@ -340,8 +340,13 @@ body {
 /* Mobile */
 
 @media (max-width: 768px) {
-  .group {
+  .main {
+    position: relative;
     height: 90vh;
+  }
+
+  .group {
+    height: 100%;
     position: absolute;
   }
 
@@ -393,7 +398,7 @@ body {
   .group__member.group__member--expand {
     top: 0;
     width: 100vw;
-    height: 100%;
+    height: 110%;
     animation: expandMobile 0.5s both;
   }
 

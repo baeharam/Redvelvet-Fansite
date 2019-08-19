@@ -36,6 +36,10 @@ const initializeMembers = function initializeMembers() {
     header.classList.add(SHOW_CLASS);
   };
 
+  const scrollUp = function scrollUp() {
+    document.documentElement.scrollTop = 0;
+  };
+
   groupMembers.forEach((member, index) => {
     member.addEventListener('mouseenter', () => {
       groupMembers.forEach((innerMmber, innerIndex) => {
@@ -56,6 +60,7 @@ const initializeMembers = function initializeMembers() {
       showExpandedMembers(index);
       showcloseBtn();
       hideHeader();
+      scrollUp();
     });
   });
 
@@ -103,8 +108,25 @@ const initPhotos = function initPhotos() {
   });
 };
 
+const initMediaQuery = function initMediaQuery() {
+  const handler = () => {
+    if (matchMedia('(max-width: 768px)').matches) {
+      document.getElementById('header__menu-js').classList.replace('light', 'dark');
+      document.querySelector('.footer').classList.replace('footer--float', 'footer--fixed');
+      document.querySelector('.footer').classList.replace('footer--light', 'footer--dark');
+    } else {
+      document.getElementById('header__menu-js').classList.replace('dark', 'light');
+      document.querySelector('.footer').classList.replace('footer--fixed', 'footer--float');
+      document.querySelector('.footer').classList.replace('footer--dark', 'footer--light');
+    }
+  };
+  window.addEventListener('resize', handler);
+  handler();
+};
+
 window.onload = () => {
   initializeMembers();
   removeDefaultAnimations();
   initPhotos();
+  initMediaQuery();
 };
