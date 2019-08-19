@@ -60,7 +60,6 @@ body { position: relative; }
 }
 
 .timeline__content__desc {
-  margin: 0;
   font-size: 1.5rem;
   color: rgba(255, 255, 255, 0.7);
   font-weight: normal;
@@ -225,8 +224,8 @@ body { position: relative; }
     transform: translateX(-50%);
   }
 
-  .timeline__link img,
-  .timeline__item:nth-child(even) .timeline__link img {
+  .youtube,
+  .melon {
     width: 7rem;
     height: 7rem;
   }
@@ -239,4 +238,10 @@ body { position: relative; }
 @media (max-width: 576px) {
   .timeline__item { width: 80vw; }
   .timeline__content__title { font-size: 5rem; }
+
+  .youtube,
+  .melon {
+    width: 5rem;
+    height: 5rem;
+  }
 }
