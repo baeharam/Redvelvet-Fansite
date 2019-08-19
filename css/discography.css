@@ -3,6 +3,8 @@ Author: Mert Cukuren
 URL: https://codepen.io/knyttneve/pen/bgvmma/
 */
 
+body { position: relative; }
+
 .timeline__wrapper {
   width: 100%;
   position: relative;

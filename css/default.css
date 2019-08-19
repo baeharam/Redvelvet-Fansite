@@ -204,18 +204,6 @@ header h1 { text-indent: -9999px; }
 .overlay.open li:nth-of-type(3) { animation-delay: 0.45s; }
 .overlay.open li:nth-of-type(4) { animation-delay: 0.5s; }
 
-@keyframes fadeInRight {
-  0% {
-    opacity: 0;
-    left: 20%;
-  }
-
-  100% {
-    opacity: 1;
-    left: 0;
-  }
-}
-
 .overlay__closeBtn {
   position: absolute;
   top: 3rem;
@@ -269,36 +257,67 @@ input[id="menuicon"] + label span:nth-child(3) { bottom: 0; }
   padding: 0 2rem;
 }
 
-.l-row {
-  margin: 0 -1rem;
-}
-
-.l-col {
-  float: left;
-  padding: 0 1rem;
-  margin-bottom: 2rem;
-}
-
-.l-col-1-5 { width: 20%; }
-.l-col-12-12 { width: 100%; }
-.l-col-11-12 { width: 91.66666667%; }
-.l-col-10-12 { width: 83.33333333%; }
-.l-col-9-12 { width: 75%; }
-.l-col-8-12 { width: 66.66666667%; }
-.l-col-7-12 { width: 58.33333333%; }
-.l-col-6-12 { width: 50%; }
-.l-col-5-12 { width: 41.66666667%; }
-.l-col-4-12 { width: 33.33333333%; }
-.l-col-3-12 { width: 25%; }
-.l-col-2-12 { width: 16.66666667%; }
-.l-col-1-12 { width: 8.33333333%; }
-
 .footer {
+  color: white;
+  padding: 1rem 0;
+}
+
+.footer--float {
   position: absolute;
   left: 50%;
   bottom: 0;
-  color: white;
   transform: translateX(-50%);
+}
+
+.footer--fixed {
+  position: static;
+  transform: none;
+  text-align: center;
+}
+
+.footer__social {
+  text-align: center;
+}
+
+.footer__social li {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+}
+
+.footer__social li span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/social.png');
+  background-size: 210px 60px;
+}
+
+.footer--light p { color: white; }
+.footer--dark p { color: black; }
+
+.footer--light .footer__social__twitter { background-position: -30px 30px; }
+.footer--light .footer__social__youtube { background-position: -60px 30px; }
+.footer--light .footer__social__instagram { background-position: -120px 30px; }
+.footer--light .footer__social__vlive { background-position: -150px 30px; }
+
+.footer--dark .footer__social__twitter { background-position: -30px 0; }
+.footer--dark .footer__social__youtube { background-position: -60px 0; }
+.footer--dark .footer__social__instagram { background-position: -120px 0; }
+.footer--dark .footer__social__vlive { background-position: -150px 0; }
+
+/* Animation */
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    left: 20%;
+  }
+
+  100% {
+    opacity: 1;
+    left: 0;
+  }
 }
 
 /* Media Query */
