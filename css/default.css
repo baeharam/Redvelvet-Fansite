@@ -293,6 +293,14 @@ input[id="menuicon"] + label span:nth-child(3) { bottom: 0; }
 .l-col-2-12 { width: 16.66666667%; }
 .l-col-1-12 { width: 8.33333333%; }
 
+.footer {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  color: white;
+  transform: translateX(-50%);
+}
+
 /* Media Query */
 
 @media (max-width: 768px) {

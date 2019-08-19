@@ -21,7 +21,8 @@ body {
 }
 
 .group__member h2 {
-  color: black;
+  color: white;
+  display: none;
   margin-bottom: 6rem;
   font-size: 5vw;
   font-family: "Fascinate", serif;
@@ -222,6 +223,7 @@ body {
   align-self: flex-start;
   transform: translateX(20%);
   opacity: 0;
+  border-radius: 1rem;
 }
 
 .photo:nth-child(even) {
@@ -339,7 +341,7 @@ body {
 
 @media (max-width: 768px) {
   .group {
-    height: 100vh;
+    height: 90vh;
     position: absolute;
   }
 
@@ -371,18 +373,21 @@ body {
     top: 40%;
     left: 0;
     animation-name: appearFromLeft;
+    background-position-y: 25%;
   }
 
   .group__member:nth-child(4) {
     top: 60%;
     left: 0;
     animation-name: appearFromRight;
+    background-position-y: 25%;
   }
 
   .group__member:nth-child(5) {
     top: 80%;
     left: 0;
     animation-name: appearFromLeft;
+    background-position-y: 40%;
   }
 
   .group__member.group__member--expand {
