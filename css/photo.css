@@ -14,10 +14,11 @@
   margin-bottom: 2rem;
   border-radius: 5px;
   overflow: hidden;
-  transform: scale(0);
 }
 
-.grid__item--scale {
+.placeholder { transform: scale(0); }
+
+.placeholder--scale {
   animation: show 0.5s both ease-in-out;
 }
 

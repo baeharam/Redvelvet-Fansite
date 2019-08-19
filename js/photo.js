@@ -24,25 +24,23 @@ const initMasonry = function initMasonry() {
 };
 
 const initObserver = function initObserver(io) {
-  const gridItems = document.querySelectorAll('.grid__item');
   const placeholders = document.querySelectorAll('.placeholder');
-  gridItems.forEach(gridItem => io.observe(gridItem));
   placeholders.forEach(placeholder => io.observe(placeholder));
 };
 
 const initScrollBehaviors = function initScrollBehaviors() {
-  const io = new IntersectionObserver((entries) => {
+  const io = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        if (entry.target.className === 'grid__item') {
-          entry.target.classList.add('grid__item--scale');
-        } else if (entry.target.className === 'placeholder') {
-          const originalImg = new Image();
-          originalImg.onload = () => originalImg.classList.add('loaded');
-          originalImg.src = entry.target.dataset.large;
-          entry.target.firstElementChild.classList.remove('loaded');
-          entry.target.appendChild(originalImg);
-        }
+        const originalImg = new Image();
+        originalImg.onload = () => {
+          originalImg.classList.add('loaded');
+          entry.target.classList.add('placeholder--scale');
+        };
+        originalImg.src = entry.target.dataset.large;
+        entry.target.firstElementChild.classList.remove('loaded');
+        entry.target.appendChild(originalImg);
+        observer.unobserve(entry.target);
       }
     });
   }, { rootMargin: '0px 0px 200px 0px' });
