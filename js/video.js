@@ -1,4 +1,4 @@
-function moveToSelected(element) {
+const moveToSelected = function moveToSelected(element) {
   let selected;
 
   if (element === 'prev') {
@@ -41,38 +41,64 @@ function moveToSelected(element) {
     prev.previousElementSibling.classList.add('hide');
     prev = prev.previousElementSibling;
   }
-}
+};
 
-document.addEventListener('keydown', (e) => {
-  switch (e.which) {
-    case 37:
-      moveToSelected('prev');
-      break;
-    case 39:
-      moveToSelected('next');
-      break;
-    default:
-  }
-  e.preventDefault();
-});
-
-document.querySelectorAll('.carousel__contents').forEach((content) => {
-  content.addEventListener('click', () => moveToSelected(content));
-});
-
-document.querySelectorAll('.video__player').forEach((videoElem) => {
-  videoElem.addEventListener('mouseenter', () => {
-    const src = videoElem.getAttribute('src');
-    if (!src.includes('autoplay')) {
-      videoElem.setAttribute('src', `${src}&autoplay=1`);
-    } else {
-      videoElem.contentWindow
-        .postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+const initKeyEvent = function initKeyEvent() {
+  document.addEventListener('keydown', (e) => {
+    switch (e.which) {
+      case 37:
+        moveToSelected('prev');
+        break;
+      case 39:
+        moveToSelected('next');
+        break;
+      default:
     }
+    e.preventDefault();
   });
-  videoElem.addEventListener('mouseleave', () => {
-    videoElem.contentWindow
-      .postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-    window.focus();
+};
+
+const initClickEvent = function initClickEvent() {
+  document.querySelectorAll('.carousel__contents').forEach((content) => {
+    content.addEventListener('click', () => moveToSelected(content));
   });
-});
+};
+
+const initVideo = function initVideo() {
+  document.querySelectorAll('.video__player').forEach((videoElem) => {
+    videoElem.addEventListener('mouseenter', () => {
+      const src = videoElem.getAttribute('src');
+      if (!src.includes('autoplay')) {
+        videoElem.setAttribute('src', `${src}&autoplay=1`);
+      } else {
+        videoElem.contentWindow
+          .postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+      }
+    });
+    videoElem.addEventListener('mouseleave', () => {
+      videoElem.contentWindow
+        .postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+      window.focus();
+    });
+  });
+};
+
+const initHeader = function initHeader() {
+  const header = document.getElementById('header-js');
+  const handler = function handler() {
+    if (matchMedia('(max-width: 768px)').matches) {
+      header.classList.replace('header--float', 'header--fixed');
+    } else {
+      header.classList.replace('header--fixed', 'header--float');
+    }
+  };
+  window.addEventListener('resize', handler);
+  handler();
+};
+
+window.onload = () => {
+  initKeyEvent();
+  initClickEvent();
+  initVideo();
+  initHeader();
+};

@@ -136,17 +136,13 @@
 /* Mobile */
 
 @media (max-width: 768px) {
-  .main { height: 90vh; }
-
   .carousel {
-    height: 100%;
-    top: 0;
-    transform: none;
+    height: 90vh;
     overflow: hidden;
   }
 
   .video { width: 90vw; }
-  .video__title { font-size: 15vw; }
+  .video__title { font-size: 4rem; }
   .video__title::after { display: none; }
 
   .carousel__contents.prev {
