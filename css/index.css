@@ -68,9 +68,9 @@ li:nth-child(5) .bg__img {
 
 /* Media Query */
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .header {
     position: fixed;
     background-color: transparent;
   }
-}
+} */

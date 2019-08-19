@@ -111,10 +111,12 @@ const initPhotos = function initPhotos() {
 const initMediaQuery = function initMediaQuery() {
   const handler = () => {
     if (matchMedia('(max-width: 768px)').matches) {
+      document.getElementById('header-js').classList.replace('header--float', 'header--fixed');
       document.getElementById('header__menu-js').classList.replace('light', 'dark');
       document.querySelector('.footer').classList.replace('footer--float', 'footer--fixed');
       document.querySelector('.footer').classList.replace('footer--light', 'footer--dark');
     } else {
+      document.getElementById('header-js').classList.replace('header--fixed', 'header--float');
       document.getElementById('header__menu-js').classList.replace('dark', 'light');
       document.querySelector('.footer').classList.replace('footer--fixed', 'footer--float');
       document.querySelector('.footer').classList.replace('footer--dark', 'footer--light');
