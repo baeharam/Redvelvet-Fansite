@@ -1,6 +1,13 @@
+.main,
+.header,
+.footer { display: none; }
+
+.show { display: block; }
+.hide { display: none; }
+
 .carousel {
   position: relative;
-  height: 100vh;
+  height: 80vh;
 }
 
 .carousel__contents {
@@ -137,7 +144,6 @@
 
 @media (max-width: 768px) {
   .carousel {
-    height: 90vh;
     overflow: hidden;
   }
 
