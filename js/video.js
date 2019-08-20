@@ -9,33 +9,33 @@ const moveToSelected = function moveToSelected(element) {
     selected = element;
   }
 
-  let next = selected ? selected.nextElementSibling : null;
-  let prev = selected ? selected.previousElementSibling : null;
+  let next = selected ? selected.nextElementSibling : undefined;
+  let prev = selected ? selected.previousElementSibling : undefined;
 
-  if (selected) {
+  if (typeof (selected) !== 'undefined') {
     selected.classList = '';
     selected.classList.add('carousel__contents');
     selected.classList.add('selected');
   }
-  if (prev) {
+  if (typeof (prev) !== 'undefined') {
     prev.classList = '';
     prev.classList.add('carousel__contents');
     prev.classList.add('prev');
   }
-  if (next) {
+  if (typeof (next) !== 'undefined') {
     next.classList = '';
     next.classList.add('carousel__contents');
     next.classList.add('next');
   }
 
-  while (next && next.nextElementSibling) {
+  while (typeof (next) !== 'undefined' && typeof (next.nextElementSibling) !== 'undefined') {
     next.nextElementSibling.classList = '';
     next.nextElementSibling.classList.add('carousel__contents');
     next.nextElementSibling.classList.add('hide');
     next = next.nextElementSibling;
   }
 
-  while (prev && prev.previousElementSibling) {
+  while (typeof (prev) !== 'undefined' && typeof (prev.previousElementSibling) !== 'undefined') {
     prev.previousElementSibling.classList = '';
     prev.previousElementSibling.classList.add('carousel__contents');
     prev.previousElementSibling.classList.add('hide');
@@ -65,7 +65,7 @@ const initClickEvent = function initClickEvent() {
 };
 
 const initVideo = function initVideo() {
-  document.querySelectorAll('.video__player').forEach((videoElem) => {
+  const handleMouseEnter = function handleMouseEnter(videoElem) {
     videoElem.addEventListener('mouseenter', () => {
       const src = videoElem.getAttribute('src');
       if (!src.includes('autoplay')) {
@@ -75,11 +75,19 @@ const initVideo = function initVideo() {
           .postMessage('{"event":"command","func":"playVideo","args":""}', '*');
       }
     });
+  };
+
+  const handleMouseLeave = function handleMouseLeave(videoElem) {
     videoElem.addEventListener('mouseleave', () => {
       videoElem.contentWindow
         .postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
       window.focus();
     });
+  };
+
+  document.querySelectorAll('.video__player').forEach((videoElem) => {
+    handleMouseEnter(videoElem);
+    handleMouseLeave(videoElem);
   });
 };
 

@@ -7,13 +7,12 @@ I changed jQuery source code into pure javascript and modified useless logics
 const initPlayer = function initPlayer() {
   let player;
 
-  return function closureForPlayer(youtubeID) {
-    if (player && player.loadVideoById) {
+  return function innerInitPlayer(youtubeID) {
+    if (typeof (player) !== 'undefined' && typeof (player.loadVideoById) !== 'undefined') {
       player.loadVideoById(youtubeID);
       return;
     }
     const loadPlayer = function loadPlayer() {
-      // eslint-disable-next-line no-undef
       player = new YT.Player('timeline__player-js', {
         videoId: youtubeID,
         loop: true,
@@ -21,7 +20,6 @@ const initPlayer = function initPlayer() {
       });
     };
 
-    // eslint-disable-next-line no-undef
     if (typeof (YT) === 'undefined' || typeof (YT.Player) === 'undefined') {
       window.onYouTubePlayerAPIReady = () => loadPlayer();
     } else {
