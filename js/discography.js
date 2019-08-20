@@ -49,7 +49,7 @@ const initScrollEvent = function initScrollEvent() {
   playMusicByYoutube(timelineItems[0].dataset.id);
 
   window.addEventListener('scroll', () => {
-    const pos = document.body.scrollTop || document.documentElement.scrollTop;
+    const pos = window.scrollY;
     timelineItems.forEach((item) => {
       const minPos = item.offsetTop;
       const maxPos = minPos + item.offsetHeight;
