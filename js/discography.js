@@ -36,9 +36,7 @@ const initScrollEvent = function initScrollEvent() {
   const extraSpace = 80;
 
   const changeBackground = function changeBackground(src) {
-    if (!matchMedia('(max-width: 768px)').matches) {
-      timeline.style.backgroundImage = `url(${src})`;
-    }
+    timeline.style.backgroundImage = `url(${src})`;
   };
 
   const removeAllActiveElems = function removeAllActiveElems() {
@@ -83,21 +81,7 @@ const initLoader = function initLoader() {
   });
 };
 
-const initMobileHeader = function initMobileHeader() {
-  const headerMenu = document.getElementById('header__menu-js');
-  const handleHeader = function handleHeader() {
-    if (matchMedia('(max-width: 768px)').matches) {
-      headerMenu.classList.replace('light', 'dark');
-    } else {
-      headerMenu.classList.replace('dark', 'light');
-    }
-  };
-  window.addEventListener('resize', handleHeader);
-  handleHeader();
-};
-
 window.onload = () => {
   initScrollEvent();
   initLoader();
-  initMobileHeader();
 };
