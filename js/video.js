@@ -9,33 +9,33 @@ const moveToSelected = function moveToSelected(element) {
     selected = element;
   }
 
-  let next = selected ? selected.nextElementSibling : undefined;
-  let prev = selected ? selected.previousElementSibling : undefined;
+  let next = selected ? selected.nextElementSibling : null;
+  let prev = selected ? selected.previousElementSibling : null;
 
-  if (typeof (selected) !== 'undefined') {
+  if (selected) {
     selected.classList = '';
     selected.classList.add('carousel__contents');
     selected.classList.add('selected');
   }
-  if (typeof (prev) !== 'undefined') {
+  if (prev) {
     prev.classList = '';
     prev.classList.add('carousel__contents');
     prev.classList.add('prev');
   }
-  if (typeof (next) !== 'undefined') {
+  if (next) {
     next.classList = '';
     next.classList.add('carousel__contents');
     next.classList.add('next');
   }
 
-  while (typeof (next) !== 'undefined' && typeof (next.nextElementSibling) !== 'undefined') {
+  while (next && next.nextElementSibling) {
     next.nextElementSibling.classList = '';
     next.nextElementSibling.classList.add('carousel__contents');
     next.nextElementSibling.classList.add('hide');
     next = next.nextElementSibling;
   }
 
-  while (typeof (prev) !== 'undefined' && typeof (prev.previousElementSibling) !== 'undefined') {
+  while (prev && prev.previousElementSibling) {
     prev.previousElementSibling.classList = '';
     prev.previousElementSibling.classList.add('carousel__contents');
     prev.previousElementSibling.classList.add('hide');
@@ -93,15 +93,15 @@ const initVideo = function initVideo() {
 
 const initHeader = function initHeader() {
   const header = document.getElementById('header-js');
-  const handler = function handler() {
+  const headerHandler = function handler() {
     if (matchMedia('(max-width: 768px)').matches) {
       header.classList.replace('header--float', 'header--fixed');
     } else {
       header.classList.replace('header--fixed', 'header--float');
     }
   };
-  window.addEventListener('resize', handler);
-  handler();
+  window.addEventListener('resize', headerHandler);
+  headerHandler();
 };
 
 window.onload = () => {
