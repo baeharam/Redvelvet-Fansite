@@ -1,3 +1,10 @@
+.main,
+.header,
+.footer { display: none; }
+
+.hide { display: none; }
+.show { display: block; }
+
 .bg,
 .bg::after {
   position: fixed;
@@ -65,12 +72,3 @@ li:nth-child(5) .bg__img {
   29% { opacity: 0; }
   100% { opacity: 0; }
 }
-
-/* Media Query */
-
-/* @media (max-width: 768px) {
-  .header {
-    position: fixed;
-    background-color: transparent;
-  }
-} */
