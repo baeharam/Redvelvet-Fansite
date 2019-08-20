@@ -125,20 +125,12 @@ const isVisible = function isVisible(elem) {
   return elemTop && elemTop <= docHeight;
 };
 
-const initLazyLoading = function initLazyLoading() {
-  const placeholders = document.querySelectorAll('.placeholder');
+const initPhotoAnimation = function initPhotoAnimation() {
+  const photos = document.querySelectorAll('.photo');
   window.addEventListener('scroll', () => {
-    placeholders.forEach((placeholder) => {
-      if (!placeholder.classList.contains('loaded') && isVisible(placeholder)) {
-        const image = new Image();
-        image.onload = () => {
-          placeholder.removeChild(placeholder.firstElementChild);
-          placeholder.classList.add('intersect');
-          placeholder.append(image);
-        };
-        image.src = placeholder.dataset.src;
-        image.alt = placeholder.dataset.alt;
-        placeholder.classList.add('loaded');
+    photos.forEach((photo) => {
+      if (!photo.classList.contains('loaded') && isVisible(photo)) {
+        photo.classList.add('intersect');
       }
     });
   });
@@ -191,7 +183,7 @@ window.onload = () => {
   memberHandler.handleExpand();
   memberHandler.handleShrink();
   removeDefaultAnimations();
-  initLazyLoading();
+  initPhotoAnimation();
   initMediaQuery();
   initLoader();
 };
