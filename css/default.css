@@ -324,18 +324,12 @@ input[id="menuicon"] + label span:nth-child(3) { bottom: 0; }
 
 .loader__indicator {
   color: #000;
-  font-size: 90px;
-  text-indent: -9999em;
   overflow: hidden;
-  width: 1em;
-  height: 1em;
   border-radius: 50%;
   position: absolute;
   left: 50%;
   top: 50%;
-  transform-origin: top left;
-  transform: translateZ(0) translate(-50%, -50%);
-  animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+  transform: translate(-50%, -50%);
 }
 
 /* Animation */
