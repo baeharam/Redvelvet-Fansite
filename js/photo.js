@@ -3,7 +3,6 @@ const initMasonry = function initMasonry() {
   let msnry;
 
   const makeMasonry = function makeMasonry() {
-    // eslint-disable-next-line no-undef
     msnry = new Masonry(grid, {
       itemSelector: '.grid__item',
       columnWidth: '.grid__sizer',
