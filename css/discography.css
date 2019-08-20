@@ -6,7 +6,8 @@ URL: https://codepen.io/knyttneve/pen/bgvmma/
 body { position: relative; }
 
 .main,
-.header { display: none; }
+.header,
+.footer { display: none; }
 
 .hide { display: none; }
 .show { display: block; }

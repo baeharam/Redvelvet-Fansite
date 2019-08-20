@@ -76,6 +76,7 @@ const initLoader = function initLoader() {
         document.querySelector('.loader').classList.add('hide');
         document.querySelector('.main').classList.add('show');
         document.querySelector('.header').classList.add('show');
+        document.querySelector('.footer').classList.add('show');
       }
     };
     image.src = img.getAttribute('src');

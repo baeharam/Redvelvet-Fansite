@@ -3,7 +3,8 @@ body {
 }
 
 .main,
-.header { display: none; }
+.header,
+.footer { display: none; }
 
 .group__member {
   position: absolute;
