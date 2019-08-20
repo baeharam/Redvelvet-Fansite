@@ -88,6 +88,7 @@
   background-position: top center;
 }
 .therevefestivalday1 { background-image: url('../images/video-TheReveFestival1.jpg'); }
+.therevefestivalday2 { background-image: url('../images/video-TheReveFestival2.jpg'); }
 
 .video__player {
   position: absolute;

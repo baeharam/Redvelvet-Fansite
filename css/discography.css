@@ -198,8 +198,6 @@ body { position: relative; }
     background-color: transparent;
   }
 
-  .timeline__wrapper::before { background-color: white; }
-
   .timeline::before { display: none; }
 
   .timeline__item {
@@ -240,12 +238,8 @@ body { position: relative; }
     height: 7rem;
   }
 
-  .timeline__content__desc { color: black; }
 
-  .timeline__content__title {
-    color: black;
-    padding: 0;
-  }
+  .timeline__content__title { padding: 0; }
 }
 
 /* Mobile */
