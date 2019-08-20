@@ -104,45 +104,9 @@ const initHeader = function initHeader() {
   headerHandler();
 };
 
-const initLoader = function initLoader() {
-  let loadedCount = 0;
-  const videos = document.querySelectorAll('.video');
-  const videoCovers = document.querySelectorAll('.video__cover');
-
-  const showContents = function showContents() {
-    document.querySelector('.loader').classList.add('hide');
-    document.querySelector('.main').classList.add('show');
-    document.querySelector('.header').classList.add('show');
-    document.querySelector('.footer').classList.add('show');
-  };
-
-  videos.forEach((video) => {
-    const iframe = document.createElement('iframe');
-    iframe.onload = () => {
-      loadedCount -= 1;
-      if (!loadedCount) showContents();
-    };
-    iframe.src = video.dataset.video;
-    iframe.classList.add('video__player');
-    video.appendChild(iframe);
-  });
-
-  videoCovers.forEach((cover) => {
-    const image = new Image();
-    image.onload = () => {
-      if (image.complete) {
-        loadedCount += 1;
-        if (!loadedCount) showContents();
-      }
-    };
-    image.src = cover.dataset.src;
-  });
-};
-
 window.onload = () => {
   initKeyEvent();
   initClickEvent();
   initVideo();
   initHeader();
-  initLoader();
 };
