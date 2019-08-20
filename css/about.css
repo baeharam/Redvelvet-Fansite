@@ -2,6 +2,9 @@ body {
   background-color: white;
 }
 
+.main,
+.header { display: none; }
+
 .group__member {
   position: absolute;
   min-height: 100vh;

@@ -166,6 +166,23 @@ const initMediaQuery = function initMediaQuery() {
   controlMediaQuery();
 };
 
+const initLoader = function initLoader() {
+  let loadedCount = 0;
+  const groupMembers = document.querySelectorAll('.group__member');
+  groupMembers.forEach((member) => {
+    const image = new Image();
+    image.onload = () => {
+      if (image.complete) loadedCount += 1;
+      if (loadedCount === groupMembers.length) {
+        document.querySelector('.loader').classList.add('hide');
+        document.querySelector('.main').classList.add('show');
+        document.querySelector('.header').classList.add('show');
+      }
+    };
+    image.src = member.dataset.src;
+  });
+};
+
 window.onload = () => {
   const memberHandler = initMemberHandler();
   memberHandler.handleMouseEnter();
@@ -175,4 +192,5 @@ window.onload = () => {
   removeDefaultAnimations();
   initLazyLoading();
   initMediaQuery();
+  initLoader();
 };
