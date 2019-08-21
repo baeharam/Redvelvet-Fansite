@@ -1,38 +1,17 @@
-const initCloseBtnHandler = function initCloseBtnHandler() {
-  const btn = document.getElementById('closeBtn-js');
+const initVisibleHandler = function initVisibleHandler() {
   return {
-    show: function showcloseBtn() {
-      if (btn.classList.contains('hide')) {
-        btn.classList.replace('hide', 'show');
+    show: function showElement(elem) {
+      if (elem.classList.contains('hide')) {
+        elem.classList.replace('hide', 'show');
       } else {
-        btn.classList.add('show');
+        elem.classList.add('show');
       }
     },
-    hide: function hidecloseBtn() {
-      if (btn.classList.contains('show')) {
-        btn.classList.replace('show', 'hide');
+    hide: function hidelement(elem) {
+      if (elem.classList.contains('show')) {
+        elem.classList.replace('show', 'hide');
       } else {
-        btn.classList.add('hide');
-      }
-    },
-  };
-};
-
-const initHeaderHandler = function initHeaderHandler() {
-  const header = document.getElementById('header-js');
-  return {
-    show: function showHeader() {
-      if (header.classList.contains('hide')) {
-        header.classList.replace('hide', 'show');
-      } else {
-        header.classList.add('show');
-      }
-    },
-    hide: function hidecloseBtn() {
-      if (header.classList.contains('show')) {
-        header.classList.replace('show', 'hide');
-      } else {
-        header.classList.add('hide');
+        elem.classList.add('hide');
       }
     },
   };
@@ -62,8 +41,11 @@ const scrollUp = function scrollUp() {
 const initMemberHandler = function initMemberHandler() {
   const groupInside = document.getElementById('group__inside-js');
   const groupMembers = document.querySelectorAll('.group__member');
-  const closeBtnHandler = initCloseBtnHandler();
-  const headerHandler = initHeaderHandler();
+  const closeBtn = document.getElementById('closeBtn-js');
+  const header = document.getElementById('header-js');
+  const footer = document.getElementById('footer-js');
+
+  const visibleHandler = initVisibleHandler();
   const expandHandler = initExpandHandler();
 
   return {
@@ -95,19 +77,21 @@ const initMemberHandler = function initMemberHandler() {
           });
           member.classList.add('group__member--expand');
           expandHandler.show(index);
-          closeBtnHandler.show();
-          headerHandler.hide();
+          visibleHandler.show(closeBtn);
+          visibleHandler.hide(header);
+          visibleHandler.hide(footer);
           scrollUp();
         });
       });
     },
     handleShrink: function shrink() {
       document.getElementById('closeBtn-js').addEventListener('click', () => {
-        closeBtnHandler.hide();
+        visibleHandler.hide(closeBtn);
+        visibleHandler.show(header);
+        visibleHandler.show(footer);
         expandHandler.hide();
         document.querySelector('.group__member--expand').classList
           .replace('group__member--expand', 'group__member--shrink');
-        headerHandler.show();
       });
     },
   };
@@ -125,12 +109,20 @@ const isVisible = function isVisible(elem) {
   return elemTop && elemTop <= docHeight;
 };
 
-const initPhotoAnimation = function initPhotoAnimation() {
-  const photos = document.querySelectorAll('.photo');
+const initPhotos = function initPhotos() {
+  const placeholders = document.querySelectorAll('.placeholder');
   window.addEventListener('scroll', () => {
-    photos.forEach((photo) => {
-      if (!photo.classList.contains('loaded') && isVisible(photo)) {
-        photo.classList.add('intersect');
+    placeholders.forEach((placeholder) => {
+      if (!placeholder.classList.contains('loaded') && isVisible(placeholder)) {
+        const image = new Image();
+        image.onload = () => {
+          placeholder.removeChild(placeholder.firstElementChild);
+          placeholder.classList.add('intersect');
+          placeholder.append(image);
+        };
+        image.src = placeholder.dataset.src;
+        image.alt = placeholder.dataset.alt;
+        placeholder.classList.add('loaded');
       }
     });
   });
@@ -183,7 +175,7 @@ window.onload = () => {
   memberHandler.handleExpand();
   memberHandler.handleShrink();
   removeDefaultAnimations();
-  initPhotoAnimation();
+  initPhotos();
   initMediaQuery();
   initLoader();
 };
