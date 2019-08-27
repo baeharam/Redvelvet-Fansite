@@ -18,7 +18,8 @@
   "homepage": "https://github.com/baeharam/Redvelvet-Fansite#readme",
   "dependencies": {
     "fullpage.js": "^3.0.7",
-    "intersection-observer": "^0.7.0"
+    "intersection-observer": "^0.7.0",
+    "smoothscroll-polyfill": "^0.4.4"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
