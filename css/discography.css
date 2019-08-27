@@ -1,6 +1,6 @@
 /*
-Author: Mert Cukuren
-URL: https://codepen.io/knyttneve/pen/bgvmma/
+Referenced URL: https://codepen.io/knyttneve/pen/bgvmma/
+I customized for my own design and applied BEM methodology.
 */
 
 body { position: relative; }
@@ -9,10 +9,11 @@ body { position: relative; }
 .header,
 .footer { display: none; }
 
-.hide { display: none; }
-.show { display: block; }
+.main.show,
+.header.show,
+.footer.show { display: block; }
 
-.timeline__wrapper {
+.timeline {
   width: 100%;
   position: relative;
   padding: 8rem 0;
@@ -23,7 +24,7 @@ body { position: relative; }
   background-position: center center;
 }
 
-.timeline__wrapper::before {
+.timeline::before {
   content: ' ';
   position: absolute;
   left: 0;
@@ -33,7 +34,7 @@ body { position: relative; }
   background-color: rgba(99, 99, 99, 0.8);
 }
 
-.timeline {
+.timeline__wrapper {
   display: flex;
   margin: 0 auto;
   flex-direction: column;
@@ -41,7 +42,7 @@ body { position: relative; }
   position: relative;
 }
 
-.timeline::before {
+.timeline__wrapper::before {
   content: ' ';
   position: absolute;
   top: 0;
@@ -50,28 +51,6 @@ body { position: relative; }
   width: 2px;
   height: 100%;
   background: rgba(255, 255, 255, 0.07);
-}
-
-.timeline__content {
-  width: 100%;
-  text-align: center;
-}
-
-.timeline__content__title {
-  font-weight: normal;
-  font-size: 6.6rem;
-  margin: -2rem 0 0 0;
-  transition: 0.4s;
-  padding: 0 1rem;
-  color: white;
-  position: relative;
-}
-
-.timeline__content__desc {
-  font-size: 1.5rem;
-  color: rgba(255, 255, 255, 0.7);
-  font-weight: normal;
-  line-height: 2.5rem;
 }
 
 .timeline__item {
@@ -127,6 +106,28 @@ body { position: relative; }
   top: 50%;
   transition: 0.3s all 0.2s;
   opacity: 1;
+}
+
+.timeline__content {
+  width: 100%;
+  text-align: center;
+}
+
+.timeline__content__title {
+  font-weight: normal;
+  font-size: 6.6rem;
+  margin: -2rem 0 0 0;
+  transition: 0.4s;
+  padding: 0 1rem;
+  color: white;
+  position: relative;
+}
+
+.timeline__content__desc {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: normal;
+  line-height: 2.5rem;
 }
 
 .timeline__img {
@@ -193,13 +194,6 @@ body { position: relative; }
 /* Tablet */
 
 @media (max-width: 768px) {
-  .header {
-    position: fixed;
-    background-color: transparent;
-  }
-
-  .timeline::before { display: none; }
-
   .timeline__item {
     align-self: center;
     margin-left: 0;
@@ -232,13 +226,13 @@ body { position: relative; }
     transform: translateX(-50%);
   }
 
+  .timeline__content__title { padding: 0; }
+
   .youtube,
   .melon {
     width: 7rem;
     height: 7rem;
   }
-
-  .timeline__content__title { padding: 0; }
 }
 
 /* Mobile */

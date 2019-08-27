@@ -1,7 +1,6 @@
 /*
-Author(using jQuery): Mert Cukuren
-URL: https://codepen.io/knyttneve/pen/bgvmma/
-I changed jQuery source code into pure javascript and modified useless logics
+Referenced URL: https://codepen.io/knyttneve/pen/bgvmma/
+I changed jQuery source code into Vanilla JS and removed useless logics.
 */
 
 const initPlayer = function initPlayer() {
@@ -13,7 +12,7 @@ const initPlayer = function initPlayer() {
       return;
     }
     const loadPlayer = function loadPlayer() {
-      player = new YT.Player('timeline__player-js', {
+      player = new YT.Player('js-timeline__player', {
         videoId: youtubeID,
         loop: true,
         events: { onReady: e => e.target.playVideo() },
@@ -30,7 +29,7 @@ const initPlayer = function initPlayer() {
 
 const initScrollEvent = function initScrollEvent() {
   const playMusicByYoutube = initPlayer();
-  const timeline = document.getElementById('timeline-js');
+  const timeline = document.getElementById('js-timeline');
   const timelineItems = document.querySelectorAll('.timeline__item');
   const activeClass = 'timeline__item--active';
   const extraSpace = 80;
@@ -40,8 +39,7 @@ const initScrollEvent = function initScrollEvent() {
   };
 
   const removeAllActiveElems = function removeAllActiveElems() {
-    document.querySelectorAll('.timeline__item--active')
-      .forEach(el => el.classList.remove('timeline__item--active'));
+    document.querySelectorAll(`.${activeClass}`).forEach(el => el.classList.remove(activeClass));
   };
 
   timelineItems[0].classList.add(activeClass);
@@ -66,18 +64,18 @@ const initScrollEvent = function initScrollEvent() {
 const initLoader = function initLoader() {
   let loadedCount = 0;
   const timelineImgs = document.querySelectorAll('.timeline__img');
-  timelineImgs.forEach((img) => {
+  timelineImgs.forEach((timelineImg) => {
     const image = new Image();
     image.onload = () => {
       if (image.complete) loadedCount += 1;
       if (loadedCount === timelineImgs.length) {
-        document.querySelector('.loader').classList.add('hide');
-        document.querySelector('.main').classList.add('show');
-        document.querySelector('.header').classList.add('show');
-        document.querySelector('.footer').classList.add('show');
+        document.getElementById('js-loader').classList.add('hide');
+        document.getElementById('js-main').classList.add('show');
+        document.getElementById('js-header').classList.add('show');
+        document.getElementById('js-footer').classList.add('show');
       }
     };
-    image.src = img.getAttribute('src');
+    image.src = timelineImg.getAttribute('src');
   });
 };
 

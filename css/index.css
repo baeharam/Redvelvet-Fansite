@@ -2,8 +2,9 @@
 .header,
 .footer { display: none; }
 
-.hide { display: none; }
-.show { display: block; }
+.main.show,
+.header.show,
+.footer.show { display: block; }
 
 .bg,
 .bg::after {

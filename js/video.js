@@ -92,7 +92,7 @@ const initVideo = function initVideo() {
 };
 
 const initHeader = function initHeader() {
-  const header = document.getElementById('header-js');
+  const header = document.getElementById('js-header');
   const headerHandler = function handler() {
     if (matchMedia('(max-width: 768px)').matches) {
       header.classList.replace('header--float', 'header--fixed');

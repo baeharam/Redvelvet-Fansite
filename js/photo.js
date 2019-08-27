@@ -48,7 +48,7 @@ const initScrollBehaviors = function initScrollBehaviors() {
   initObserver(io);
 };
 
-window.onload = () => {
+window.addEventListener('DOMContentLoaded', () => {
   initMasonry();
   initScrollBehaviors();
-};
+});

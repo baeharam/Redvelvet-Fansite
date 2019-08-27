@@ -143,7 +143,7 @@ header h1 { text-indent: -9999px; }
   height: 100%;
 }
 
-.overlay nav {
+.overlay__menu {
   position: relative;
   height: 50%;
   top: 50%;
@@ -153,14 +153,14 @@ header h1 { text-indent: -9999px; }
   text-align: center;
 }
 
-.overlay ul {
+.overlay__menu ul {
   margin: 0 auto;
   display: inline-block;
   position: relative;
   height: 100%;
 }
 
-.overlay ul li {
+.overlay__menu ul li {
   display: block;
   position: relative;
   opacity: 0;
@@ -168,7 +168,7 @@ header h1 { text-indent: -9999px; }
   height: 1em;
 }
 
-.overlay ul li a {
+.overlay__menu ul li a {
   display: inline-block;
   position: relative;
   color: #fff;
@@ -176,7 +176,7 @@ header h1 { text-indent: -9999px; }
   overflow: hidden;
 }
 
-.overlay ul li a::after {
+.overlay__menu ul li a::after {
   content: ' ';
   position: absolute;
   bottom: 0;
@@ -188,15 +188,15 @@ header h1 { text-indent: -9999px; }
   transition: 0.35s;
 }
 
-.overlay ul li a:hover,
-.overlay ul li a:focus,
-.overlay ul li a:active {
+.overlay__menu ul li a:hover,
+.overlay__menu ul li a:focus,
+.overlay__menu ul li a:active {
   color: #ea2e49;
 }
 
-.overlay ul li a:hover::after,
-.overlay ul li a:focus::after,
-.overlay ul li a:active::after {
+.overlay__menu ul li a:hover::after,
+.overlay__menu ul li a:focus::after,
+.overlay__menu ul li a:active::after {
   width: 100%;
   background: #ea2e49;
 }
@@ -244,9 +244,6 @@ input[id="menuicon"] + label span {
   transition: all 0.35s;
 }
 
-.header__menu.light span { background-color: white; }
-.header__menu.dark span { background-color: black; }
-
 input[id="menuicon"] + label span:nth-child(1) { top: 0; }
 
 input[id="menuicon"] + label span:nth-child(2) {
@@ -254,6 +251,9 @@ input[id="menuicon"] + label span:nth-child(2) {
   transform: translateY(-50%);
 }
 input[id="menuicon"] + label span:nth-child(3) { bottom: 0; }
+
+.header__menu--light input[id="menuicon"] + label span { background-color: white; }
+.header__menu--dark input[id="menuicon"] + label span { background-color: black; }
 
 /* Layouts */
 
@@ -321,6 +321,8 @@ input[id="menuicon"] + label span:nth-child(3) { bottom: 0; }
   position: relative;
   height: 100vh;
 }
+
+.loader.hide { display: none; }
 
 .loader__indicator {
   color: #000;

@@ -1,75 +1,75 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="레드벨벳 팬사이트 홈페이지">
-    <link rel="stylesheet" href="./css/default.css">
-    <link rel="stylesheet" href="./css/index.css">
-    <title>RedVelvet</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="레드벨벳 팬사이트 홈페이지">
+  <link rel="stylesheet" href="./css/default.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <title>RedVelvet</title>
 </head>
 <body>
-    <header id="header-js" class="header header--float">
-        <div class="header__inside clearfix">
-            <a href="./index.html">
-                <img class="header__logo" src="./images/logo-red.png" alt="로고">
-            </a>
-            <div id="header__menu-js" class="header__menu light">
-                <input type="checkbox" id="menuicon">
-                <label for="menuicon">
-                    <span class="menu"></span>
-                    <span class="menu"></span>
-                    <span class="menu"></span>
-                </label>
-            </div>
-        </div>
-        <h1>홈</h1>
-    </header>
-    <aside id="overlay-js" class="overlay">
-        <a href="javascript:void(0)" id="overlay__closeBtn-js" class="overlay__closeBtn">&times;</a>
-        <nav class="overlay-menu">
-            <ul>
-            <li><a href="./html/about.html">ABOUT</a></li>
-            <li><a href="./html/photo.html">PHOTOS</a></li>
-            <li><a href="./html/discography.html">DISCOGRAPHY</a></li>
-            <li><a href="./html/video.html">VIDEOS</a></li>
-            </ul>
-        </nav>
-    </aside>
-    <div class="loader">
-      <div class="loader__indicator"></div>
+  <header id="js-header" class="header header--float">
+    <div class="header__inside clearfix">
+      <a href="./index.html">
+        <img class="header__logo" src="./images/logo-red.png" alt="로고">
+      </a>
+      <div id="js-header__menu" class="header__menu header__menu--light">
+        <input type="checkbox" id="menuicon">
+        <label for="menuicon">
+          <span class="menu"></span>
+          <span class="menu"></span>
+          <span class="menu"></span>
+        </label>
+      </div>
     </div>
-    <main class="main">
-      <section class="contents">
-        <ul class="bg">
-          <li><div class="bg__img" data-src="../images/irene.jpg"></div></li>
-          <li><div class="bg__img" data-src="../images/seulgi.jpg"></div></li>
-          <li><div class="bg__img" data-src="../images/wendy.jpg"></div></li>
-          <li><div class="bg__img" data-src="../images/yeri.jpg"></div></li>
-          <li><div class="bg__img" data-src="../images/joy.jpg"></div></li>
-        </ul>
-      </section>
-    </main>
-    <footer class="footer footer--float footer--light">
-      <ul class="footer__social">
-        <li><a href="https://twitter.com/RVsmtown">
-          <span class="footer__social__twitter"></span>
-        </a></li>
-        <li><a href="https://www.youtube.com/user/SMTOWN">
-          <span class="footer__social__youtube"></span>
-        </a></li>
-        <li><a href="https://www.instagram.com/redvelvet.smtown/?hl=ko">
-          <span class="footer__social__instagram"></span>
-        </a></li>
-        <li><a href="https://channels.vlive.tv/DCF447/home">
-          <span class="footer__social__vlive"></span>
-        </a></li>
+    <h1>홈</h1>
+  </header>
+  <aside id="js-overlay" class="overlay">
+    <a href="javascript:void(0)" id="js-overlay__closeBtn" class="overlay__closeBtn">&times;</a>
+    <nav class="overlay__menu">
+      <ul>
+      <li><a href="./html/about.html">ABOUT</a></li>
+      <li><a href="./html/photo.html">PHOTOS</a></li>
+      <li><a href="./html/discography.html">DISCOGRAPHY</a></li>
+      <li><a href="./html/video.html">VIDEOS</a></li>
       </ul>
-      <p>Copyright 2019. SM Entertainment. All Rights Reserved</p>
-    </footer>
-    <script src="./js/index.js"></script>
-    <script src="./js/prefix.min.js"></script>
-    <script src="./js/default.js"></script>
+    </nav>
+  </aside>
+  <div id="js-loader" class="loader">
+    <div class="loader__indicator"></div>
+  </div>
+  <main id="js-main" class="main">
+    <section class="contents">
+      <ul class="bg">
+        <li><div class="bg__img" data-src="../images/irene.jpg"></div></li>
+        <li><div class="bg__img" data-src="../images/seulgi.jpg"></div></li>
+        <li><div class="bg__img" data-src="../images/wendy.jpg"></div></li>
+        <li><div class="bg__img" data-src="../images/yeri.jpg"></div></li>
+        <li><div class="bg__img" data-src="../images/joy.jpg"></div></li>
+      </ul>
+    </section>
+  </main>
+  <footer id="js-footer" class="footer footer--float footer--light">
+    <ul class="footer__social">
+      <li><a href="https://twitter.com/RVsmtown">
+        <span class="footer__social__twitter"></span>
+      </a></li>
+      <li><a href="https://www.youtube.com/user/SMTOWN">
+        <span class="footer__social__youtube"></span>
+      </a></li>
+      <li><a href="https://www.instagram.com/redvelvet.smtown/?hl=ko">
+        <span class="footer__social__instagram"></span>
+      </a></li>
+      <li><a href="https://channels.vlive.tv/DCF447/home">
+        <span class="footer__social__vlive"></span>
+      </a></li>
+    </ul>
+    <p>Copyright 2019. SM Entertainment. All Rights Reserved</p>
+  </footer>
+  <script src="./js/index.js"></script>
+  <script src="./js/prefix.min.js"></script>
+  <script src="./js/default.js"></script>
 </body>
 </html>
