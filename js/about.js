@@ -41,7 +41,7 @@ const scrollUp = function scrollUp() {
 const initMemberHandler = function initMemberHandler() {
   const groupInside = document.getElementById('js-group__inside');
   const groupMembers = document.querySelectorAll('.group__member');
-  const closeBtn = document.getElementById('js-overlay__closeBtn');
+  const closeBtn = document.getElementById('js-closeBtn');
   const header = document.getElementById('js-header');
   const footer = document.getElementById('js-footer');
 
@@ -85,7 +85,7 @@ const initMemberHandler = function initMemberHandler() {
       });
     },
     handleShrink: function shrink() {
-      document.getElementById('js-overlay__closeBtn').addEventListener('click', () => {
+      document.getElementById('js-closeBtn').addEventListener('click', () => {
         visibleHandler.hide(closeBtn);
         visibleHandler.show(header);
         visibleHandler.show(footer);
