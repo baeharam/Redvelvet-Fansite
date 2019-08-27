@@ -191,8 +191,13 @@ body {
   top: 5%;
   width: 100%;
   height: 100%;
-  border: 5px solid #2ebce2;
 }
+
+.single:nth-child(2) .single__main__profile::after { border: 5px solid #dc749f; }
+.single:nth-child(3) .single__main__profile::after { border: 5px solid #cdbddc; }
+.single:nth-child(4) .single__main__profile::after { border: 5px solid #d17d95; }
+.single:nth-child(5) .single__main__profile::after { border: 5px solid #4b73bd; }
+.single:nth-child(6) .single__main__profile::after { border: 5px solid #8ea272; }
 
 .single__detail {
   line-height: 2;
