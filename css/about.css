@@ -1,5 +1,6 @@
 body {
   background-color: white;
+  position: relative;
 }
 
 .main,
@@ -115,6 +116,29 @@ body {
   cursor: pointer;
   font-size: 10rem;
   animation: fadeInBasic 1s both 0.5s;
+}
+
+.upBtn {
+  position: fixed;
+  right: 5%;
+  bottom: 10%;
+  z-index: 3;
+  display: none;
+  background-color: black;
+  border-radius: 50%;
+  width: 7rem;
+  height: 7rem;
+  animation: fadeInBasic 1s both 0.5s;
+  cursor: pointer;
+}
+
+.upBtn img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
 }
 
 .single {
@@ -339,6 +363,11 @@ body {
   .single__main__title { top: -20%; }
   .single__detail { line-height: 1.5; }
   .single__detail__spec { top: 45%; }
+
+  .upBtn {
+    width: 5rem;
+    height: 5rem;
+  }
 }
 
 /* Mobile */
@@ -449,6 +478,8 @@ body {
     font-size: 5rem;
     top: 1%;
   }
+
+  .upBtn { display: none; }
 
   .placeholder {
     width: 80vw;
