@@ -34,10 +34,6 @@ const initExpandHandler = function initExpandHandler() {
   };
 };
 
-const scrollUp = function scrollUp() {
-  document.documentElement.scrollTop = 0;
-};
-
 const initMemberHandler = function initMemberHandler() {
   const groupInside = document.getElementById('js-group__inside');
   const groupMembers = document.querySelectorAll('.group__member');
@@ -81,7 +77,7 @@ const initMemberHandler = function initMemberHandler() {
           visibleHandler.show(closeBtn);
           visibleHandler.hide(header);
           visibleHandler.hide(footer);
-          scrollUp();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         });
       });
     },
