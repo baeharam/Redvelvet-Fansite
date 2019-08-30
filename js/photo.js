@@ -18,8 +18,15 @@ const initMasonry = function initMasonry() {
     });
   };
 
+  const initMediaQuery = function initMediaQuery() {
+    if (matchMedia('(max-width: 576px')) {
+      msnry.destroy();
+    }
+  };
+
   makeMasonry();
   initReiszeEvent();
+  initMediaQuery();
 };
 
 const initObserver = function initObserver(io) {
