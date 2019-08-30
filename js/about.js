@@ -103,7 +103,7 @@ const removeDefaultAnimations = function removeDefaultAnimations() {
 
 const isVisible = function isVisible(elem) {
   const elemTop = elem.getBoundingClientRect().top;
-  const docHeight = document.documentElement.clientHeight;
+  const docHeight = window.innerHeight;
   return elemTop && elemTop <= docHeight;
 };
 
@@ -169,16 +169,15 @@ const initLoader = function initLoader() {
 };
 
 const initUpBtn = function initUpBtn() {
-  const visibleHandler = initVisibleHandler();
   const upBtn = document.getElementById('js-upBtn');
 
   const initScrollVisibility = function initScrollVisibility() {
     window.addEventListener('scroll', () => {
       const height = window.innerHeight || document.documentElement.clientHeight;
       if (window.scrollY > height / 2) {
-        visibleHandler.show(upBtn);
+        upBtn.classList.add('loaded');
       } else {
-        visibleHandler.hide(upBtn);
+        upBtn.classList.remove('loaded');
       }
     });
   };
