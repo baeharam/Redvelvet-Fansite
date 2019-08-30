@@ -252,26 +252,17 @@ body {
 
 .placeholder {
   width: 35vw;
-  margin-left: 10rem;
-  align-self: flex-start;
-  transform: translateX(20%);
   opacity: 0;
   border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.5s;
 }
 
-.placeholder:nth-child(even) {
-  margin-right: 10rem;
-  margin-top: -10rem;
-  align-self: flex-end;
-}
-
-.placeholder.intersect:nth-child(odd) {
-  animation: showPhotoFromRight 1s both 0.5s;
-}
-
-.placeholder.intersect:nth-child(even) {
-  animation: showPhotoFromLeft 1s both 0.5s;
-}
+.placeholder:nth-child(odd) { margin-left: -5rem; }
+.placeholder:nth-child(even) { margin-right: -5rem; }
+.placeholder.intersect { opacity: 1; }
+.placeholder.intersect:nth-child(odd) { margin-left: 0; }
+.placeholder.intersect:nth-child(even) { margin-right: 0; }
 
 .hide { display: none; }
 .show { display: block; }
@@ -338,12 +329,12 @@ body {
 
 @keyframes showPhotoFromRight {
   from {
-    transform: translateX(20%);
+    margin-right: -20px;
     opacity: 0;
   }
 
   to {
-    transform: translateX(0);
+    margin-right: 0;
     opacity: 1;
   }
 }
@@ -484,16 +475,8 @@ body {
     top: 1%;
   }
 
-  .upBtn { display: none; }
-
   .placeholder {
     width: 80vw;
-    margin-left: 0;
     margin-bottom: 2rem;
-  }
-
-  .placeholder:nth-child(even) {
-    margin-right: 0;
-    margin-top: 0;
   }
 }
