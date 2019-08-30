@@ -38,7 +38,6 @@ const initMemberHandler = function initMemberHandler() {
   const groupInside = document.getElementById('js-group__inside');
   const groupMembers = document.querySelectorAll('.group__member');
   const closeBtn = document.getElementById('js-closeBtn');
-  const upBtn = document.getElementById('js-upBtn');
   const header = document.getElementById('js-header');
   const footer = document.getElementById('js-footer');
 
@@ -84,7 +83,6 @@ const initMemberHandler = function initMemberHandler() {
     handleShrink: function shrink() {
       document.getElementById('js-closeBtn').addEventListener('click', () => {
         visibleHandler.hide(closeBtn);
-        visibleHandler.hide(upBtn);
         visibleHandler.show(header);
         visibleHandler.show(footer);
         expandHandler.hide();
