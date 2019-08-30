@@ -43,11 +43,10 @@ const initScrollBehaviors = function initScrollBehaviors() {
           if (originalImg.complete) {
             originalImg.classList.add('loaded');
             entry.target.classList.add('placeholder--scale');
+            entry.target.appendChild(originalImg);
           }
         };
         originalImg.src = entry.target.dataset.large;
-        entry.target.firstElementChild.classList.remove('loaded');
-        entry.target.appendChild(originalImg);
         observer.unobserve(entry.target);
       }
     });
