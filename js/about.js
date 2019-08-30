@@ -190,11 +190,6 @@ const initUpBtn = function initUpBtn() {
   initScrollUp();
 };
 
-const initBackButton = function initBackButton() {
-  const memberHandler = initMemberHandler();
-  document.addEventListener('backbutton', () => memberHandler.handleShrink());
-};
-
 window.addEventListener('DOMContentLoaded', () => {
   initLoader();
   initMediaQuery();
@@ -209,5 +204,4 @@ window.onload = () => {
   removeDefaultAnimations();
   initPhotos();
   initUpBtn();
-  initBackButton();
 };
