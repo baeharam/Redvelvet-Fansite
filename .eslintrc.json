@@ -10,7 +10,8 @@
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly",
         "YT": false,
-        "Masonry": false
+        "Masonry": false,
+        "detectmobile": false
     },
     "parserOptions": {
         "ecmaVersion": 2018

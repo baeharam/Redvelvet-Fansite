@@ -1,0 +1,60 @@
+.video {
+  text-align: center;
+  margin: 0 auto 3rem;
+  width: 80vw;
+  position: relative;
+}
+
+.video__title {
+  position: relative;
+  visibility: hidden;
+  display: inline-block;
+  font-family: 'Anton', sans-serif;
+  font-size: 5rem;
+  color: crimson;
+  margin-bottom: 3rem;
+}
+
+.video__title::after {
+  content: attr(data-title);
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 80%;
+  transform: translateX(-50%);
+  font-size: 3rem;
+  font-family: 'Julietta', serif;
+  color: black;
+  white-space: nowrap;
+}
+
+.video__player {
+  padding-top: 56.25%;
+  position: relative;
+  visibility: hidden;
+  overflow: hidden;
+}
+
+.video__player iframe {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.loader {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.loader__indicator { font-size: 5rem; }
+
+.video.loaded .video__title { visibility: visible; }
+.video.loaded .video__player { visibility: visible; }
+.video.loaded .loader { display: none; }
