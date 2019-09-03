@@ -7,18 +7,6 @@ const initializeOverlay = function initializeOverlay() {
   overlayCloseBtn.addEventListener('click', () => overlay.classList.remove('open'));
 };
 
-const initMobileVideo = function initMobileVideo() {
-  const normalVideoPage = 'https://hisfedev2.github.io/html/video.html';
-  const mobileVideoPage = 'https://hisfedev2.github.io/html/video-mobile.html';
-  detectmobile.redirectCallback = (mode, url) => {
-    if (mode === 'mobile' && url === normalVideoPage) {
-      return mobileVideoPage;
-    }
-    return url;
-  };
-};
-
 window.addEventListener('DOMContentLoaded', () => {
   initializeOverlay();
-  initMobileVideo();
 });

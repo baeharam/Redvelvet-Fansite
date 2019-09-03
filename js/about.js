@@ -28,7 +28,7 @@ const initExpandHandler = function initExpandHandler() {
       }
     },
     hide: function hideExpandedMembers() {
-      const showing = [].filter.call(singleElems, single => single.classList.contains('show'))[0];
+      const showing = [].filter.call(singleElems, (single) => single.classList.contains('show'))[0];
       showing.classList.replace('show', 'hide');
     },
   };
@@ -60,7 +60,7 @@ const initMemberHandler = function initMemberHandler() {
     },
     handleMouseLeave: function mouseLeave() {
       groupInside.addEventListener('mouseleave', () => {
-        groupMembers.forEach(member => member.classList.add('group__member--active'));
+        groupMembers.forEach((member) => member.classList.add('group__member--active'));
       });
     },
     handleExpand: function expand() {

@@ -17,16 +17,13 @@
   },
   "homepage": "https://github.com/baeharam/Redvelvet-Fansite#readme",
   "dependencies": {
-    "fullpage.js": "^3.0.7",
     "intersection-observer": "^0.7.0",
-    "smoothscroll-polyfill": "^0.4.4"
+    "masonry-layout": "^4.2.2"
   },
   "devDependencies": {
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint": "^6.3.0",
+    "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
-    "imagesloaded": "^4.1.4",
-    "masonry-layout": "^4.2.2",
     "stylelint-config-standard": "^18.3.0"
   }
 }
