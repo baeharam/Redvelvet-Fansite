@@ -1,3 +1,7 @@
+import './default';
+import '../css/default.css';
+import '../css/index.css';
+
 const initLoader = function initLoader() {
   let loadedCount = 0;
   const bgImgs = document.querySelectorAll('.bg__img');

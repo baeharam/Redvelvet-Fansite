@@ -6,7 +6,10 @@ const Jarvis = require('webpack-jarvis');
 
 module.exports = {
   entry: {
+    index: './js/index.js',
+    about: './js/about.js',
     photo: './js/photo.js',
+    discography: './js/discography.js',
   },
   output: {
     filename: '[name]-bundle.js',

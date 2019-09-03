@@ -1,3 +1,7 @@
+import './default';
+import '../css/default.css';
+import '../css/about.css';
+
 const initVisibleHandler = function initVisibleHandler() {
   return {
     show: function showElement(elem) {

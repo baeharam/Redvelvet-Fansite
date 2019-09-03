@@ -24,7 +24,8 @@
   "homepage": "https://github.com/baeharam/Redvelvet-Fansite#readme",
   "dependencies": {
     "intersection-observer": "^0.7.0",
-    "masonry-layout": "^4.2.2"
+    "masonry-layout": "^4.2.2",
+    "yt-player": "^3.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",

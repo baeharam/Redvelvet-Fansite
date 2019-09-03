@@ -3,6 +3,12 @@ Referenced URL: https://codepen.io/knyttneve/pen/bgvmma/
 I changed jQuery source code into Vanilla JS and removed useless logics.
 */
 
+import './default';
+import 'intersection-observer';
+import YT from 'yt-player';
+import '../css/default.css';
+import '../css/discography.css';
+
 const initPlayer = function initPlayer() {
   let player;
 
@@ -15,7 +21,7 @@ const initPlayer = function initPlayer() {
       player = new YT.Player('js-timeline__player', {
         videoId: youtubeID,
         loop: true,
-        events: { onReady: e => e.target.playVideo() },
+        events: { onReady: (e) => e.target.playVideo() },
       });
     };
 
@@ -39,7 +45,7 @@ const initScrollEvent = function initScrollEvent() {
   };
 
   const removeAllActiveElems = function removeAllActiveElems() {
-    document.querySelectorAll(`.${activeClass}`).forEach(el => el.classList.remove(activeClass));
+    document.querySelectorAll(`.${activeClass}`).forEach((el) => el.classList.remove(activeClass));
   };
 
   timelineItems[0].classList.add(activeClass);
