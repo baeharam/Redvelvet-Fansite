@@ -76,7 +76,7 @@ const initMemberHandler = function initMemberHandler() {
           visibleHandler.show(closeBtn);
           visibleHandler.hide(header);
           visibleHandler.hide(footer);
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+          window.scrollTo({ top: 0 });
         });
       });
     },
@@ -169,6 +169,14 @@ const initLoader = function initLoader() {
 const initUpBtn = function initUpBtn() {
   const upBtn = document.getElementById('js-upBtn');
 
+  const scrollToTop = () => {
+    const c = document.documentElement.scrollTop || document.body.scrollTop;
+    if (c > 0) {
+      window.requestAnimationFrame(scrollToTop);
+      window.scrollTo(0, c - c / 8);
+    }
+  };
+
   const initScrollVisibility = function initScrollVisibility() {
     window.addEventListener('scroll', () => {
       const height = window.innerHeight || document.documentElement.clientHeight;
@@ -181,7 +189,7 @@ const initUpBtn = function initUpBtn() {
   };
 
   const initScrollUp = function initScrollUp() {
-    upBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    upBtn.addEventListener('click', scrollToTop);
   };
 
   initScrollVisibility();

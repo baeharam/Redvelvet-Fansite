@@ -18,8 +18,7 @@
   "homepage": "https://github.com/baeharam/Redvelvet-Fansite#readme",
   "dependencies": {
     "intersection-observer": "^0.7.0",
-    "masonry-layout": "^4.2.2",
-    "smooth-scroll": "^16.1.0"
+    "masonry-layout": "^4.2.2"
   },
   "devDependencies": {
     "eslint": "^6.3.0",
