@@ -1,3 +1,10 @@
+import 'intersection-observer';
+import Masonry from 'masonry-layout';
+import './default';
+import '../css/default.css';
+import '../css/photo.css';
+
+
 const initMasonry = function initMasonry() {
   const grid = document.querySelector('.grid');
   let msnry;
@@ -31,7 +38,7 @@ const initMasonry = function initMasonry() {
 
 const initObserver = function initObserver(io) {
   const placeholders = document.querySelectorAll('.placeholder');
-  placeholders.forEach(placeholder => io.observe(placeholder));
+  placeholders.forEach((placeholder) => io.observe(placeholder));
 };
 
 const initScrollBehaviors = function initScrollBehaviors() {
@@ -54,7 +61,7 @@ const initScrollBehaviors = function initScrollBehaviors() {
   initObserver(io);
 };
 
-window.addEventListener('DOMContentLoaded', () => {
+window.onload = () => {
   initMasonry();
   initScrollBehaviors();
-});
+};
