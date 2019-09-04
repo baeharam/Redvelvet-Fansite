@@ -3,6 +3,7 @@ const TerserJSPlugin = require('terser-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Jarvis = require('webpack-jarvis');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   entry: {
@@ -32,6 +33,7 @@ module.exports = {
     new Jarvis({
       port: 1337,
     }),
+    new BundleAnalyzerPlugin(),
   ],
   module: {
     rules: [
