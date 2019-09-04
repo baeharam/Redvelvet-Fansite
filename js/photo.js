@@ -1,7 +1,6 @@
 import 'intersection-observer';
 import Masonry from 'masonry-layout';
 import './default';
-import '../css/default.css';
 import '../css/photo.css';
 
 

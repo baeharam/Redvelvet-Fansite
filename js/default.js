@@ -1,3 +1,5 @@
+import '../css/default.css';
+
 const initializeOverlay = function initializeOverlay() {
   const overlay = document.getElementById('js-overlay');
   const headerMenu = document.getElementById('js-header__menu');

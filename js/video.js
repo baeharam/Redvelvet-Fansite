@@ -1,6 +1,5 @@
 import './default';
 import 'intersection-observer';
-import '../css/default.css';
 import '../css/video.css';
 
 const initIframeLoading = function initIframeLoading() {

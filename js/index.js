@@ -1,5 +1,4 @@
 import './default';
-import '../css/default.css';
 import '../css/index.css';
 
 const initLoader = function initLoader() {
