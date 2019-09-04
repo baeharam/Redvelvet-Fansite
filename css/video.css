@@ -1,160 +1,79 @@
-.carousel {
-  position: relative;
-  height: 90vh;
-}
-
-.carousel__contents {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  transition: all 0.5s;
-  opacity: 1;
-}
-
 .video {
-  width: 60vw;
+  text-align: center;
+  margin: 0 auto 10rem;
+  width: 80vw;
   position: relative;
-  padding-bottom: 56.25%;
-  padding-top: 30px;
 }
 
 .video__title {
-  position: absolute;
-  font-size: 10rem;
+  position: relative;
+  visibility: hidden;
+  display: inline-block;
   font-family: 'Anton', sans-serif;
-  top: 90%;
-  left: 50%;
-  transform: translateX(-50%);
+  font-size: 10rem;
   color: crimson;
-  z-index: 3;
-  white-space: nowrap;
-  opacity: 0;
-  height: 1em;
+  margin-bottom: 5rem;
 }
 
 .video__title::after {
   content: attr(data-title);
   position: absolute;
+  z-index: 1;
   left: 50%;
-  top: 90%;
+  top: 80%;
   transform: translateX(-50%);
-  font-size: 5rem;
+  font-size: 7rem;
   font-family: 'Julietta', serif;
   color: black;
+  white-space: nowrap;
 }
-
-.selected .video__title { animation: fadeInTitle 1s forwards; }
-
-.video__cover {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-position: center;
-  background-size: cover;
-  cursor: pointer;
-  z-index: 1;
-  transition: opacity 0.5s;
-}
-
-.selected .video:hover .video__cover {
-  opacity: 0;
-  z-index: -1;
-}
-
-.happiness { background-image: url('../images/video-Happiness.jpg'); }
-.benatural { background-image: url('../images/video-BeNatural.jpg'); }
-.icecreamcake { background-image: url('../images/video-IceCreamCake.jpg'); }
-.thered { background-image: url('../images/video-thered.jpg'); }
-.thevelvet { background-image: url('../images/video-thevelvet.jpg'); }
-.russian { background-image: url('../images/video-RussianRoulette.jpg'); }
-.rookie { background-image: url('../images/video-rookie.jpg'); }
-.theredsummer { background-image: url('../images/video-theredsummer.jpg'); }
-.perfectvelvet { background-image: url('../images/video-perfectvelvet.jpg'); }
-.theperfectredvelvet { background-image: url('../images/video-ThePerfectRedVelvet.jpg'); }
-.summermagic { background-image: url('../images/video-SummerMagic.jpg'); }
-
-.rbb {
-  background-image: url('../images/video-RBB.jpg');
-  background-position: top center;
-}
-.therevefestivalday1 { background-image: url('../images/video-TheReveFestival1.jpg'); }
-.therevefestivalday2 { background-image: url('../images/video-TheReveFestival2.jpg'); }
 
 .video__player {
+  padding-top: 56.25%;
+  position: relative;
+  visibility: hidden;
+  overflow: hidden;
+}
+
+.video__player iframe {
   position: absolute;
+  left: 50%;
   top: 0;
+  width: 80%;
+  height: 100%;
+  border-radius: 5px;
+  transform: translateX(-50%);
+}
+
+.loader {
+  position: absolute;
   left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
-  cursor: pointer;
-  object-fit: cover;
+  z-index: 1;
 }
 
-.carousel__contents.hide {
-  display: none;
-}
+.loader__indicator { font-size: 5rem; }
 
-.carousel__contents.prev {
-  z-index: 5;
-  left: 30%;
-  opacity: 0.7;
-  transform: translate(-140%, -60%);
-}
-.carousel__contents.prev .video { width: 40vw; }
-
-.carousel__contents.selected {
-  z-index: 10;
-  left: 50%;
-}
-
-.carousel__contents.next {
-  z-index: 5;
-  left: 70%;
-  opacity: 0.7;
-  transform: translate(40%, -60%);
-}
-.carousel__contents.next .video { width: 40vw; }
-
-/* Animation */
-
-@keyframes fadeInTitle {
-  from {
-    opacity: 0;
-    top: 110%;
-  }
-
-  to {
-    opacity: 1;
-    top: 90%;
-  }
-}
+.video.loaded .video__title { visibility: visible; }
+.video.loaded .video__player { visibility: visible; }
+.video.loaded .loader { display: none; }
 
 /* Media Query */
 
-/* Mobile */
+@media (max-width: 992px) {
+  .video__player iframe { width: 100%; }
+  .video__title { font-size: 5rem; }
+  .video__title::after { font-size: 3rem; }
+}
 
-@media (max-width: 768px) {
-  .carousel {
-    overflow: hidden;
-    height: 80vh;
+@media (max-width: 576px) {
+  .video { margin-bottom: 5rem; }
+
+  .video__title {
+    font-size: 3rem;
+    margin-bottom: 3rem;
   }
-
-  .video { width: 90vw; }
-  .video__title { font-size: 4rem; }
-  .video__title::after { font-size: 2.5rem; }
-
-  .carousel__contents.prev {
-    left: 50%;
-    transform: translate(-50%, -140%);
-  }
-  .carousel__contents.prev .video { width: 75vw; }
-
-  .carousel__contents.next {
-    left: 50%;
-    transform: translate(-50%, 40%);
-  }
-  .carousel__contents.next .video { width: 75vw; }
+  .video__title::after { font-size: 2rem; }
 }

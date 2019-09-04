@@ -10,6 +10,7 @@ module.exports = {
     about: './js/about.js',
     photo: './js/photo.js',
     discography: './js/discography.js',
+    video: './js/video.js',
   },
   output: {
     filename: '[name]-bundle.js',
