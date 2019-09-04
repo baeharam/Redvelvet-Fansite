@@ -35,28 +35,18 @@ img {
 /* Typography */
 
 @font-face {
-  font-family: "SeoulHangangL";
-  src: url("../fonts/SeoulHangangL.woff") format('woff');
-}
-
-@font-face {
-  font-family: "Libre Caslon Display";
-  src: url("../fonts/LibreCaslonDisplay.woff") format('woff');
-}
-
-@font-face {
   font-family: "Julietta";
   src: url("../fonts/Julietta.woff") format('woff');
 }
 
 @font-face {
   font-family: "Anton";
-  src: url("../fonts/Anton.woff") format('woff');
+  src: url('https://fonts.googleapis.com/css?family=Anton&display=swap');
 }
 
 @font-face {
-  font-family: "Fascinate";
-  src: url("../fonts/Fascinate.woff") format('woff');
+  font-family: "Nanum Myungjo";
+  src: url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap');
 }
 
 html {
@@ -65,7 +55,7 @@ html {
 
 body {
   font-size: 1.4rem;
-  font-family: 'SeoulHangangL', serif;
+  font-family: 'Nanum Myungjo', serif;
 }
 
 h1,

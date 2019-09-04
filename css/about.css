@@ -25,20 +25,6 @@ body {
   cursor: pointer;
 }
 
-.group__member h2 {
-  color: white;
-  display: none;
-  margin-bottom: 6rem;
-  font-size: 5vw;
-  font-family: "Fascinate", serif;
-  font-weight: bold;
-  transition: font-size 0.5s;
-  animation-name: fadeInFromBottom;
-  animation-duration: 1s;
-  animation-delay: 1.2s;
-  animation-fill-mode: backwards;
-}
-
 .group__member:nth-child(1) {
   background-image: url('../images/home-irene.jpg');
   animation-name: appearFromTop;
@@ -78,10 +64,6 @@ body {
   transform: scale(1.1);
 }
 
-.group__member:hover h2 {
-  font-size: 5rem;
-}
-
 .group__member--active {
   filter: grayscale(0%);
 }
@@ -101,10 +83,6 @@ body {
   z-index: 1;
   background-color: white;
   animation: shrink 0.5s both;
-}
-
-.group__member.group__member--expand h2 {
-  text-indent: -9999px;
 }
 
 .closeBtn {
@@ -397,11 +375,6 @@ body {
     min-height: 20%;
     background-position: 0% 30%;
     justify-content: flex-start;
-  }
-
-  .group__member h2 {
-    margin-left: 4rem;
-    font-size: 6rem;
   }
 
   .group__member:nth-child(1) {
