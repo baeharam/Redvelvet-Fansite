@@ -46,7 +46,7 @@ img {
 
 @font-face {
   font-family: "Nanum Myungjo";
-  src: url("../fonts/NanumMyeongjo.woff") format('woff');
+  src: url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap');
 }
 
 html {

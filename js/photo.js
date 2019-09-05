@@ -50,6 +50,7 @@ const initScrollBehaviors = function initScrollBehaviors() {
         const originalImg = new Image();
         originalImg.onload = () => {
           if (originalImg.complete) {
+            console.log('image load!');
             masonry.make();
             originalImg.classList.add('loaded');
             entry.target.classList.add('placeholder--scale');

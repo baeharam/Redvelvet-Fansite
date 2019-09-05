@@ -48,8 +48,10 @@ module.exports = {
       },
       {
         test: /\.(jpg|jpeg|png|woff|woff2|eot|ttf|svg)$/,
-        use: ['url-loader'],
-        exclude: /node_modules/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]?[hash]',
+        },
       },
       {
         test: /\.js$/,
