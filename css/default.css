@@ -41,12 +41,12 @@ img {
 
 @font-face {
   font-family: "Anton";
-  src: url('https://fonts.googleapis.com/css?family=Anton&display=swap');
+  src: url("../fonts/Anton.woff") format('woff');
 }
 
 @font-face {
   font-family: "Nanum Myungjo";
-  src: url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap');
+  src: url("../fonts/NanumMyeongjo.woff") format('woff');
 }
 
 html {
