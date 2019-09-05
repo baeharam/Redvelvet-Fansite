@@ -4,35 +4,37 @@ import './default';
 import '../css/photo.css';
 
 
-const initMasonry = function initMasonry() {
+const MasonryLayout = function MasonryMaker() {
   const grid = document.querySelector('.grid');
   let msnry;
-
-  const makeMasonry = function makeMasonry() {
-    msnry = new Masonry(grid, {
-      itemSelector: '.grid__item',
-      columnWidth: '.grid__sizer',
-      gutter: '.gutter-sizer',
-      percentPosition: true,
-    });
+  return {
+    make: () => {
+      msnry = new Masonry(grid, {
+        itemSelector: '.grid__item',
+        columnWidth: '.grid__sizer',
+        gutter: '.gutter-sizer',
+        percentPosition: true,
+      });
+    },
+    destroy: () => {
+      if (typeof msnry !== 'undefined') {
+        msnry.destroy();
+      }
+    },
   };
+};
+
+const initMasonry = function initMasonry() {
+  const masonry = MasonryLayout();
 
   const initReiszeEvent = function initReiszeEvent() {
     window.addEventListener('resize', () => {
-      msnry.destroy();
-      makeMasonry();
+      masonry.destroy();
+      masonry.make();
     });
   };
 
-  const initMediaQuery = function initMediaQuery() {
-    if (matchMedia('(max-width: 576px')) {
-      msnry.destroy();
-    }
-  };
-
-  makeMasonry();
   initReiszeEvent();
-  initMediaQuery();
 };
 
 const initObserver = function initObserver(io) {
@@ -41,12 +43,14 @@ const initObserver = function initObserver(io) {
 };
 
 const initScrollBehaviors = function initScrollBehaviors() {
+  const masonry = MasonryLayout();
   const io = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const originalImg = new Image();
         originalImg.onload = () => {
           if (originalImg.complete) {
+            masonry.make();
             originalImg.classList.add('loaded');
             entry.target.classList.add('placeholder--scale');
             entry.target.appendChild(originalImg);
