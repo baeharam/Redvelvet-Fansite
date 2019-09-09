@@ -1,6 +1,11 @@
 import './default';
 import '../css/about.css';
 
+const importAllimages = function importAllimages() {
+  const images = require.context('../images/', true, /(about|member)-.*\.jpg$/);
+  images.keys().forEach(images);
+};
+
 const initVisibleHandler = function initVisibleHandler() {
   return {
     show: function showElement(elem) {
@@ -213,4 +218,5 @@ window.onload = () => {
   removeDefaultAnimations();
   initPhotos();
   initUpBtn();
+  importAllimages();
 };

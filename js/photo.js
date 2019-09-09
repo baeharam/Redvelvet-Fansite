@@ -3,6 +3,10 @@ import Masonry from 'masonry-layout';
 import './default';
 import '../css/photo.css';
 
+const importAllimages = function importAllimages() {
+  const images = require.context('../images/', true, /photo.*\.jpg$/);
+  images.keys().forEach(images);
+};
 
 const MasonryLayout = function MasonryMaker() {
   const grid = document.querySelector('.grid');
@@ -50,7 +54,6 @@ const initScrollBehaviors = function initScrollBehaviors() {
         const originalImg = new Image();
         originalImg.onload = () => {
           if (originalImg.complete) {
-            console.log('image load!');
             masonry.make();
             originalImg.classList.add('loaded');
             entry.target.classList.add('placeholder--scale');
@@ -68,4 +71,5 @@ const initScrollBehaviors = function initScrollBehaviors() {
 window.onload = () => {
   initMasonry();
   initScrollBehaviors();
+  importAllimages();
 };

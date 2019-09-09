@@ -8,6 +8,11 @@ import 'intersection-observer';
 import YT from 'yt-player';
 import '../css/discography.css';
 
+const importAllimages = function importAllimages() {
+  const images = require.context('../images/', true, /album-.*\.jpg$/);
+  images.keys().forEach(images);
+};
+
 const initPlayer = function initPlayer() {
   let player;
 
@@ -87,4 +92,5 @@ const initLoader = function initLoader() {
 window.onload = () => {
   initScrollEvent();
   initLoader();
+  importAllimages();
 };
