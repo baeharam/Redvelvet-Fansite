@@ -17,7 +17,7 @@
 
 .bg::after {
   content: ' ';
-  background: transparent url('../images/transparent.png') repeat top left;
+  background: transparent url('/dist/assets/transparent.png') repeat top left;
 }
 
 .bg__img {
@@ -34,26 +34,26 @@
 }
 
 li:nth-child(1) .bg__img {
-  background-image: url('../images/irene.jpg');
+  background-image: url('/dist/assets/index-irene.jpg');
 }
 
 li:nth-child(2) .bg__img {
-  background-image: url('../images/seulgi.jpg');
+  background-image: url('/dist/assets/index-seulgi.jpg');
   animation-delay: 6s;
 }
 
 li:nth-child(3) .bg__img {
-  background-image: url('../images/wendy.jpg');
+  background-image: url('/dist/assets/index-wendy.jpg');
   animation-delay: 12s;
 }
 
 li:nth-child(4) .bg__img {
-  background-image: url('../images/yeri.jpg');
+  background-image: url('/dist/assets/index-yeri.jpg');
   animation-delay: 18s;
 }
 
 li:nth-child(5) .bg__img {
-  background-image: url('../images/joy.jpg');
+  background-image: url('/dist/assets/index-joy.jpg');
   animation-delay: 24s;
 }
 

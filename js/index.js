@@ -1,6 +1,11 @@
 import './default';
 import '../css/index.css';
 
+const importAllDefaultImages = function importAllDefaultImages() {
+  const images = require.context('../images/', true, /index-.*\.jpg$/);
+  images.keys().forEach(images);
+};
+
 const initLoader = function initLoader() {
   let loadedCount = 0;
   const bgImgs = document.querySelectorAll('.bg__img');
@@ -22,3 +27,4 @@ const initLoader = function initLoader() {
 };
 
 window.addEventListener('DOMContentLoaded', () => initLoader());
+window.onlaod = importAllDefaultImages;
