@@ -2,7 +2,7 @@ import './default';
 import '../css/about.css';
 
 const importAllimages = function importAllimages() {
-  const images = require.context('../images/', true, /(about|member)-.*\.jpg$/);
+  const images = require.context('../images/', true, /(about|member|home)-.*\.jpg$/);
   images.keys().forEach(images);
 };
 
