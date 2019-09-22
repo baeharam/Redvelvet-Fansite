@@ -17,7 +17,7 @@ module.exports = {
   output: {
     filename: '[name].[chunkhash:4].js',
     path: path.join(__dirname, 'dist'),
-    publicPath: 'https://baeharam.github.io/Redvelvet-Fansite/dist/',
+    publicPath: '/dist/',
   },
   devtool: 'inline-source-map',
   devServer: {
