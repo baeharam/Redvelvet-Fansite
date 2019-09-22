@@ -427,6 +427,7 @@ body {
 
   .single__contents {
     height: auto;
+    margin-top: 5rem;
   }
 
   .single__main,
@@ -457,7 +458,7 @@ body {
   }
 
   .closeBtn {
-    font-size: 5rem;
+    font-size: 7rem;
     top: 1%;
   }
 
