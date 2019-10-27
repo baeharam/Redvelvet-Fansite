@@ -8,17 +8,16 @@
   <meta property="og:url" content="https://baeharam.github.io/Redvelvet-Fansite">
   <meta property="og:title" content="RedVelvet">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="//dist/assets/thumbnail.jpg">
+  <meta property="og:image" content="/{{ site.baseurl }}/dist/assets/thumbnail.jpg">
   <meta property="og:description" content="팬이 만든 레드벨벳 사이트">
-  <base href="/Redvelvet-Fansite/">
-  <link rel="stylesheet" href="/dist/index.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/dist/index.css">
   <title>RedVelvet</title>
 </head>
 <body>
   <header id="js-header" class="header header--float">
     <div class="header__inside clearfix">
       <a href="./index.html">
-        <img class="header__logo" src="/dist/assets/logo-red.png" alt="로고">
+        <img class="header__logo" src="{{ site.baseurl }}/dist/assets/logo-red.png" alt="로고">
       </a>
       <div id="js-header__menu" class="header__menu header__menu--light">
         <input type="checkbox" id="menuicon">
@@ -48,11 +47,11 @@
   <main id="js-main" class="main">
     <section class="contents">
       <ul class="bg">
-        <li><div class="bg__img" data-src="/dist/assets/index-irene.jpg"></div></li>
-        <li><div class="bg__img" data-src="/dist/assets/index-seulgi.jpg"></div></li>
-        <li><div class="bg__img" data-src="/dist/assets/index-wendy.jpg"></div></li>
-        <li><div class="bg__img" data-src="/dist/assets/index-yeri.jpg"></div></li>
-        <li><div class="bg__img" data-src="/dist/assets/index-joy.jpg"></div></li>
+        <li><div class="bg__img" data-src="{{ site.baseurl }}/dist/assets/index-irene.jpg"></div></li>
+        <li><div class="bg__img" data-src="{{ site.baseurl }}/dist/assets/index-seulgi.jpg"></div></li>
+        <li><div class="bg__img" data-src="{{ site.baseurl }}/dist/assets/index-wendy.jpg"></div></li>
+        <li><div class="bg__img" data-src="{{ site.baseurl }}/dist/assets/index-yeri.jpg"></div></li>
+        <li><div class="bg__img" data-src="{{ site.baseurl }}/dist/assets/index-joy.jpg"></div></li>
       </ul>
     </section>
   </main>
@@ -73,6 +72,6 @@
     </ul>
     <p>Copyright 2019. SM Entertainment. All Rights Reserved</p>
   </footer>
-  <script src="/dist/index.js"></script>
+  <script src="{{ site.baseurl }}/dist/index.js"></script>
 </body>
 </html>
