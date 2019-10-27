@@ -36,17 +36,17 @@ img {
 
 @font-face {
   font-family: "Julietta";
-  src: url("{{ site.baseurl }}/dist/assets/Julietta.woff") format('woff');
+  src: url(./assets/Julietta.woff?2d6c) format('woff');
 }
 
 @font-face {
   font-family: "Anton";
-  src: url("{{ site.baseurl }}/dist/assets/Anton.woff") format('woff');
+  src: url(./assets/Anton.woff?329c) format('woff');
 }
 
 @font-face {
   font-family: "Nanum Myungjo";
-  src: url("{{ site.baseurl }}/dist/assets/NanumMyeongjo.woff") format('woff');
+  src: url(./assets/NanumMyeongjo.woff?b19a) format('woff');
 }
 
 html {
@@ -292,7 +292,7 @@ input[id="menuicon"] + label span:nth-child(3) { bottom: 0; }
   display: block;
   width: 100%;
   height: 100%;
-  background-image: url('{{ site.baseurl }}/dist/assets/social.png');
+  background-image: url(./assets/social.png?35da);
   background-size: 210px 60px;
 }
 
