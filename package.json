@@ -4,7 +4,6 @@
   "description": "Build fansite of Redvelvet using pure HTML/CSS/JS",
   "main": "default.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build-prod": "webpack --mode=production",
     "build-dev": "webpack --mode=development",
     "start-prod": "webpack-dev-server --mode=production --open",
@@ -34,23 +33,17 @@
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.2.0",
-    "cssnano": "^4.1.10",
     "eslint": "^6.3.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
     "file-loader": "^4.2.0",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.8.0",
-    "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-loader": "^3.0.0",
-    "style-loader": "^1.0.0",
     "stylelint-config-standard": "^18.3.0",
-    "terser-webpack-plugin": "^1.4.1",
-    "url-loader": "^2.1.0",
     "webpack": "^4.39.3",
     "webpack-bundle-analyzer": "^3.4.1",
     "webpack-cli": "^3.3.7",
-    "webpack-dev-server": "^3.8.0",
-    "webpack-jarvis": "^0.3.2"
+    "webpack-dev-server": "^3.8.0"
   }
 }

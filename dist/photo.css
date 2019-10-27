@@ -192,13 +192,15 @@ header h1 { text-indent: -9999px; }
 }
 
 .overlay.open li {
-  animation: fadeInRight 0.5s ease forwards;
-  animation-delay: 0.35s;
+  -webkit-animation: fadeInRight 0.5s ease forwards;
+          animation: fadeInRight 0.5s ease forwards;
+  -webkit-animation-delay: 0.35s;
+          animation-delay: 0.35s;
 }
 
-.overlay.open li:nth-of-type(2) { animation-delay: 0.4s; }
-.overlay.open li:nth-of-type(3) { animation-delay: 0.45s; }
-.overlay.open li:nth-of-type(4) { animation-delay: 0.5s; }
+.overlay.open li:nth-of-type(2) { -webkit-animation-delay: 0.4s; animation-delay: 0.4s; }
+.overlay.open li:nth-of-type(3) { -webkit-animation-delay: 0.45s; animation-delay: 0.45s; }
+.overlay.open li:nth-of-type(4) { -webkit-animation-delay: 0.5s; animation-delay: 0.5s; }
 
 .overlay__closeBtn {
   position: absolute;
@@ -327,10 +329,23 @@ input[id="menuicon"] + label span:nth-child(3) { bottom: 0; }
   top: 50%;
   transform-origin: top left;
   transform: translateZ(0) translate(-50%, -50%);
-  animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+  -webkit-animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+          animation: load6 1.7s infinite ease, round 1.7s infinite ease;
 }
 
 /* Animation */
+
+@-webkit-keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    left: 20%;
+  }
+
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}
 
 @keyframes fadeInRight {
   0% {
@@ -341,6 +356,34 @@ input[id="menuicon"] + label span:nth-child(3) { bottom: 0; }
   100% {
     opacity: 1;
     left: 0;
+  }
+}
+
+@-webkit-keyframes load6 {
+  0% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+
+  5%,
+  95% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+
+  10%,
+  59% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
+  }
+
+  20% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
+  }
+
+  38% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
+  }
+
+  100% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
   }
 }
 
@@ -372,14 +415,22 @@ input[id="menuicon"] + label span:nth-child(3) { bottom: 0; }
   }
 }
 
-@keyframes round {
+@-webkit-keyframes round {
   0% {
-    -webkit-transform: rotate(0deg) translate(-50%, -50%);
     transform: rotate(0deg) translate(-50%, -50%);
   }
 
   100% {
-    -webkit-transform: rotate(360deg) translate(-50%, -50%);
+    transform: rotate(360deg) translate(-50%, -50%);
+  }
+}
+
+@keyframes round {
+  0% {
+    transform: rotate(0deg) translate(-50%, -50%);
+  }
+
+  100% {
     transform: rotate(360deg) translate(-50%, -50%);
   }
 }
@@ -391,3 +442,59 @@ input[id="menuicon"] + label span:nth-child(3) { bottom: 0; }
   .overlay nav { font-size: 3.5rem; }
   .footer p { font-size: 1.2rem; }
 }
+
+.gutter-sizer { width: 2rem; }
+
+.grid__sizer,
+.grid__item { width: calc((100% - 4rem) / 3); }
+
+.grid__item {
+  float: left;
+  margin-bottom: 2rem;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.placeholder { transform: scale(0); }
+.placeholder--scale { -webkit-animation: show 0.5s both ease-in-out; animation: show 0.5s both ease-in-out; }
+
+.placeholder img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  opacity: 0;
+}
+
+.placeholder img.loaded { opacity: 1; }
+
+/* Animation */
+
+@-webkit-keyframes show {
+  0% { transform: scale(0); }
+  70% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes show {
+  0% { transform: scale(0); }
+  70% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Media Query */
+
+@media (max-width: 768px) {
+  .grid__sizer,
+  .grid__item {
+    width: calc((100% - 2rem) / 2);
+  }
+}
+
+@media (max-width: 576px) {
+  .grid__sizer,
+  .grid__item {
+    width: 100%;
+  }
+}
+
